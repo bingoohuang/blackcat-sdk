@@ -10,7 +10,12 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.TrustManagerFactory;
 
 public class BlackcatConfig {
+    static final String HOST = System.getProperty("host", "127.0.0.1");
     static final int PORT = Integer.parseInt(System.getProperty("port", "6667"));
+    // Sleep 5 seconds before a reconnection attempt.
+    static final int RECONNECT_DELAY = Integer.parseInt(System.getProperty("reconnectDelay", "5"));
+    // Reconnect when the server sends nothing for 10 seconds.
+    static final int READ_TIMEOUT = Integer.parseInt(System.getProperty("readTimeout", "10"));
 
     public static SslContext configureSslForServer() {
         boolean SSL = System.getProperty("ssl") != null;
