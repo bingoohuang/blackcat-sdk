@@ -1,0 +1,72 @@
+package com.github.bingoohuang.blackcat.sdk.protobuf;
+
+// compile with:
+// protoc --java_out=../blackcat-sdk/src/main/java/ BlackcatMsg.proto
+
+option java_package = "com.github.bingoohuang.blackcat.sdk.protobuf";
+
+option java_outer_classname = "BlackcatMsg";
+
+message BlackcatMsgHead {
+    enum MsgType {
+        BlackcatMemory = 0;
+        BlackcatFileStores = 1;
+        BlackcatLoad = 2;
+        BlackcatProcess = 3;
+    }
+    required MsgType msgType = 1;
+    required string hostname = 2;
+    required uint64 timestamp = 3;
+}
+
+message BlackcatMsgReq {
+    required BlackcatMsgHead head = 1;
+    optional BlackcatMemory memory = 2;
+    optional BlackcatFileStores stores = 3;
+    optional BlackcatLoad load = 4;
+    optional BlackcatProcess process = 5;
+}
+
+message BlackcatMsgRsp {
+    required bool ok = 1;
+    optional string msg = 2;
+}
+
+message BlackcatMemory {
+    required uint64 total = 1;
+    required uint64 available = 2;
+}
+
+message BlackcatFileStores {
+    message FileStore {
+        required string name = 1;
+        required string description = 2;
+        required uint64 total = 3;
+        required uint64 usable = 4;
+    }
+
+    repeated FileStore fileStore = 1;
+}
+
+message BlackcatLoad {
+    required uint32 cpuNum = 1;
+    // Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
+    required double oneMinAvg = 2;
+    required double fiveMinsAvg = 3;
+    required double fifteenMinsAvg = 4;
+}
+
+message BlackcatProcess {
+    message Proc {
+        required uint64 pid = 1;
+        required string args = 2;
+        // http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
+        // RES stands for the resident size,
+        // which is an accurate representation
+        // of how much actual physical memory a process is consuming.
+        // (This also corresponds directly to the %MEM column.)
+        required uint64 res = 3;
+    }
+
+    repeated Proc proc = 1;
+}
