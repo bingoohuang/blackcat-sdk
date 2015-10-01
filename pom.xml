@@ -73,6 +73,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>diamond-client</artifactId>
+            <version>0.0.18</version>
+        </dependency>
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.0.31.Final</version>
@@ -99,12 +104,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.0.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
