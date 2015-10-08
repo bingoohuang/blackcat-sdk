@@ -66,6 +66,7 @@ message BlackcatProcess {
         // of how much actual physical memory a process is consuming.
         // (This also corresponds directly to the %MEM column.)
         required uint64 res = 3;
+        required uint64 startTime = 4;
     }
 
     repeated Proc proc = 1;
