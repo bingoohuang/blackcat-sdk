@@ -14,12 +14,17 @@ public class Blackcats {
     public static String readDiamond(String axis) {
         List<String> parts = Splitter.on('^').splitToList(axis);
         if (parts.size() == 1) {
-            return new Miner().getString(parts.get(0));
+            String dataId = parts.get(0);
+            return new Miner().getString(dataId);
         } else if (parts.size() == 2) {
-            return new Miner().getStone(parts.get(0), parts.get(1));
+            String group = parts.get(0);
+            String dataId = parts.get(1);
+            return new Miner().getStone(group, dataId);
         } else if (parts.size() == 3) {
-            return new Miner().getProperties(parts.get(0), parts.get(1))
-                    .getProperty(parts.get(2));
+            String group = parts.get(0);
+            String dataId = parts.get(1);
+            String key = parts.get(2);
+            return new Miner().getProperties(group, dataId).getProperty(key);
         }
 
         return null;
