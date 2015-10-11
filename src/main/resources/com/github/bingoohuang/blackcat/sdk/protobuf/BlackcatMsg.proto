@@ -21,10 +21,10 @@ message BlackcatMsgHead {
 
 message BlackcatMsgReq {
     required BlackcatMsgHead head = 1;
-    optional BlackcatMemory memory = 2;
-    optional BlackcatFileStores stores = 3;
-    optional BlackcatLoad load = 4;
-    optional BlackcatProcess process = 5;
+    optional BlackcatMemory blackcatMemory = 2;
+    optional BlackcatFileStores blackcatFileStores = 3;
+    optional BlackcatLoad blackcatLoad = 4;
+    optional BlackcatProcess blackcatProcess = 5;
 }
 
 message BlackcatMsgRsp {
@@ -51,9 +51,9 @@ message BlackcatFileStores {
 message BlackcatLoad {
     required uint32 cpuNum = 1;
     // Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
-    required double oneMinAvg = 2;
-    required double fiveMinsAvg = 3;
-    required double fifteenMinsAvg = 4;
+    required float oneMinAvg = 2;
+    required float fiveMinsAvg = 3;
+    required float fifteenMinsAvg = 4;
 }
 
 message BlackcatProcess {

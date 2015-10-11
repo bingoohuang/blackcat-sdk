@@ -791,56 +791,56 @@ public final class BlackcatMsg {
     com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMsgHeadOrBuilder getHeadOrBuilder();
 
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    boolean hasMemory();
+    boolean hasBlackcatMemory();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getMemory();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getBlackcatMemory();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getMemoryOrBuilder();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getBlackcatMemoryOrBuilder();
 
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    boolean hasStores();
+    boolean hasBlackcatFileStores();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getStores();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getBlackcatFileStores();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getStoresOrBuilder();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getBlackcatFileStoresOrBuilder();
 
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    boolean hasLoad();
+    boolean hasBlackcatLoad();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getLoad();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getBlackcatLoad();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getLoadOrBuilder();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getBlackcatLoadOrBuilder();
 
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    boolean hasProcess();
+    boolean hasBlackcatProcess();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getProcess();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getBlackcatProcess();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getProcessOrBuilder();
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getBlackcatProcessOrBuilder();
   }
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsgReq}
@@ -910,12 +910,12 @@ public final class BlackcatMsg {
             case 18: {
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = memory_.toBuilder();
+                subBuilder = blackcatMemory_.toBuilder();
               }
-              memory_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.PARSER, extensionRegistry);
+              blackcatMemory_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(memory_);
-                memory_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(blackcatMemory_);
+                blackcatMemory_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
@@ -923,12 +923,12 @@ public final class BlackcatMsg {
             case 26: {
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = stores_.toBuilder();
+                subBuilder = blackcatFileStores_.toBuilder();
               }
-              stores_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.PARSER, extensionRegistry);
+              blackcatFileStores_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(stores_);
-                stores_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(blackcatFileStores_);
+                blackcatFileStores_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000004;
               break;
@@ -936,12 +936,12 @@ public final class BlackcatMsg {
             case 34: {
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                subBuilder = load_.toBuilder();
+                subBuilder = blackcatLoad_.toBuilder();
               }
-              load_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.PARSER, extensionRegistry);
+              blackcatLoad_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(load_);
-                load_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(blackcatLoad_);
+                blackcatLoad_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000008;
               break;
@@ -949,12 +949,12 @@ public final class BlackcatMsg {
             case 42: {
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
-                subBuilder = process_.toBuilder();
+                subBuilder = blackcatProcess_.toBuilder();
               }
-              process_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.PARSER, extensionRegistry);
+              blackcatProcess_ = input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(process_);
-                process_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(blackcatProcess_);
+                blackcatProcess_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000010;
               break;
@@ -1020,96 +1020,96 @@ public final class BlackcatMsg {
       return head_;
     }
 
-    public static final int MEMORY_FIELD_NUMBER = 2;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory memory_;
+    public static final int BLACKCATMEMORY_FIELD_NUMBER = 2;
+    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory blackcatMemory_;
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    public boolean hasMemory() {
+    public boolean hasBlackcatMemory() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getMemory() {
-      return memory_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getBlackcatMemory() {
+      return blackcatMemory_;
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getMemoryOrBuilder() {
-      return memory_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getBlackcatMemoryOrBuilder() {
+      return blackcatMemory_;
     }
 
-    public static final int STORES_FIELD_NUMBER = 3;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores stores_;
+    public static final int BLACKCATFILESTORES_FIELD_NUMBER = 3;
+    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores blackcatFileStores_;
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    public boolean hasStores() {
+    public boolean hasBlackcatFileStores() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getStores() {
-      return stores_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getBlackcatFileStores() {
+      return blackcatFileStores_;
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getStoresOrBuilder() {
-      return stores_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getBlackcatFileStoresOrBuilder() {
+      return blackcatFileStores_;
     }
 
-    public static final int LOAD_FIELD_NUMBER = 4;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad load_;
+    public static final int BLACKCATLOAD_FIELD_NUMBER = 4;
+    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad blackcatLoad_;
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    public boolean hasLoad() {
+    public boolean hasBlackcatLoad() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getLoad() {
-      return load_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getBlackcatLoad() {
+      return blackcatLoad_;
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getLoadOrBuilder() {
-      return load_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getBlackcatLoadOrBuilder() {
+      return blackcatLoad_;
     }
 
-    public static final int PROCESS_FIELD_NUMBER = 5;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess process_;
+    public static final int BLACKCATPROCESS_FIELD_NUMBER = 5;
+    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess blackcatProcess_;
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    public boolean hasProcess() {
+    public boolean hasBlackcatProcess() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getProcess() {
-      return process_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getBlackcatProcess() {
+      return blackcatProcess_;
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
-    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getProcessOrBuilder() {
-      return process_;
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getBlackcatProcessOrBuilder() {
+      return blackcatProcess_;
     }
 
     private void initFields() {
       head_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMsgHead.getDefaultInstance();
-      memory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
-      stores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
-      load_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
-      process_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+      blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+      blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+      blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+      blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1125,26 +1125,26 @@ public final class BlackcatMsg {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (hasMemory()) {
-        if (!getMemory().isInitialized()) {
+      if (hasBlackcatMemory()) {
+        if (!getBlackcatMemory().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      if (hasStores()) {
-        if (!getStores().isInitialized()) {
+      if (hasBlackcatFileStores()) {
+        if (!getBlackcatFileStores().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      if (hasLoad()) {
-        if (!getLoad().isInitialized()) {
+      if (hasBlackcatLoad()) {
+        if (!getBlackcatLoad().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      if (hasProcess()) {
-        if (!getProcess().isInitialized()) {
+      if (hasBlackcatProcess()) {
+        if (!getBlackcatProcess().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -1160,16 +1160,16 @@ public final class BlackcatMsg {
         output.writeMessage(1, head_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, memory_);
+        output.writeMessage(2, blackcatMemory_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, stores_);
+        output.writeMessage(3, blackcatFileStores_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, load_);
+        output.writeMessage(4, blackcatLoad_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeMessage(5, process_);
+        output.writeMessage(5, blackcatProcess_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1186,19 +1186,19 @@ public final class BlackcatMsg {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, memory_);
+          .computeMessageSize(2, blackcatMemory_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, stores_);
+          .computeMessageSize(3, blackcatFileStores_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, load_);
+          .computeMessageSize(4, blackcatLoad_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, process_);
+          .computeMessageSize(5, blackcatProcess_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1310,10 +1310,10 @@ public final class BlackcatMsg {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getHeadFieldBuilder();
-          getMemoryFieldBuilder();
-          getStoresFieldBuilder();
-          getLoadFieldBuilder();
-          getProcessFieldBuilder();
+          getBlackcatMemoryFieldBuilder();
+          getBlackcatFileStoresFieldBuilder();
+          getBlackcatLoadFieldBuilder();
+          getBlackcatProcessFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1328,28 +1328,28 @@ public final class BlackcatMsg {
           headBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (memoryBuilder_ == null) {
-          memory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+        if (blackcatMemoryBuilder_ == null) {
+          blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
         } else {
-          memoryBuilder_.clear();
+          blackcatMemoryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (storesBuilder_ == null) {
-          stores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+        if (blackcatFileStoresBuilder_ == null) {
+          blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
         } else {
-          storesBuilder_.clear();
+          blackcatFileStoresBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
-        if (loadBuilder_ == null) {
-          load_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+        if (blackcatLoadBuilder_ == null) {
+          blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
         } else {
-          loadBuilder_.clear();
+          blackcatLoadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
-        if (processBuilder_ == null) {
-          process_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+        if (blackcatProcessBuilder_ == null) {
+          blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
         } else {
-          processBuilder_.clear();
+          blackcatProcessBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
@@ -1391,34 +1391,34 @@ public final class BlackcatMsg {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (memoryBuilder_ == null) {
-          result.memory_ = memory_;
+        if (blackcatMemoryBuilder_ == null) {
+          result.blackcatMemory_ = blackcatMemory_;
         } else {
-          result.memory_ = memoryBuilder_.build();
+          result.blackcatMemory_ = blackcatMemoryBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        if (storesBuilder_ == null) {
-          result.stores_ = stores_;
+        if (blackcatFileStoresBuilder_ == null) {
+          result.blackcatFileStores_ = blackcatFileStores_;
         } else {
-          result.stores_ = storesBuilder_.build();
+          result.blackcatFileStores_ = blackcatFileStoresBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        if (loadBuilder_ == null) {
-          result.load_ = load_;
+        if (blackcatLoadBuilder_ == null) {
+          result.blackcatLoad_ = blackcatLoad_;
         } else {
-          result.load_ = loadBuilder_.build();
+          result.blackcatLoad_ = blackcatLoadBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        if (processBuilder_ == null) {
-          result.process_ = process_;
+        if (blackcatProcessBuilder_ == null) {
+          result.blackcatProcess_ = blackcatProcess_;
         } else {
-          result.process_ = processBuilder_.build();
+          result.blackcatProcess_ = blackcatProcessBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1439,17 +1439,17 @@ public final class BlackcatMsg {
         if (other.hasHead()) {
           mergeHead(other.getHead());
         }
-        if (other.hasMemory()) {
-          mergeMemory(other.getMemory());
+        if (other.hasBlackcatMemory()) {
+          mergeBlackcatMemory(other.getBlackcatMemory());
         }
-        if (other.hasStores()) {
-          mergeStores(other.getStores());
+        if (other.hasBlackcatFileStores()) {
+          mergeBlackcatFileStores(other.getBlackcatFileStores());
         }
-        if (other.hasLoad()) {
-          mergeLoad(other.getLoad());
+        if (other.hasBlackcatLoad()) {
+          mergeBlackcatLoad(other.getBlackcatLoad());
         }
-        if (other.hasProcess()) {
-          mergeProcess(other.getProcess());
+        if (other.hasBlackcatProcess()) {
+          mergeBlackcatProcess(other.getBlackcatProcess());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1464,26 +1464,26 @@ public final class BlackcatMsg {
           
           return false;
         }
-        if (hasMemory()) {
-          if (!getMemory().isInitialized()) {
+        if (hasBlackcatMemory()) {
+          if (!getBlackcatMemory().isInitialized()) {
             
             return false;
           }
         }
-        if (hasStores()) {
-          if (!getStores().isInitialized()) {
+        if (hasBlackcatFileStores()) {
+          if (!getBlackcatFileStores().isInitialized()) {
             
             return false;
           }
         }
-        if (hasLoad()) {
-          if (!getLoad().isInitialized()) {
+        if (hasBlackcatLoad()) {
+          if (!getBlackcatLoad().isInitialized()) {
             
             return false;
           }
         }
-        if (hasProcess()) {
-          if (!getProcess().isInitialized()) {
+        if (hasBlackcatProcess()) {
+          if (!getBlackcatProcess().isInitialized()) {
             
             return false;
           }
@@ -1626,468 +1626,468 @@ public final class BlackcatMsg {
         return headBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory memory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder> memoryBuilder_;
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder> blackcatMemoryBuilder_;
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public boolean hasMemory() {
+      public boolean hasBlackcatMemory() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getMemory() {
-        if (memoryBuilder_ == null) {
-          return memory_;
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getBlackcatMemory() {
+        if (blackcatMemoryBuilder_ == null) {
+          return blackcatMemory_;
         } else {
-          return memoryBuilder_.getMessage();
+          return blackcatMemoryBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public Builder setMemory(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory value) {
-        if (memoryBuilder_ == null) {
+      public Builder setBlackcatMemory(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory value) {
+        if (blackcatMemoryBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          memory_ = value;
+          blackcatMemory_ = value;
           onChanged();
         } else {
-          memoryBuilder_.setMessage(value);
+          blackcatMemoryBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public Builder setMemory(
+      public Builder setBlackcatMemory(
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder builderForValue) {
-        if (memoryBuilder_ == null) {
-          memory_ = builderForValue.build();
+        if (blackcatMemoryBuilder_ == null) {
+          blackcatMemory_ = builderForValue.build();
           onChanged();
         } else {
-          memoryBuilder_.setMessage(builderForValue.build());
+          blackcatMemoryBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public Builder mergeMemory(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory value) {
-        if (memoryBuilder_ == null) {
+      public Builder mergeBlackcatMemory(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory value) {
+        if (blackcatMemoryBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              memory_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance()) {
-            memory_ =
-              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.newBuilder(memory_).mergeFrom(value).buildPartial();
+              blackcatMemory_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance()) {
+            blackcatMemory_ =
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.newBuilder(blackcatMemory_).mergeFrom(value).buildPartial();
           } else {
-            memory_ = value;
+            blackcatMemory_ = value;
           }
           onChanged();
         } else {
-          memoryBuilder_.mergeFrom(value);
+          blackcatMemoryBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public Builder clearMemory() {
-        if (memoryBuilder_ == null) {
-          memory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+      public Builder clearBlackcatMemory() {
+        if (blackcatMemoryBuilder_ == null) {
+          blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
           onChanged();
         } else {
-          memoryBuilder_.clear();
+          blackcatMemoryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder getMemoryBuilder() {
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder getBlackcatMemoryBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getMemoryFieldBuilder().getBuilder();
+        return getBlackcatMemoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getMemoryOrBuilder() {
-        if (memoryBuilder_ != null) {
-          return memoryBuilder_.getMessageOrBuilder();
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getBlackcatMemoryOrBuilder() {
+        if (blackcatMemoryBuilder_ != null) {
+          return blackcatMemoryBuilder_.getMessageOrBuilder();
         } else {
-          return memory_;
+          return blackcatMemory_;
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory memory = 2;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder> 
-          getMemoryFieldBuilder() {
-        if (memoryBuilder_ == null) {
-          memoryBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getBlackcatMemoryFieldBuilder() {
+        if (blackcatMemoryBuilder_ == null) {
+          blackcatMemoryBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder>(
-                  getMemory(),
+                  getBlackcatMemory(),
                   getParentForChildren(),
                   isClean());
-          memory_ = null;
+          blackcatMemory_ = null;
         }
-        return memoryBuilder_;
+        return blackcatMemoryBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores stores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder> storesBuilder_;
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder> blackcatFileStoresBuilder_;
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public boolean hasStores() {
+      public boolean hasBlackcatFileStores() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getStores() {
-        if (storesBuilder_ == null) {
-          return stores_;
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getBlackcatFileStores() {
+        if (blackcatFileStoresBuilder_ == null) {
+          return blackcatFileStores_;
         } else {
-          return storesBuilder_.getMessage();
+          return blackcatFileStoresBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public Builder setStores(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores value) {
-        if (storesBuilder_ == null) {
+      public Builder setBlackcatFileStores(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores value) {
+        if (blackcatFileStoresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          stores_ = value;
+          blackcatFileStores_ = value;
           onChanged();
         } else {
-          storesBuilder_.setMessage(value);
+          blackcatFileStoresBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public Builder setStores(
+      public Builder setBlackcatFileStores(
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder builderForValue) {
-        if (storesBuilder_ == null) {
-          stores_ = builderForValue.build();
+        if (blackcatFileStoresBuilder_ == null) {
+          blackcatFileStores_ = builderForValue.build();
           onChanged();
         } else {
-          storesBuilder_.setMessage(builderForValue.build());
+          blackcatFileStoresBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public Builder mergeStores(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores value) {
-        if (storesBuilder_ == null) {
+      public Builder mergeBlackcatFileStores(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores value) {
+        if (blackcatFileStoresBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              stores_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance()) {
-            stores_ =
-              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.newBuilder(stores_).mergeFrom(value).buildPartial();
+              blackcatFileStores_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance()) {
+            blackcatFileStores_ =
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.newBuilder(blackcatFileStores_).mergeFrom(value).buildPartial();
           } else {
-            stores_ = value;
+            blackcatFileStores_ = value;
           }
           onChanged();
         } else {
-          storesBuilder_.mergeFrom(value);
+          blackcatFileStoresBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public Builder clearStores() {
-        if (storesBuilder_ == null) {
-          stores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+      public Builder clearBlackcatFileStores() {
+        if (blackcatFileStoresBuilder_ == null) {
+          blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
           onChanged();
         } else {
-          storesBuilder_.clear();
+          blackcatFileStoresBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder getStoresBuilder() {
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder getBlackcatFileStoresBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return getStoresFieldBuilder().getBuilder();
+        return getBlackcatFileStoresFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getStoresOrBuilder() {
-        if (storesBuilder_ != null) {
-          return storesBuilder_.getMessageOrBuilder();
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getBlackcatFileStoresOrBuilder() {
+        if (blackcatFileStoresBuilder_ != null) {
+          return blackcatFileStoresBuilder_.getMessageOrBuilder();
         } else {
-          return stores_;
+          return blackcatFileStores_;
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores stores = 3;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder> 
-          getStoresFieldBuilder() {
-        if (storesBuilder_ == null) {
-          storesBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getBlackcatFileStoresFieldBuilder() {
+        if (blackcatFileStoresBuilder_ == null) {
+          blackcatFileStoresBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder>(
-                  getStores(),
+                  getBlackcatFileStores(),
                   getParentForChildren(),
                   isClean());
-          stores_ = null;
+          blackcatFileStores_ = null;
         }
-        return storesBuilder_;
+        return blackcatFileStoresBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad load_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder> loadBuilder_;
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder> blackcatLoadBuilder_;
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public boolean hasLoad() {
+      public boolean hasBlackcatLoad() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getLoad() {
-        if (loadBuilder_ == null) {
-          return load_;
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getBlackcatLoad() {
+        if (blackcatLoadBuilder_ == null) {
+          return blackcatLoad_;
         } else {
-          return loadBuilder_.getMessage();
+          return blackcatLoadBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public Builder setLoad(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad value) {
-        if (loadBuilder_ == null) {
+      public Builder setBlackcatLoad(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad value) {
+        if (blackcatLoadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          load_ = value;
+          blackcatLoad_ = value;
           onChanged();
         } else {
-          loadBuilder_.setMessage(value);
+          blackcatLoadBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public Builder setLoad(
+      public Builder setBlackcatLoad(
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder builderForValue) {
-        if (loadBuilder_ == null) {
-          load_ = builderForValue.build();
+        if (blackcatLoadBuilder_ == null) {
+          blackcatLoad_ = builderForValue.build();
           onChanged();
         } else {
-          loadBuilder_.setMessage(builderForValue.build());
+          blackcatLoadBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public Builder mergeLoad(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad value) {
-        if (loadBuilder_ == null) {
+      public Builder mergeBlackcatLoad(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad value) {
+        if (blackcatLoadBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              load_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance()) {
-            load_ =
-              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.newBuilder(load_).mergeFrom(value).buildPartial();
+              blackcatLoad_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance()) {
+            blackcatLoad_ =
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.newBuilder(blackcatLoad_).mergeFrom(value).buildPartial();
           } else {
-            load_ = value;
+            blackcatLoad_ = value;
           }
           onChanged();
         } else {
-          loadBuilder_.mergeFrom(value);
+          blackcatLoadBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public Builder clearLoad() {
-        if (loadBuilder_ == null) {
-          load_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+      public Builder clearBlackcatLoad() {
+        if (blackcatLoadBuilder_ == null) {
+          blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
           onChanged();
         } else {
-          loadBuilder_.clear();
+          blackcatLoadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder getLoadBuilder() {
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder getBlackcatLoadBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
-        return getLoadFieldBuilder().getBuilder();
+        return getBlackcatLoadFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getLoadOrBuilder() {
-        if (loadBuilder_ != null) {
-          return loadBuilder_.getMessageOrBuilder();
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getBlackcatLoadOrBuilder() {
+        if (blackcatLoadBuilder_ != null) {
+          return blackcatLoadBuilder_.getMessageOrBuilder();
         } else {
-          return load_;
+          return blackcatLoad_;
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad load = 4;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder> 
-          getLoadFieldBuilder() {
-        if (loadBuilder_ == null) {
-          loadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getBlackcatLoadFieldBuilder() {
+        if (blackcatLoadBuilder_ == null) {
+          blackcatLoadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder>(
-                  getLoad(),
+                  getBlackcatLoad(),
                   getParentForChildren(),
                   isClean());
-          load_ = null;
+          blackcatLoad_ = null;
         }
-        return loadBuilder_;
+        return blackcatLoadBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess process_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder> processBuilder_;
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder> blackcatProcessBuilder_;
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public boolean hasProcess() {
+      public boolean hasBlackcatProcess() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getProcess() {
-        if (processBuilder_ == null) {
-          return process_;
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getBlackcatProcess() {
+        if (blackcatProcessBuilder_ == null) {
+          return blackcatProcess_;
         } else {
-          return processBuilder_.getMessage();
+          return blackcatProcessBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public Builder setProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess value) {
-        if (processBuilder_ == null) {
+      public Builder setBlackcatProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess value) {
+        if (blackcatProcessBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          process_ = value;
+          blackcatProcess_ = value;
           onChanged();
         } else {
-          processBuilder_.setMessage(value);
+          blackcatProcessBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public Builder setProcess(
+      public Builder setBlackcatProcess(
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder builderForValue) {
-        if (processBuilder_ == null) {
-          process_ = builderForValue.build();
+        if (blackcatProcessBuilder_ == null) {
+          blackcatProcess_ = builderForValue.build();
           onChanged();
         } else {
-          processBuilder_.setMessage(builderForValue.build());
+          blackcatProcessBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public Builder mergeProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess value) {
-        if (processBuilder_ == null) {
+      public Builder mergeBlackcatProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess value) {
+        if (blackcatProcessBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              process_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance()) {
-            process_ =
-              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.newBuilder(process_).mergeFrom(value).buildPartial();
+              blackcatProcess_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance()) {
+            blackcatProcess_ =
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.newBuilder(blackcatProcess_).mergeFrom(value).buildPartial();
           } else {
-            process_ = value;
+            blackcatProcess_ = value;
           }
           onChanged();
         } else {
-          processBuilder_.mergeFrom(value);
+          blackcatProcessBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public Builder clearProcess() {
-        if (processBuilder_ == null) {
-          process_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+      public Builder clearBlackcatProcess() {
+        if (blackcatProcessBuilder_ == null) {
+          blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
           onChanged();
         } else {
-          processBuilder_.clear();
+          blackcatProcessBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder getProcessBuilder() {
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder getBlackcatProcessBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
-        return getProcessFieldBuilder().getBuilder();
+        return getBlackcatProcessFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getProcessOrBuilder() {
-        if (processBuilder_ != null) {
-          return processBuilder_.getMessageOrBuilder();
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getBlackcatProcessOrBuilder() {
+        if (blackcatProcessBuilder_ != null) {
+          return blackcatProcessBuilder_.getMessageOrBuilder();
         } else {
-          return process_;
+          return blackcatProcess_;
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess process = 5;</code>
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder> 
-          getProcessFieldBuilder() {
-        if (processBuilder_ == null) {
-          processBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getBlackcatProcessFieldBuilder() {
+        if (blackcatProcessBuilder_ == null) {
+          blackcatProcessBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder>(
-                  getProcess(),
+                  getBlackcatProcess(),
                   getParentForChildren(),
                   isClean());
-          process_ = null;
+          blackcatProcess_ = null;
         }
-        return processBuilder_;
+        return blackcatProcessBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsgReq)
@@ -4677,7 +4677,7 @@ public final class BlackcatMsg {
     int getCpuNum();
 
     /**
-     * <code>required double oneMinAvg = 2;</code>
+     * <code>required float oneMinAvg = 2;</code>
      *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
@@ -4685,31 +4685,31 @@ public final class BlackcatMsg {
      */
     boolean hasOneMinAvg();
     /**
-     * <code>required double oneMinAvg = 2;</code>
+     * <code>required float oneMinAvg = 2;</code>
      *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
      */
-    double getOneMinAvg();
+    float getOneMinAvg();
 
     /**
-     * <code>required double fiveMinsAvg = 3;</code>
+     * <code>required float fiveMinsAvg = 3;</code>
      */
     boolean hasFiveMinsAvg();
     /**
-     * <code>required double fiveMinsAvg = 3;</code>
+     * <code>required float fiveMinsAvg = 3;</code>
      */
-    double getFiveMinsAvg();
+    float getFiveMinsAvg();
 
     /**
-     * <code>required double fifteenMinsAvg = 4;</code>
+     * <code>required float fifteenMinsAvg = 4;</code>
      */
     boolean hasFifteenMinsAvg();
     /**
-     * <code>required double fifteenMinsAvg = 4;</code>
+     * <code>required float fifteenMinsAvg = 4;</code>
      */
-    double getFifteenMinsAvg();
+    float getFifteenMinsAvg();
   }
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad}
@@ -4768,19 +4768,19 @@ public final class BlackcatMsg {
               cpuNum_ = input.readUInt32();
               break;
             }
-            case 17: {
+            case 21: {
               bitField0_ |= 0x00000002;
-              oneMinAvg_ = input.readDouble();
+              oneMinAvg_ = input.readFloat();
               break;
             }
-            case 25: {
+            case 29: {
               bitField0_ |= 0x00000004;
-              fiveMinsAvg_ = input.readDouble();
+              fiveMinsAvg_ = input.readFloat();
               break;
             }
-            case 33: {
+            case 37: {
               bitField0_ |= 0x00000008;
-              fifteenMinsAvg_ = input.readDouble();
+              fifteenMinsAvg_ = input.readFloat();
               break;
             }
           }
@@ -4839,9 +4839,9 @@ public final class BlackcatMsg {
     }
 
     public static final int ONEMINAVG_FIELD_NUMBER = 2;
-    private double oneMinAvg_;
+    private float oneMinAvg_;
     /**
-     * <code>required double oneMinAvg = 2;</code>
+     * <code>required float oneMinAvg = 2;</code>
      *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
@@ -4851,51 +4851,51 @@ public final class BlackcatMsg {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required double oneMinAvg = 2;</code>
+     * <code>required float oneMinAvg = 2;</code>
      *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
      */
-    public double getOneMinAvg() {
+    public float getOneMinAvg() {
       return oneMinAvg_;
     }
 
     public static final int FIVEMINSAVG_FIELD_NUMBER = 3;
-    private double fiveMinsAvg_;
+    private float fiveMinsAvg_;
     /**
-     * <code>required double fiveMinsAvg = 3;</code>
+     * <code>required float fiveMinsAvg = 3;</code>
      */
     public boolean hasFiveMinsAvg() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required double fiveMinsAvg = 3;</code>
+     * <code>required float fiveMinsAvg = 3;</code>
      */
-    public double getFiveMinsAvg() {
+    public float getFiveMinsAvg() {
       return fiveMinsAvg_;
     }
 
     public static final int FIFTEENMINSAVG_FIELD_NUMBER = 4;
-    private double fifteenMinsAvg_;
+    private float fifteenMinsAvg_;
     /**
-     * <code>required double fifteenMinsAvg = 4;</code>
+     * <code>required float fifteenMinsAvg = 4;</code>
      */
     public boolean hasFifteenMinsAvg() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required double fifteenMinsAvg = 4;</code>
+     * <code>required float fifteenMinsAvg = 4;</code>
      */
-    public double getFifteenMinsAvg() {
+    public float getFifteenMinsAvg() {
       return fifteenMinsAvg_;
     }
 
     private void initFields() {
       cpuNum_ = 0;
-      oneMinAvg_ = 0D;
-      fiveMinsAvg_ = 0D;
-      fifteenMinsAvg_ = 0D;
+      oneMinAvg_ = 0F;
+      fiveMinsAvg_ = 0F;
+      fifteenMinsAvg_ = 0F;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4930,13 +4930,13 @@ public final class BlackcatMsg {
         output.writeUInt32(1, cpuNum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeDouble(2, oneMinAvg_);
+        output.writeFloat(2, oneMinAvg_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeDouble(3, fiveMinsAvg_);
+        output.writeFloat(3, fiveMinsAvg_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeDouble(4, fifteenMinsAvg_);
+        output.writeFloat(4, fifteenMinsAvg_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4953,15 +4953,15 @@ public final class BlackcatMsg {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, oneMinAvg_);
+          .computeFloatSize(2, oneMinAvg_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, fiveMinsAvg_);
+          .computeFloatSize(3, fiveMinsAvg_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(4, fifteenMinsAvg_);
+          .computeFloatSize(4, fifteenMinsAvg_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5082,11 +5082,11 @@ public final class BlackcatMsg {
         super.clear();
         cpuNum_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        oneMinAvg_ = 0D;
+        oneMinAvg_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
-        fiveMinsAvg_ = 0D;
+        fiveMinsAvg_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000004);
-        fifteenMinsAvg_ = 0D;
+        fifteenMinsAvg_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -5235,9 +5235,9 @@ public final class BlackcatMsg {
         return this;
       }
 
-      private double oneMinAvg_ ;
+      private float oneMinAvg_ ;
       /**
-       * <code>required double oneMinAvg = 2;</code>
+       * <code>required float oneMinAvg = 2;</code>
        *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
@@ -5247,30 +5247,30 @@ public final class BlackcatMsg {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required double oneMinAvg = 2;</code>
+       * <code>required float oneMinAvg = 2;</code>
        *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
        */
-      public double getOneMinAvg() {
+      public float getOneMinAvg() {
         return oneMinAvg_;
       }
       /**
-       * <code>required double oneMinAvg = 2;</code>
+       * <code>required float oneMinAvg = 2;</code>
        *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
        */
-      public Builder setOneMinAvg(double value) {
+      public Builder setOneMinAvg(float value) {
         bitField0_ |= 0x00000002;
         oneMinAvg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double oneMinAvg = 2;</code>
+       * <code>required float oneMinAvg = 2;</code>
        *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
@@ -5278,71 +5278,71 @@ public final class BlackcatMsg {
        */
       public Builder clearOneMinAvg() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        oneMinAvg_ = 0D;
+        oneMinAvg_ = 0F;
         onChanged();
         return this;
       }
 
-      private double fiveMinsAvg_ ;
+      private float fiveMinsAvg_ ;
       /**
-       * <code>required double fiveMinsAvg = 3;</code>
+       * <code>required float fiveMinsAvg = 3;</code>
        */
       public boolean hasFiveMinsAvg() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required double fiveMinsAvg = 3;</code>
+       * <code>required float fiveMinsAvg = 3;</code>
        */
-      public double getFiveMinsAvg() {
+      public float getFiveMinsAvg() {
         return fiveMinsAvg_;
       }
       /**
-       * <code>required double fiveMinsAvg = 3;</code>
+       * <code>required float fiveMinsAvg = 3;</code>
        */
-      public Builder setFiveMinsAvg(double value) {
+      public Builder setFiveMinsAvg(float value) {
         bitField0_ |= 0x00000004;
         fiveMinsAvg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double fiveMinsAvg = 3;</code>
+       * <code>required float fiveMinsAvg = 3;</code>
        */
       public Builder clearFiveMinsAvg() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        fiveMinsAvg_ = 0D;
+        fiveMinsAvg_ = 0F;
         onChanged();
         return this;
       }
 
-      private double fifteenMinsAvg_ ;
+      private float fifteenMinsAvg_ ;
       /**
-       * <code>required double fifteenMinsAvg = 4;</code>
+       * <code>required float fifteenMinsAvg = 4;</code>
        */
       public boolean hasFifteenMinsAvg() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required double fifteenMinsAvg = 4;</code>
+       * <code>required float fifteenMinsAvg = 4;</code>
        */
-      public double getFifteenMinsAvg() {
+      public float getFifteenMinsAvg() {
         return fifteenMinsAvg_;
       }
       /**
-       * <code>required double fifteenMinsAvg = 4;</code>
+       * <code>required float fifteenMinsAvg = 4;</code>
        */
-      public Builder setFifteenMinsAvg(double value) {
+      public Builder setFifteenMinsAvg(float value) {
         bitField0_ |= 0x00000008;
         fifteenMinsAvg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double fifteenMinsAvg = 4;</code>
+       * <code>required float fifteenMinsAvg = 4;</code>
        */
       public Builder clearFifteenMinsAvg() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        fifteenMinsAvg_ = 0D;
+        fifteenMinsAvg_ = 0F;
         onChanged();
         return this;
       }
@@ -6913,33 +6913,34 @@ public final class BlackcatMsg {
       "gHead.MsgType\022\020\n\010hostname\030\002 \002(\t\022\021\n\ttimes" +
       "tamp\030\003 \002(\004\"\\\n\007MsgType\022\022\n\016BlackcatMemory\020" +
       "\000\022\026\n\022BlackcatFileStores\020\001\022\020\n\014BlackcatLoa" +
-      "d\020\002\022\023\n\017BlackcatProcess\020\003\"\227\003\n\016BlackcatMsg" +
+      "d\020\002\022\023\n\017BlackcatProcess\020\003\"\273\003\n\016BlackcatMsg" +
       "Req\022K\n\004head\030\001 \002(\0132=.com.github.bingoohua" +
       "ng.blackcat.sdk.protobuf.BlackcatMsgHead",
-      "\022L\n\006memory\030\002 \001(\0132<.com.github.bingoohuan" +
-      "g.blackcat.sdk.protobuf.BlackcatMemory\022P" +
-      "\n\006stores\030\003 \001(\0132@.com.github.bingoohuang." +
-      "blackcat.sdk.protobuf.BlackcatFileStores" +
-      "\022H\n\004load\030\004 \001(\0132:.com.github.bingoohuang." +
-      "blackcat.sdk.protobuf.BlackcatLoad\022N\n\007pr" +
-      "ocess\030\005 \001(\0132=.com.github.bingoohuang.bla" +
-      "ckcat.sdk.protobuf.BlackcatProcess\")\n\016Bl" +
-      "ackcatMsgRsp\022\n\n\002ok\030\001 \002(\010\022\013\n\003msg\030\002 \001(\t\"2\n" +
-      "\016BlackcatMemory\022\r\n\005total\030\001 \002(\004\022\021\n\tavaila",
-      "ble\030\002 \002(\004\"\302\001\n\022BlackcatFileStores\022]\n\tfile" +
-      "Store\030\001 \003(\0132J.com.github.bingoohuang.bla" +
-      "ckcat.sdk.protobuf.BlackcatFileStores.Fi" +
-      "leStore\032M\n\tFileStore\022\014\n\004name\030\001 \002(\t\022\023\n\013de" +
-      "scription\030\002 \002(\t\022\r\n\005total\030\003 \002(\004\022\016\n\006usable" +
-      "\030\004 \002(\004\"^\n\014BlackcatLoad\022\016\n\006cpuNum\030\001 \002(\r\022\021" +
-      "\n\toneMinAvg\030\002 \002(\001\022\023\n\013fiveMinsAvg\030\003 \002(\001\022\026" +
-      "\n\016fifteenMinsAvg\030\004 \002(\001\"\246\001\n\017BlackcatProce" +
-      "ss\022P\n\004proc\030\001 \003(\0132B.com.github.bingoohuan" +
-      "g.blackcat.sdk.protobuf.BlackcatProcess.",
-      "Proc\032A\n\004Proc\022\013\n\003pid\030\001 \002(\004\022\014\n\004args\030\002 \002(\t\022" +
-      "\013\n\003res\030\003 \002(\004\022\021\n\tstartTime\030\004 \002(\004B;\n,com.g" +
-      "ithub.bingoohuang.blackcat.sdk.protobufB" +
-      "\013BlackcatMsg"
+      "\022T\n\016blackcatMemory\030\002 \001(\0132<.com.github.bi" +
+      "ngoohuang.blackcat.sdk.protobuf.Blackcat" +
+      "Memory\022\\\n\022blackcatFileStores\030\003 \001(\0132@.com" +
+      ".github.bingoohuang.blackcat.sdk.protobu" +
+      "f.BlackcatFileStores\022P\n\014blackcatLoad\030\004 \001" +
+      "(\0132:.com.github.bingoohuang.blackcat.sdk" +
+      ".protobuf.BlackcatLoad\022V\n\017blackcatProces" +
+      "s\030\005 \001(\0132=.com.github.bingoohuang.blackca" +
+      "t.sdk.protobuf.BlackcatProcess\")\n\016Blackc" +
+      "atMsgRsp\022\n\n\002ok\030\001 \002(\010\022\013\n\003msg\030\002 \001(\t\"2\n\016Bla",
+      "ckcatMemory\022\r\n\005total\030\001 \002(\004\022\021\n\tavailable\030" +
+      "\002 \002(\004\"\302\001\n\022BlackcatFileStores\022]\n\tfileStor" +
+      "e\030\001 \003(\0132J.com.github.bingoohuang.blackca" +
+      "t.sdk.protobuf.BlackcatFileStores.FileSt" +
+      "ore\032M\n\tFileStore\022\014\n\004name\030\001 \002(\t\022\023\n\013descri" +
+      "ption\030\002 \002(\t\022\r\n\005total\030\003 \002(\004\022\016\n\006usable\030\004 \002" +
+      "(\004\"^\n\014BlackcatLoad\022\016\n\006cpuNum\030\001 \002(\r\022\021\n\ton" +
+      "eMinAvg\030\002 \002(\002\022\023\n\013fiveMinsAvg\030\003 \002(\002\022\026\n\016fi" +
+      "fteenMinsAvg\030\004 \002(\002\"\246\001\n\017BlackcatProcess\022P" +
+      "\n\004proc\030\001 \003(\0132B.com.github.bingoohuang.bl",
+      "ackcat.sdk.protobuf.BlackcatProcess.Proc" +
+      "\032A\n\004Proc\022\013\n\003pid\030\001 \002(\004\022\014\n\004args\030\002 \002(\t\022\013\n\003r" +
+      "es\030\003 \002(\004\022\021\n\tstartTime\030\004 \002(\004B;\n,com.githu" +
+      "b.bingoohuang.blackcat.sdk.protobufB\013Bla" +
+      "ckcatMsg"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6964,7 +6965,7 @@ public final class BlackcatMsg {
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMsgReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMsgReq_descriptor,
-        new java.lang.String[] { "Head", "Memory", "Stores", "Load", "Process", });
+        new java.lang.String[] { "Head", "BlackcatMemory", "BlackcatFileStores", "BlackcatLoad", "BlackcatProcess", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMsgRsp_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMsgRsp_fieldAccessorTable = new
