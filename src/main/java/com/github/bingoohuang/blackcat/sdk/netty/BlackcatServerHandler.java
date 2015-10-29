@@ -2,13 +2,11 @@ package com.github.bingoohuang.blackcat.sdk.netty;
 
 
 import com.github.bingoohuang.blackcat.sdk.BlackcatMsgHandler;
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMsgReq;
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMsgRsp;
-import com.google.common.base.Optional;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class BlackcatServerHandler extends SimpleChannelInboundHandler<BlackcatMsgReq> {
+public class BlackcatServerHandler extends SimpleChannelInboundHandler<BlackcatReq> {
     private final BlackcatMsgHandler blackcatMsgHandler;
 
     public BlackcatServerHandler(BlackcatMsgHandler blackcatMsgHandler) {
@@ -16,9 +14,8 @@ public class BlackcatServerHandler extends SimpleChannelInboundHandler<BlackcatM
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, BlackcatMsgReq req) throws Exception {
-        Optional<BlackcatMsgRsp> rsp = blackcatMsgHandler.handle(req);
-        if (rsp.isPresent()) ctx.write(rsp.get());
+    public void channelRead0(ChannelHandlerContext ctx, BlackcatReq req) throws Exception {
+        blackcatMsgHandler.handle(req, ctx);
     }
 
     @Override

@@ -1,8 +1,17 @@
 package com.github.bingoohuang.blackcat.sdk.utils;
 
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.Splitter;
 import org.n3r.diamond.client.Miner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
@@ -11,6 +20,58 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Blackcats {
+    private static Logger log = LoggerFactory.getLogger(Blackcats.class);
+
+    public static Object parseReq(String packageName, BlackcatReq req) {
+        ReqType msgType = req.getBlackcatReqHead().getReqType();
+
+        String simpleName = msgType.toString();
+        String className = packageName + "." + simpleName + "Req";
+        try {
+            Method getMethod = req.getClass().getMethod("get" + simpleName);
+            Object methodResult = getMethod.invoke(req);
+
+            Class<?> reqClass = Class.forName(className);
+            Constructor<?> ctor = reqClass.getConstructor(
+                    BlackcatMsg.BlackcatReqHead.class, methodResult.getClass());
+            return ctor.newInstance(req.getBlackcatReqHead(), methodResult);
+        } catch (Exception e) {
+            log.warn("error", e);
+        }
+
+        return null;
+    }
+
+    public static Object parseReqBody(BlackcatReq req) {
+        ReqType msgType = req.getBlackcatReqHead().getReqType();
+
+        String simpleName = msgType.toString();
+        try {
+            Method getMethod = req.getClass().getMethod("get" + simpleName);
+            return getMethod.invoke(req);
+
+        } catch (Exception e) {
+            log.warn("error", e);
+        }
+
+        return null;
+    }
+
+
+    public static Object parseRspBody(BlackcatRsp rsp) {
+        RspType msgType = rsp.getBlackcatRspHead().getRspType();
+
+        String simpleName = msgType.toString();
+        try {
+            Method getMethod = rsp.getClass().getMethod("get" + simpleName);
+            return getMethod.invoke(rsp);
+        } catch (Exception e) {
+            log.warn("error", e);
+        }
+
+        return null;
+    }
+
     public static String readDiamond(String axis) {
         List<String> parts = Splitter.on('^').splitToList(axis);
         if (parts.size() == 1) {

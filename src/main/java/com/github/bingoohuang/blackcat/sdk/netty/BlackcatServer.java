@@ -1,7 +1,7 @@
 package com.github.bingoohuang.blackcat.sdk.netty;
 
 import com.github.bingoohuang.blackcat.sdk.BlackcatMsgHandler;
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -37,7 +37,7 @@ public final class BlackcatServer {
                         p.addLast(sslCtx.newHandler(ch.alloc()));
 
                     p.addLast(new ProtobufVarint32FrameDecoder());
-                    p.addLast(new ProtobufDecoder(BlackcatMsg.BlackcatMsgReq.getDefaultInstance()));
+                    p.addLast(new ProtobufDecoder(BlackcatReq.getDefaultInstance()));
 
                     p.addLast(new ProtobufVarint32LengthFieldPrepender());
                     p.addLast(new ProtobufEncoder());

@@ -1,8 +1,9 @@
 package com.github.bingoohuang.blackcat.sdk.netty;
 
-
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.google.common.base.Throwables;
+import com.google.common.eventbus.EventBus;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -18,11 +19,12 @@ import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.HOST;
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.PORT;
 
 public final class BlackcatClient {
-    private EventLoopGroup eventLoop = new NioEventLoopGroup(1);
-    private volatile Channel channel;
-    private BlackcatClientHandler clientHandler;
+    EventLoopGroup eventLoop = new NioEventLoopGroup(1);
+    volatile Channel channel;
+    BlackcatClientHandler clientHandler;
+    EventBus eventBus = new EventBus();
 
-    public void send(BlackcatMsg.BlackcatMsgReq req) {
+    public void send(BlackcatReq req) {
         if (channel != null) channel.writeAndFlush(req);
     }
 
@@ -36,6 +38,7 @@ public final class BlackcatClient {
             b.option(ChannelOption.SO_KEEPALIVE, true);
             b.remoteAddress(HOST, PORT);
             clientHandler = new BlackcatClientHandler(BlackcatClient.this);
+
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) {
@@ -44,7 +47,7 @@ public final class BlackcatClient {
                         p.addLast(sslCtx.newHandler(ch.alloc(), HOST, PORT));
 
                     p.addLast(new ProtobufVarint32FrameDecoder());
-                    p.addLast(new ProtobufDecoder(BlackcatMsg.BlackcatMsgRsp.getDefaultInstance()));
+                    p.addLast(new ProtobufDecoder(BlackcatRsp.getDefaultInstance()));
 
                     p.addLast(new ProtobufVarint32LengthFieldPrepender());
                     p.addLast(new ProtobufEncoder());
@@ -66,5 +69,13 @@ public final class BlackcatClient {
 
     public void setChannel(Channel channel) {
         this.channel = channel;
+    }
+
+    public void post(Object o) {
+        eventBus.post(o);
+    }
+
+    public void register(Object o) {
+        eventBus.register(o);
     }
 }

@@ -7,29 +7,50 @@ option java_package = "com.github.bingoohuang.blackcat.sdk.protobuf";
 
 option java_outer_classname = "BlackcatMsg";
 
-message BlackcatMsgHead {
-    enum MsgType {
+message BlackcatReqHead {
+    enum ReqType {
         BlackcatMemory = 0;
         BlackcatFileStores = 1;
         BlackcatLoad = 2;
         BlackcatProcess = 3;
+        BlackcatConfig = 4;
     }
-    required MsgType msgType = 1;
+    required ReqType reqType = 1;
     required string hostname = 2;
     required uint64 timestamp = 3;
 }
 
-message BlackcatMsgReq {
-    required BlackcatMsgHead head = 1;
+// 请求消息
+message BlackcatReq {
+    required BlackcatReqHead blackcatReqHead = 1;
     optional BlackcatMemory blackcatMemory = 2;
     optional BlackcatFileStores blackcatFileStores = 3;
     optional BlackcatLoad blackcatLoad = 4;
     optional BlackcatProcess blackcatProcess = 5;
 }
 
-message BlackcatMsgRsp {
-    required bool ok = 1;
-    optional string msg = 2;
+message BlackcatRspHead {
+    enum RspType {
+        BlackcatEvent = 0;
+        BlackcatWarnConfig = 1;
+    }
+
+    required RspType rspType = 1;
+}
+
+message BlackcatWarnConfig {
+    message BlackcatWarnProcess {
+        required string processName = 1; // 进程名称
+        repeated string processKeys = 2; // 进程识别关键字
+    }
+
+    repeated BlackcatWarnProcess blackcatWarnProcess = 1;
+}
+
+// 响应消息
+message BlackcatRsp {
+    required BlackcatRspHead blackcatRspHead = 1;
+    optional BlackcatWarnConfig blackcatWarnConfig = 2; // 响应监控设置参数
 }
 
 message BlackcatMemory {
@@ -67,6 +88,7 @@ message BlackcatProcess {
         // (This also corresponds directly to the %MEM column.)
         required uint64 res = 3;
         required uint64 startTime = 4;
+        required string name = 5; // 进程名称
     }
 
     repeated Proc proc = 1;

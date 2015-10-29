@@ -1,7 +1,8 @@
 package com.github.bingoohuang.blackcat.sdk.netty;
 
 
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMsgRsp;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
+import com.github.bingoohuang.blackcat.sdk.utils.Blackcats;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoop;
@@ -10,19 +11,23 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.util.concurrent.TimeUnit;
 
 public class BlackcatClientHandler
-        extends SimpleChannelInboundHandler<BlackcatMsgRsp> {
-    private final BlackcatClient client;
+        extends SimpleChannelInboundHandler<BlackcatRsp> {
+
+    private final BlackcatClient blackcatClient;
     long startTime = -1;
 
-    public BlackcatClientHandler(BlackcatClient client) {
+    public BlackcatClientHandler(BlackcatClient blackcatClient) {
         super(false);
-        this.client = client;
+        this.blackcatClient = blackcatClient;
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, BlackcatMsgRsp rsp
+    public void channelRead0(ChannelHandlerContext ctx, BlackcatRsp rsp
     ) throws Exception {
         System.out.println(rsp);
+
+        Object o = Blackcats.parseRspBody(rsp);
+        blackcatClient.post(o);
     }
 
     @Override
@@ -31,12 +36,12 @@ public class BlackcatClientHandler
         println("Connected to: " + ctx.channel().remoteAddress());
 
         Channel channel = ctx.channel();
-        client.setChannel(channel);
+        blackcatClient.setChannel(channel);
     }
 
     @Override
     public void channelUnregistered(final ChannelHandlerContext ctx) throws Exception {
-        client.setChannel(null);
+        blackcatClient.setChannel(null);
         reconnect(ctx.channel().eventLoop());
     }
 
@@ -47,7 +52,7 @@ public class BlackcatClientHandler
             @Override
             public void run() {
                 println("Reconnecting to: " + BlackcatConfig.HOST + ':' + BlackcatConfig.PORT);
-                client.connect();
+                blackcatClient.connect();
             }
         }, BlackcatConfig.RECONNECT_DELAY, TimeUnit.SECONDS);
     }
@@ -55,7 +60,7 @@ public class BlackcatClientHandler
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("Disconnected from: " + ctx.channel().remoteAddress());
-        client.setChannel(null);
+        blackcatClient.setChannel(null);
 
         super.channelInactive(ctx);
     }
