@@ -6,6 +6,8 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 import org.n3r.diamond.client.Miner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,25 @@ import java.util.concurrent.TimeUnit;
 
 public class Blackcats {
     private static Logger log = LoggerFactory.getLogger(Blackcats.class);
+
+    public static List<String> splitLinesWoComments(String text, String commentStart) {
+        Splitter splitter = Splitter.on('\n').trimResults().omitEmptyStrings();
+        List<String> lines = Lists.newArrayList();
+
+        for (String line : splitter.split(text)) {
+            int commentIndex = line.indexOf(commentStart);
+            if (commentIndex < 0) {
+                lines.add(line);
+                continue;
+            }
+
+            line = line.substring(0, commentIndex);
+            line = StringUtils.trim(line);
+            if (StringUtils.isNotEmpty(line)) lines.add(line);
+        }
+
+        return lines;
+    }
 
     public static Object parseReq(String packageName, BlackcatReq req) {
         ReqType msgType = req.getBlackcatReqHead().getReqType();
@@ -110,7 +131,7 @@ public class Blackcats {
     }
 
     public static String humanReadableByteCount(long bytes) {
-        return humanReadableByteCount(bytes, true);
+        return humanReadableByteCount(bytes, false);
     }
 
     // si 是否是十进制前缀 (SI), SI units and binary units
