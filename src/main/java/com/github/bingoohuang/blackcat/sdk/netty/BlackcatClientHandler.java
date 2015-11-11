@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 public class BlackcatClientHandler
         extends SimpleChannelInboundHandler<BlackcatRsp> {
 
-    private final BlackcatClient blackcatClient;
+    private final BlackcatNettyClient blackcatNettyClient;
     long startTime = -1;
 
-    public BlackcatClientHandler(BlackcatClient blackcatClient) {
+    public BlackcatClientHandler(BlackcatNettyClient blackcatNettyClient) {
         super(false);
-        this.blackcatClient = blackcatClient;
+        this.blackcatNettyClient = blackcatNettyClient;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class BlackcatClientHandler
         System.out.println(rsp);
 
         Object o = Blackcats.parseRspBody(rsp);
-        blackcatClient.post(o);
+        blackcatNettyClient.post(o);
     }
 
     @Override
@@ -36,12 +36,12 @@ public class BlackcatClientHandler
         println("Connected to: " + ctx.channel().remoteAddress());
 
         Channel channel = ctx.channel();
-        blackcatClient.setChannel(channel);
+        blackcatNettyClient.setChannel(channel);
     }
 
     @Override
     public void channelUnregistered(final ChannelHandlerContext ctx) throws Exception {
-        blackcatClient.setChannel(null);
+        blackcatNettyClient.setChannel(null);
         reconnect(ctx.channel().eventLoop());
     }
 
@@ -52,7 +52,7 @@ public class BlackcatClientHandler
             @Override
             public void run() {
                 println("Reconnecting to: " + BlackcatConfig.HOST + ':' + BlackcatConfig.PORT);
-                blackcatClient.connect();
+                blackcatNettyClient.connect();
             }
         }, BlackcatConfig.RECONNECT_DELAY, TimeUnit.SECONDS);
     }
@@ -60,7 +60,7 @@ public class BlackcatClientHandler
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("Disconnected from: " + ctx.channel().remoteAddress());
-        blackcatClient.setChannel(null);
+        blackcatNettyClient.setChannel(null);
 
         super.channelInactive(ctx);
     }

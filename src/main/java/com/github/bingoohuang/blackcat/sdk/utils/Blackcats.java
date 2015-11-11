@@ -1,7 +1,7 @@
 package com.github.bingoohuang.blackcat.sdk.utils;
 
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
+import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
@@ -23,6 +23,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Blackcats {
     private static Logger log = LoggerFactory.getLogger(Blackcats.class);
+
+    public static BlackcatReqHead buildHead(BlackcatReqHead.ReqType reqType) {
+        return BlackcatReqHead.newBuilder()
+                .setHostname(Blackcats.getHostname())
+                .setReqType(reqType)
+                .setTimestamp(System.currentTimeMillis())
+                .build();
+    }
 
     public static List<String> splitLinesWoComments(String text, String commentStart) {
         Splitter splitter = Splitter.on('\n').trimResults().omitEmptyStrings();
@@ -54,7 +62,7 @@ public class Blackcats {
 
             Class<?> reqClass = Class.forName(className);
             Constructor<?> ctor = reqClass.getConstructor(
-                    BlackcatMsg.BlackcatReqHead.class, methodResult.getClass());
+                    BlackcatReqHead.class, methodResult.getClass());
             return ctor.newInstance(req.getBlackcatReqHead(), methodResult);
         } catch (Exception e) {
             log.warn("error", e);
@@ -149,5 +157,9 @@ public class Blackcats {
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String decimal(double v) {
+        return String.format("%.02f", v);
     }
 }

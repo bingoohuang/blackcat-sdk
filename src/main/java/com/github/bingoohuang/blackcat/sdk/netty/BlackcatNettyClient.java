@@ -18,7 +18,7 @@ import io.netty.handler.ssl.SslContext;
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.HOST;
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.PORT;
 
-public final class BlackcatClient {
+public final class BlackcatNettyClient {
     EventLoopGroup eventLoop = new NioEventLoopGroup(1);
     volatile Channel channel;
     BlackcatClientHandler clientHandler;
@@ -37,7 +37,7 @@ public final class BlackcatClient {
             b.channel(NioSocketChannel.class);
             b.option(ChannelOption.SO_KEEPALIVE, true);
             b.remoteAddress(HOST, PORT);
-            clientHandler = new BlackcatClientHandler(BlackcatClient.this);
+            clientHandler = new BlackcatClientHandler(BlackcatNettyClient.this);
 
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override

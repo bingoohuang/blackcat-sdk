@@ -14,6 +14,7 @@ message BlackcatReqHead {
         BlackcatLoad = 2;
         BlackcatProcess = 3;
         BlackcatConfig = 4;
+        BlackcatMethodRuntime = 5;
     }
     required ReqType reqType = 1;
     required string hostname = 2;
@@ -27,6 +28,7 @@ message BlackcatReq {
     optional BlackcatFileStores blackcatFileStores = 3;
     optional BlackcatLoad blackcatLoad = 4;
     optional BlackcatProcess blackcatProcess = 5;
+    optional BlackcatMethodRuntime blackcatMethodRuntime = 6;
 }
 
 message BlackcatRspHead {
@@ -92,4 +94,19 @@ message BlackcatProcess {
     }
 
     repeated Proc proc = 1;
+}
+
+message BlackcatMethodRuntime {
+    required string pid = 1;
+    required string executionId = 2;
+    required uint64 startNano = 3;
+    required uint64 endNano = 4;
+    required uint64 costNano = 5;
+
+    required string source = 6;
+    required string args = 7;
+    required string result = 8;
+    optional string throwableCaught = 9;
+    optional string throwableUncaught = 10;
+    required bool sameThrowable = 11;
 }
