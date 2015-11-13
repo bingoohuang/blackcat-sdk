@@ -12,13 +12,15 @@ import org.n3r.diamond.client.Miner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Blackcats {
@@ -153,9 +155,26 @@ public class Blackcats {
 
     public static String getHostname() {
         try {
+            return StringUtils.trim(execReadToString("hostname"));
+        } catch (IOException e) {
+            // ignore
+        }
+
+        try {
             return InetAddress.getLocalHost().getHostName();
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
+        } catch (Throwable ex) {
+            // ignore
+        }
+
+        throw new RuntimeException("unable to get hostname");
+    }
+
+    public static String execReadToString(String execCommand) throws IOException {
+        Process proc = Runtime.getRuntime().exec(execCommand);
+        try (InputStream stream = proc.getInputStream()) {
+            try (Scanner s = new Scanner(stream).useDelimiter("\\A")) {
+                return s.hasNext() ? s.next() : "";
+            }
         }
     }
 
