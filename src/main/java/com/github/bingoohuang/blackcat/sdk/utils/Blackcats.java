@@ -26,6 +26,16 @@ import java.util.concurrent.TimeUnit;
 public class Blackcats {
     private static Logger log = LoggerFactory.getLogger(Blackcats.class);
 
+    public static StrBuilder _(String str) {
+        return new StrBuilder(str);
+    }
+
+    public static StrBuilder _(char ch) {
+        StrBuilder strBuilder = new StrBuilder();
+        strBuilder.p(ch);
+        return strBuilder;
+    }
+
     public static BlackcatReqHead buildHead(BlackcatReqHead.ReqType reqType) {
         return BlackcatReqHead.newBuilder()
                 .setHostname(Blackcats.getHostname())
@@ -140,12 +150,12 @@ public class Blackcats {
         }
     }
 
-    public static String humanReadableByteCount(long bytes) {
-        return humanReadableByteCount(bytes, false);
+    public static String prettyBytes(long bytes) {
+        return prettyBytes(bytes, false);
     }
 
     // si 是否是十进制前缀 (SI), SI units and binary units
-    public static String humanReadableByteCount(long bytes, boolean si) {
+    public static String prettyBytes(long bytes, boolean si) {
         int unit = si ? 1000 : 1024;
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
