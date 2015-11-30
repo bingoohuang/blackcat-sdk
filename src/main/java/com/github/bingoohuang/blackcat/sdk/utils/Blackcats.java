@@ -26,11 +26,11 @@ import java.util.concurrent.TimeUnit;
 public class Blackcats {
     private static Logger log = LoggerFactory.getLogger(Blackcats.class);
 
-    public static StrBuilder _(String str) {
+    public static StrBuilder str(String str) {
         return new StrBuilder(str);
     }
 
-    public static StrBuilder _(char ch) {
+    public static StrBuilder str(char ch) {
         StrBuilder strBuilder = new StrBuilder();
         strBuilder.p(ch);
         return strBuilder;

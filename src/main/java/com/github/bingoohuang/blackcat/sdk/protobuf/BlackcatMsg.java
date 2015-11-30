@@ -9523,108 +9523,122 @@ public final class BlackcatMsg {
         getExecutionIdBytes();
 
     /**
-     * <code>required uint64 startNano = 3;</code>
+     * <code>required uint64 startMillis = 3;</code>
      */
-    boolean hasStartNano();
+    boolean hasStartMillis();
     /**
-     * <code>required uint64 startNano = 3;</code>
+     * <code>required uint64 startMillis = 3;</code>
      */
-    long getStartNano();
+    long getStartMillis();
 
     /**
-     * <code>required uint64 endNano = 4;</code>
+     * <code>required uint64 endMillis = 4;</code>
      */
-    boolean hasEndNano();
+    boolean hasEndMillis();
     /**
-     * <code>required uint64 endNano = 4;</code>
+     * <code>required uint64 endMillis = 4;</code>
      */
-    long getEndNano();
+    long getEndMillis();
 
     /**
-     * <code>required uint64 costNano = 5;</code>
+     * <code>required uint64 costMillis = 5;</code>
      */
-    boolean hasCostNano();
+    boolean hasCostMillis();
     /**
-     * <code>required uint64 costNano = 5;</code>
+     * <code>required uint64 costMillis = 5;</code>
      */
-    long getCostNano();
+    long getCostMillis();
 
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
-    boolean hasSource();
+    boolean hasClassName();
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
-    java.lang.String getSource();
+    java.lang.String getClassName();
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
     com.google.protobuf.ByteString
-        getSourceBytes();
+        getClassNameBytes();
 
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string methodDesc = 7;</code>
+     */
+    boolean hasMethodDesc();
+    /**
+     * <code>required string methodDesc = 7;</code>
+     */
+    java.lang.String getMethodDesc();
+    /**
+     * <code>required string methodDesc = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getMethodDescBytes();
+
+    /**
+     * <code>required string args = 8;</code>
      */
     boolean hasArgs();
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string args = 8;</code>
      */
     java.lang.String getArgs();
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string args = 8;</code>
      */
     com.google.protobuf.ByteString
         getArgsBytes();
 
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     boolean hasResult();
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     java.lang.String getResult();
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     com.google.protobuf.ByteString
         getResultBytes();
 
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     boolean hasThrowableCaught();
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     java.lang.String getThrowableCaught();
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     com.google.protobuf.ByteString
         getThrowableCaughtBytes();
 
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     boolean hasThrowableUncaught();
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     java.lang.String getThrowableUncaught();
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     com.google.protobuf.ByteString
         getThrowableUncaughtBytes();
 
     /**
-     * <code>required bool sameThrowable = 11;</code>
+     * <code>required bool sameThrowable = 12;</code>
      */
     boolean hasSameThrowable();
     /**
-     * <code>required bool sameThrowable = 11;</code>
+     * <code>required bool sameThrowable = 12;</code>
      */
     boolean getSameThrowable();
   }
@@ -9694,51 +9708,57 @@ public final class BlackcatMsg {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              startNano_ = input.readUInt64();
+              startMillis_ = input.readUInt64();
               break;
             }
             case 32: {
               bitField0_ |= 0x00000008;
-              endNano_ = input.readUInt64();
+              endMillis_ = input.readUInt64();
               break;
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              costNano_ = input.readUInt64();
+              costMillis_ = input.readUInt64();
               break;
             }
             case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              source_ = bs;
+              className_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              args_ = bs;
+              methodDesc_ = bs;
               break;
             }
             case 66: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000080;
-              result_ = bs;
+              args_ = bs;
               break;
             }
             case 74: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000100;
-              throwableCaught_ = bs;
+              result_ = bs;
               break;
             }
             case 82: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000200;
+              throwableCaught_ = bs;
+              break;
+            }
+            case 90: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000400;
               throwableUncaught_ = bs;
               break;
             }
-            case 88: {
-              bitField0_ |= 0x00000400;
+            case 96: {
+              bitField0_ |= 0x00000800;
               sameThrowable_ = input.readBool();
               break;
             }
@@ -9866,64 +9886,64 @@ public final class BlackcatMsg {
       }
     }
 
-    public static final int STARTNANO_FIELD_NUMBER = 3;
-    private long startNano_;
+    public static final int STARTMILLIS_FIELD_NUMBER = 3;
+    private long startMillis_;
     /**
-     * <code>required uint64 startNano = 3;</code>
+     * <code>required uint64 startMillis = 3;</code>
      */
-    public boolean hasStartNano() {
+    public boolean hasStartMillis() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required uint64 startNano = 3;</code>
+     * <code>required uint64 startMillis = 3;</code>
      */
-    public long getStartNano() {
-      return startNano_;
+    public long getStartMillis() {
+      return startMillis_;
     }
 
-    public static final int ENDNANO_FIELD_NUMBER = 4;
-    private long endNano_;
+    public static final int ENDMILLIS_FIELD_NUMBER = 4;
+    private long endMillis_;
     /**
-     * <code>required uint64 endNano = 4;</code>
+     * <code>required uint64 endMillis = 4;</code>
      */
-    public boolean hasEndNano() {
+    public boolean hasEndMillis() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required uint64 endNano = 4;</code>
+     * <code>required uint64 endMillis = 4;</code>
      */
-    public long getEndNano() {
-      return endNano_;
+    public long getEndMillis() {
+      return endMillis_;
     }
 
-    public static final int COSTNANO_FIELD_NUMBER = 5;
-    private long costNano_;
+    public static final int COSTMILLIS_FIELD_NUMBER = 5;
+    private long costMillis_;
     /**
-     * <code>required uint64 costNano = 5;</code>
+     * <code>required uint64 costMillis = 5;</code>
      */
-    public boolean hasCostNano() {
+    public boolean hasCostMillis() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required uint64 costNano = 5;</code>
+     * <code>required uint64 costMillis = 5;</code>
      */
-    public long getCostNano() {
-      return costNano_;
+    public long getCostMillis() {
+      return costMillis_;
     }
 
-    public static final int SOURCE_FIELD_NUMBER = 6;
-    private java.lang.Object source_;
+    public static final int CLASSNAME_FIELD_NUMBER = 6;
+    private java.lang.Object className_;
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
-    public boolean hasSource() {
+    public boolean hasClassName() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
-    public java.lang.String getSource() {
-      java.lang.Object ref = source_;
+    public java.lang.String getClassName() {
+      java.lang.Object ref = className_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -9931,38 +9951,80 @@ public final class BlackcatMsg {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          source_ = s;
+          className_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string source = 6;</code>
+     * <code>required string className = 6;</code>
      */
     public com.google.protobuf.ByteString
-        getSourceBytes() {
-      java.lang.Object ref = source_;
+        getClassNameBytes() {
+      java.lang.Object ref = className_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        source_ = b;
+        className_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int ARGS_FIELD_NUMBER = 7;
-    private java.lang.Object args_;
+    public static final int METHODDESC_FIELD_NUMBER = 7;
+    private java.lang.Object methodDesc_;
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string methodDesc = 7;</code>
      */
-    public boolean hasArgs() {
+    public boolean hasMethodDesc() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string methodDesc = 7;</code>
+     */
+    public java.lang.String getMethodDesc() {
+      java.lang.Object ref = methodDesc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          methodDesc_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string methodDesc = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMethodDescBytes() {
+      java.lang.Object ref = methodDesc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        methodDesc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARGS_FIELD_NUMBER = 8;
+    private java.lang.Object args_;
+    /**
+     * <code>required string args = 8;</code>
+     */
+    public boolean hasArgs() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required string args = 8;</code>
      */
     public java.lang.String getArgs() {
       java.lang.Object ref = args_;
@@ -9979,7 +10041,7 @@ public final class BlackcatMsg {
       }
     }
     /**
-     * <code>required string args = 7;</code>
+     * <code>required string args = 8;</code>
      */
     public com.google.protobuf.ByteString
         getArgsBytes() {
@@ -9995,16 +10057,16 @@ public final class BlackcatMsg {
       }
     }
 
-    public static final int RESULT_FIELD_NUMBER = 8;
+    public static final int RESULT_FIELD_NUMBER = 9;
     private java.lang.Object result_;
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     public boolean hasResult() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     public java.lang.String getResult() {
       java.lang.Object ref = result_;
@@ -10021,7 +10083,7 @@ public final class BlackcatMsg {
       }
     }
     /**
-     * <code>required string result = 8;</code>
+     * <code>required string result = 9;</code>
      */
     public com.google.protobuf.ByteString
         getResultBytes() {
@@ -10037,16 +10099,16 @@ public final class BlackcatMsg {
       }
     }
 
-    public static final int THROWABLECAUGHT_FIELD_NUMBER = 9;
+    public static final int THROWABLECAUGHT_FIELD_NUMBER = 10;
     private java.lang.Object throwableCaught_;
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     public boolean hasThrowableCaught() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     public java.lang.String getThrowableCaught() {
       java.lang.Object ref = throwableCaught_;
@@ -10063,7 +10125,7 @@ public final class BlackcatMsg {
       }
     }
     /**
-     * <code>optional string throwableCaught = 9;</code>
+     * <code>optional string throwableCaught = 10;</code>
      */
     public com.google.protobuf.ByteString
         getThrowableCaughtBytes() {
@@ -10079,16 +10141,16 @@ public final class BlackcatMsg {
       }
     }
 
-    public static final int THROWABLEUNCAUGHT_FIELD_NUMBER = 10;
+    public static final int THROWABLEUNCAUGHT_FIELD_NUMBER = 11;
     private java.lang.Object throwableUncaught_;
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     public boolean hasThrowableUncaught() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     public java.lang.String getThrowableUncaught() {
       java.lang.Object ref = throwableUncaught_;
@@ -10105,7 +10167,7 @@ public final class BlackcatMsg {
       }
     }
     /**
-     * <code>optional string throwableUncaught = 10;</code>
+     * <code>optional string throwableUncaught = 11;</code>
      */
     public com.google.protobuf.ByteString
         getThrowableUncaughtBytes() {
@@ -10121,16 +10183,16 @@ public final class BlackcatMsg {
       }
     }
 
-    public static final int SAMETHROWABLE_FIELD_NUMBER = 11;
+    public static final int SAMETHROWABLE_FIELD_NUMBER = 12;
     private boolean sameThrowable_;
     /**
-     * <code>required bool sameThrowable = 11;</code>
+     * <code>required bool sameThrowable = 12;</code>
      */
     public boolean hasSameThrowable() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>required bool sameThrowable = 11;</code>
+     * <code>required bool sameThrowable = 12;</code>
      */
     public boolean getSameThrowable() {
       return sameThrowable_;
@@ -10139,10 +10201,11 @@ public final class BlackcatMsg {
     private void initFields() {
       pid_ = "";
       executionId_ = "";
-      startNano_ = 0L;
-      endNano_ = 0L;
-      costNano_ = 0L;
-      source_ = "";
+      startMillis_ = 0L;
+      endMillis_ = 0L;
+      costMillis_ = 0L;
+      className_ = "";
+      methodDesc_ = "";
       args_ = "";
       result_ = "";
       throwableCaught_ = "";
@@ -10163,19 +10226,23 @@ public final class BlackcatMsg {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasStartNano()) {
+      if (!hasStartMillis()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasEndNano()) {
+      if (!hasEndMillis()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasCostNano()) {
+      if (!hasCostMillis()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasSource()) {
+      if (!hasClassName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMethodDesc()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -10205,31 +10272,34 @@ public final class BlackcatMsg {
         output.writeBytes(2, getExecutionIdBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt64(3, startNano_);
+        output.writeUInt64(3, startMillis_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeUInt64(4, endNano_);
+        output.writeUInt64(4, endMillis_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt64(5, costNano_);
+        output.writeUInt64(5, costMillis_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getSourceBytes());
+        output.writeBytes(6, getClassNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getArgsBytes());
+        output.writeBytes(7, getMethodDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getResultBytes());
+        output.writeBytes(8, getArgsBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getThrowableCaughtBytes());
+        output.writeBytes(9, getResultBytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, getThrowableUncaughtBytes());
+        output.writeBytes(10, getThrowableCaughtBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBool(11, sameThrowable_);
+        output.writeBytes(11, getThrowableUncaughtBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBool(12, sameThrowable_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -10250,39 +10320,43 @@ public final class BlackcatMsg {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, startNano_);
+          .computeUInt64Size(3, startMillis_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, endNano_);
+          .computeUInt64Size(4, endMillis_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, costNano_);
+          .computeUInt64Size(5, costMillis_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getSourceBytes());
+          .computeBytesSize(6, getClassNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getArgsBytes());
+          .computeBytesSize(7, getMethodDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getResultBytes());
+          .computeBytesSize(8, getArgsBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getThrowableCaughtBytes());
+          .computeBytesSize(9, getResultBytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getThrowableUncaughtBytes());
+          .computeBytesSize(10, getThrowableCaughtBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(11, sameThrowable_);
+          .computeBytesSize(11, getThrowableUncaughtBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(12, sameThrowable_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10405,24 +10479,26 @@ public final class BlackcatMsg {
         bitField0_ = (bitField0_ & ~0x00000001);
         executionId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        startNano_ = 0L;
+        startMillis_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
-        endNano_ = 0L;
+        endMillis_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
-        costNano_ = 0L;
+        costMillis_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
-        source_ = "";
+        className_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        args_ = "";
+        methodDesc_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        result_ = "";
+        args_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
-        throwableCaught_ = "";
+        result_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        throwableUncaught_ = "";
+        throwableCaught_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        sameThrowable_ = false;
+        throwableUncaught_ = "";
         bitField0_ = (bitField0_ & ~0x00000400);
+        sameThrowable_ = false;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -10462,37 +10538,41 @@ public final class BlackcatMsg {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.startNano_ = startNano_;
+        result.startMillis_ = startMillis_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.endNano_ = endNano_;
+        result.endMillis_ = endMillis_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.costNano_ = costNano_;
+        result.costMillis_ = costMillis_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.source_ = source_;
+        result.className_ = className_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.args_ = args_;
+        result.methodDesc_ = methodDesc_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.result_ = result_;
+        result.args_ = args_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.throwableCaught_ = throwableCaught_;
+        result.result_ = result_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.throwableUncaught_ = throwableUncaught_;
+        result.throwableCaught_ = throwableCaught_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
+        }
+        result.throwableUncaught_ = throwableUncaught_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
         }
         result.sameThrowable_ = sameThrowable_;
         result.bitField0_ = to_bitField0_;
@@ -10521,37 +10601,42 @@ public final class BlackcatMsg {
           executionId_ = other.executionId_;
           onChanged();
         }
-        if (other.hasStartNano()) {
-          setStartNano(other.getStartNano());
+        if (other.hasStartMillis()) {
+          setStartMillis(other.getStartMillis());
         }
-        if (other.hasEndNano()) {
-          setEndNano(other.getEndNano());
+        if (other.hasEndMillis()) {
+          setEndMillis(other.getEndMillis());
         }
-        if (other.hasCostNano()) {
-          setCostNano(other.getCostNano());
+        if (other.hasCostMillis()) {
+          setCostMillis(other.getCostMillis());
         }
-        if (other.hasSource()) {
+        if (other.hasClassName()) {
           bitField0_ |= 0x00000020;
-          source_ = other.source_;
+          className_ = other.className_;
+          onChanged();
+        }
+        if (other.hasMethodDesc()) {
+          bitField0_ |= 0x00000040;
+          methodDesc_ = other.methodDesc_;
           onChanged();
         }
         if (other.hasArgs()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
           args_ = other.args_;
           onChanged();
         }
         if (other.hasResult()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
           result_ = other.result_;
           onChanged();
         }
         if (other.hasThrowableCaught()) {
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000200;
           throwableCaught_ = other.throwableCaught_;
           onChanged();
         }
         if (other.hasThrowableUncaught()) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000400;
           throwableUncaught_ = other.throwableUncaught_;
           onChanged();
         }
@@ -10571,19 +10656,23 @@ public final class BlackcatMsg {
           
           return false;
         }
-        if (!hasStartNano()) {
+        if (!hasStartMillis()) {
           
           return false;
         }
-        if (!hasEndNano()) {
+        if (!hasEndMillis()) {
           
           return false;
         }
-        if (!hasCostNano()) {
+        if (!hasCostMillis()) {
           
           return false;
         }
-        if (!hasSource()) {
+        if (!hasClassName()) {
+          
+          return false;
+        }
+        if (!hasMethodDesc()) {
           
           return false;
         }
@@ -10773,120 +10862,120 @@ public final class BlackcatMsg {
         return this;
       }
 
-      private long startNano_ ;
+      private long startMillis_ ;
       /**
-       * <code>required uint64 startNano = 3;</code>
+       * <code>required uint64 startMillis = 3;</code>
        */
-      public boolean hasStartNano() {
+      public boolean hasStartMillis() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required uint64 startNano = 3;</code>
+       * <code>required uint64 startMillis = 3;</code>
        */
-      public long getStartNano() {
-        return startNano_;
+      public long getStartMillis() {
+        return startMillis_;
       }
       /**
-       * <code>required uint64 startNano = 3;</code>
+       * <code>required uint64 startMillis = 3;</code>
        */
-      public Builder setStartNano(long value) {
+      public Builder setStartMillis(long value) {
         bitField0_ |= 0x00000004;
-        startNano_ = value;
+        startMillis_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint64 startNano = 3;</code>
+       * <code>required uint64 startMillis = 3;</code>
        */
-      public Builder clearStartNano() {
+      public Builder clearStartMillis() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        startNano_ = 0L;
+        startMillis_ = 0L;
         onChanged();
         return this;
       }
 
-      private long endNano_ ;
+      private long endMillis_ ;
       /**
-       * <code>required uint64 endNano = 4;</code>
+       * <code>required uint64 endMillis = 4;</code>
        */
-      public boolean hasEndNano() {
+      public boolean hasEndMillis() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required uint64 endNano = 4;</code>
+       * <code>required uint64 endMillis = 4;</code>
        */
-      public long getEndNano() {
-        return endNano_;
+      public long getEndMillis() {
+        return endMillis_;
       }
       /**
-       * <code>required uint64 endNano = 4;</code>
+       * <code>required uint64 endMillis = 4;</code>
        */
-      public Builder setEndNano(long value) {
+      public Builder setEndMillis(long value) {
         bitField0_ |= 0x00000008;
-        endNano_ = value;
+        endMillis_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint64 endNano = 4;</code>
+       * <code>required uint64 endMillis = 4;</code>
        */
-      public Builder clearEndNano() {
+      public Builder clearEndMillis() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        endNano_ = 0L;
+        endMillis_ = 0L;
         onChanged();
         return this;
       }
 
-      private long costNano_ ;
+      private long costMillis_ ;
       /**
-       * <code>required uint64 costNano = 5;</code>
+       * <code>required uint64 costMillis = 5;</code>
        */
-      public boolean hasCostNano() {
+      public boolean hasCostMillis() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required uint64 costNano = 5;</code>
+       * <code>required uint64 costMillis = 5;</code>
        */
-      public long getCostNano() {
-        return costNano_;
+      public long getCostMillis() {
+        return costMillis_;
       }
       /**
-       * <code>required uint64 costNano = 5;</code>
+       * <code>required uint64 costMillis = 5;</code>
        */
-      public Builder setCostNano(long value) {
+      public Builder setCostMillis(long value) {
         bitField0_ |= 0x00000010;
-        costNano_ = value;
+        costMillis_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint64 costNano = 5;</code>
+       * <code>required uint64 costMillis = 5;</code>
        */
-      public Builder clearCostNano() {
+      public Builder clearCostMillis() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        costNano_ = 0L;
+        costMillis_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object source_ = "";
+      private java.lang.Object className_ = "";
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
-      public boolean hasSource() {
+      public boolean hasClassName() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
-      public java.lang.String getSource() {
-        java.lang.Object ref = source_;
+      public java.lang.String getClassName() {
+        java.lang.Object ref = className_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            source_ = s;
+            className_ = s;
           }
           return s;
         } else {
@@ -10894,66 +10983,142 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
       public com.google.protobuf.ByteString
-          getSourceBytes() {
-        java.lang.Object ref = source_;
+          getClassNameBytes() {
+        java.lang.Object ref = className_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          source_ = b;
+          className_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
-      public Builder setSource(
+      public Builder setClassName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000020;
-        source_ = value;
+        className_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
-      public Builder clearSource() {
+      public Builder clearClassName() {
         bitField0_ = (bitField0_ & ~0x00000020);
-        source_ = getDefaultInstance().getSource();
+        className_ = getDefaultInstance().getClassName();
         onChanged();
         return this;
       }
       /**
-       * <code>required string source = 6;</code>
+       * <code>required string className = 6;</code>
        */
-      public Builder setSourceBytes(
+      public Builder setClassNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000020;
-        source_ = value;
+        className_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object methodDesc_ = "";
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public boolean hasMethodDesc() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public java.lang.String getMethodDesc() {
+        java.lang.Object ref = methodDesc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            methodDesc_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMethodDescBytes() {
+        java.lang.Object ref = methodDesc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          methodDesc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public Builder setMethodDesc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        methodDesc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public Builder clearMethodDesc() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        methodDesc_ = getDefaultInstance().getMethodDesc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string methodDesc = 7;</code>
+       */
+      public Builder setMethodDescBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        methodDesc_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object args_ = "";
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public boolean hasArgs() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public java.lang.String getArgs() {
         java.lang.Object ref = args_;
@@ -10970,7 +11135,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public com.google.protobuf.ByteString
           getArgsBytes() {
@@ -10986,36 +11151,36 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public Builder setArgs(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         args_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public Builder clearArgs() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         args_ = getDefaultInstance().getArgs();
         onChanged();
         return this;
       }
       /**
-       * <code>required string args = 7;</code>
+       * <code>required string args = 8;</code>
        */
       public Builder setArgsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         args_ = value;
         onChanged();
         return this;
@@ -11023,13 +11188,13 @@ public final class BlackcatMsg {
 
       private java.lang.Object result_ = "";
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public boolean hasResult() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public java.lang.String getResult() {
         java.lang.Object ref = result_;
@@ -11046,7 +11211,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public com.google.protobuf.ByteString
           getResultBytes() {
@@ -11062,36 +11227,36 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public Builder setResult(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         result_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         result_ = getDefaultInstance().getResult();
         onChanged();
         return this;
       }
       /**
-       * <code>required string result = 8;</code>
+       * <code>required string result = 9;</code>
        */
       public Builder setResultBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         result_ = value;
         onChanged();
         return this;
@@ -11099,13 +11264,13 @@ public final class BlackcatMsg {
 
       private java.lang.Object throwableCaught_ = "";
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public boolean hasThrowableCaught() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public java.lang.String getThrowableCaught() {
         java.lang.Object ref = throwableCaught_;
@@ -11122,7 +11287,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public com.google.protobuf.ByteString
           getThrowableCaughtBytes() {
@@ -11138,36 +11303,36 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public Builder setThrowableCaught(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         throwableCaught_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public Builder clearThrowableCaught() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         throwableCaught_ = getDefaultInstance().getThrowableCaught();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string throwableCaught = 9;</code>
+       * <code>optional string throwableCaught = 10;</code>
        */
       public Builder setThrowableCaughtBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         throwableCaught_ = value;
         onChanged();
         return this;
@@ -11175,13 +11340,13 @@ public final class BlackcatMsg {
 
       private java.lang.Object throwableUncaught_ = "";
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public boolean hasThrowableUncaught() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public java.lang.String getThrowableUncaught() {
         java.lang.Object ref = throwableUncaught_;
@@ -11198,7 +11363,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public com.google.protobuf.ByteString
           getThrowableUncaughtBytes() {
@@ -11214,36 +11379,36 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public Builder setThrowableUncaught(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000400;
         throwableUncaught_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public Builder clearThrowableUncaught() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         throwableUncaught_ = getDefaultInstance().getThrowableUncaught();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string throwableUncaught = 10;</code>
+       * <code>optional string throwableUncaught = 11;</code>
        */
       public Builder setThrowableUncaughtBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000400;
         throwableUncaught_ = value;
         onChanged();
         return this;
@@ -11251,31 +11416,31 @@ public final class BlackcatMsg {
 
       private boolean sameThrowable_ ;
       /**
-       * <code>required bool sameThrowable = 11;</code>
+       * <code>required bool sameThrowable = 12;</code>
        */
       public boolean hasSameThrowable() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>required bool sameThrowable = 11;</code>
+       * <code>required bool sameThrowable = 12;</code>
        */
       public boolean getSameThrowable() {
         return sameThrowable_;
       }
       /**
-       * <code>required bool sameThrowable = 11;</code>
+       * <code>required bool sameThrowable = 12;</code>
        */
       public Builder setSameThrowable(boolean value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         sameThrowable_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool sameThrowable = 11;</code>
+       * <code>required bool sameThrowable = 12;</code>
        */
       public Builder clearSameThrowable() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000800);
         sameThrowable_ = false;
         onChanged();
         return this;
@@ -11417,14 +11582,15 @@ public final class BlackcatMsg {
       "ithub.bingoohuang.blackcat.sdk.protobuf." +
       "BlackcatProcess.Proc\032O\n\004Proc\022\013\n\003pid\030\001 \002(",
       "\004\022\014\n\004args\030\002 \002(\t\022\013\n\003res\030\003 \002(\004\022\021\n\tstartTim" +
-      "e\030\004 \002(\004\022\014\n\004name\030\005 \002(\t\"\350\001\n\025BlackcatMethod" +
+      "e\030\004 \002(\004\022\014\n\004name\030\005 \002(\t\"\205\002\n\025BlackcatMethod" +
       "Runtime\022\013\n\003pid\030\001 \002(\t\022\023\n\013executionId\030\002 \002(" +
-      "\t\022\021\n\tstartNano\030\003 \002(\004\022\017\n\007endNano\030\004 \002(\004\022\020\n" +
-      "\010costNano\030\005 \002(\004\022\016\n\006source\030\006 \002(\t\022\014\n\004args\030" +
-      "\007 \002(\t\022\016\n\006result\030\010 \002(\t\022\027\n\017throwableCaught" +
-      "\030\t \001(\t\022\031\n\021throwableUncaught\030\n \001(\t\022\025\n\rsam" +
-      "eThrowable\030\013 \002(\010B;\n,com.github.bingoohua" +
-      "ng.blackcat.sdk.protobufB\013BlackcatMsg"
+      "\t\022\023\n\013startMillis\030\003 \002(\004\022\021\n\tendMillis\030\004 \002(" +
+      "\004\022\022\n\ncostMillis\030\005 \002(\004\022\021\n\tclassName\030\006 \002(\t" +
+      "\022\022\n\nmethodDesc\030\007 \002(\t\022\014\n\004args\030\010 \002(\t\022\016\n\006re" +
+      "sult\030\t \002(\t\022\027\n\017throwableCaught\030\n \001(\t\022\031\n\021t" +
+      "hrowableUncaught\030\013 \001(\t\022\025\n\rsameThrowable\030" +
+      "\014 \002(\010B;\n,com.github.bingoohuang.blackcat" +
+      ".sdk.protobufB\013BlackcatMsg"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11515,7 +11681,7 @@ public final class BlackcatMsg {
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor,
-        new java.lang.String[] { "Pid", "ExecutionId", "StartNano", "EndNano", "CostNano", "Source", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", });
+        new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostMillis", "ClassName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

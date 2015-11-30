@@ -49,4 +49,13 @@ public class StrBuilder {
         sb.deleteCharAt(sb.length() - 1);
         return this;
     }
+
+    public StrBuilder replaceLast(char c) {
+        return deleteLast().p(c);
+    }
+
+    public StrBuilder p(Object obj) {
+        sb.append(obj);
+        return this;
+    }
 }

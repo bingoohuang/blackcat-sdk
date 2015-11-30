@@ -7,11 +7,14 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoop;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
 public class BlackcatClientHandler
         extends SimpleChannelInboundHandler<BlackcatRsp> {
+    Logger log = LoggerFactory.getLogger(BlackcatClientHandler.class);
 
     private final BlackcatNettyClient blackcatNettyClient;
     long startTime = -1;
@@ -73,9 +76,10 @@ public class BlackcatClientHandler
 
     void println(String msg) {
         if (startTime < 0) {
-            System.err.format("[SERVER IS DOWN] %s%n", msg);
+            log.info("[SERVER IS DOWN] {}", msg);
         } else {
-            System.err.format("[UPTIME: %5ds] %s%n", (System.currentTimeMillis() - startTime) / 1000, msg);
+            long seconds = (System.currentTimeMillis() - startTime) / 1000;
+            log.info("[UPTIME: {}] {}", seconds, msg);
         }
     }
 }
