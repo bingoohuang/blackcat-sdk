@@ -104,10 +104,11 @@ message BlackcatMethodRuntime {
     required uint64 costMillis = 5;
 
     required string className = 6;
-    required string methodDesc = 7;
-    required string args = 8;
-    required string result = 9;
-    optional string throwableCaught = 10;
-    optional string throwableUncaught = 11;
-    required bool sameThrowable = 12;
+    required string methodName = 7;
+    required string methodDesc = 8;
+    required string args = 9;
+    required string result = 10;
+    optional string throwableCaught = 11;
+    optional string throwableUncaught = 12;
+    required bool sameThrowable = 13;
 }
