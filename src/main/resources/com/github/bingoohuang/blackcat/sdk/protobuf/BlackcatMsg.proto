@@ -101,7 +101,7 @@ message BlackcatMethodRuntime {
     required string executionId = 2;
     required uint64 startMillis = 3;
     required uint64 endMillis = 4;
-    required uint64 costMillis = 5;
+    required uint64 costNano = 5;
 
     required string className = 6;
     required string methodName = 7;
