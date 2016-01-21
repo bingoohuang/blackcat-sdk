@@ -2,6 +2,7 @@ package com.github.bingoohuang.blackcat.sdk.protobuf;
 
 // compile with:
 // protoc --java_out=../blackcat-sdk/src/main/java/ BlackcatMsg.proto
+// protoc --java_out=/Users/bingoohuang/github/blackcat-sdk/src/main/java/ src/main/resources/com/github/bingoohuang/blackcat/sdk/protobuf/BlackcatMsg.proto
 
 option java_package = "com.github.bingoohuang.blackcat.sdk.protobuf";
 
@@ -15,6 +16,10 @@ message BlackcatReqHead {
         BlackcatProcess = 3;
         BlackcatConfig = 4;
         BlackcatMethodRuntime = 5;
+        BlackcatFileSystemUsage = 6;
+        BlackcatNetStat = 7;
+        BlackcatJSON = 8;
+        BlackcatTrace = 9;
     }
     required ReqType reqType = 1;
     required string hostname = 2;
@@ -29,6 +34,10 @@ message BlackcatReq {
     optional BlackcatLoad blackcatLoad = 4;
     optional BlackcatProcess blackcatProcess = 5;
     optional BlackcatMethodRuntime blackcatMethodRuntime = 6;
+    optional BlackcatFileSystemUsage blackcatFileSystemUsage = 7;
+    optional BlackcatNetStat blackcatNetStat = 8;
+    optional BlackcatJSON blackcatJSON = 9;
+    optional BlackcatTrace blackcatTrace = 10;
 }
 
 message BlackcatRspHead {
@@ -111,4 +120,58 @@ message BlackcatMethodRuntime {
     optional string throwableCaught = 11;
     optional string throwableUncaught = 12;
     required bool sameThrowable = 13;
+}
+
+message BlackcatFileSystemUsage {
+    message Usage {
+        required string devName = 1;
+        required string dirName = 2;
+        required uint64 diskReads = 3;
+        required uint64 diskWrites = 4;
+        required uint64 diskReadBytes = 5;
+        required uint64 diskWriteBytes = 6;
+        required double diskQueue = 7;
+        required double diskServiceTime = 8;
+        required uint64 avail = 9;
+        required uint64 used = 10;
+        required uint64 total = 11;
+        required double usePercent = 12;
+        required uint64 free = 13;
+        required uint64 freeFiles = 14;
+        required uint64 files = 15;
+    }
+
+    repeated Usage usage = 1;
+}
+
+message BlackcatNetStat {
+    required uint32 tcpInboundTotal = 1;
+    required uint32 tcpOutboundTotal = 2;
+    required uint32 allInboundTotal = 3;
+    required uint32 allOutboundTotal = 4;
+    required uint32 tcpEstablished = 5;
+    required uint32 tcpSynSent = 6;
+    required uint32 tcpSynRecv = 7;
+    required uint32 tcpFinWait1 = 8;
+    required uint32 tcpFinWait2 = 9;
+    required uint32 tcpTimeWait = 10;
+    required uint32 tcpClose = 11;
+    required uint32 tcpCloseWait = 12;
+    required uint32 tcpLastAck = 13;
+    required uint32 tcpListen = 14;
+    required uint32 tcpClosing = 15;
+    required uint32 tcpIdle = 16;
+    required uint32 tcpBound = 17;
+}
+
+message BlackcatJSON {
+    required string schema = 1;
+    required string json = 2;
+}
+
+message BlackcatTrace {
+    required string traceId = 1;
+    required string linkId = 2;
+    required string msgType = 3;
+    required string msg = 4;
 }

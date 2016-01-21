@@ -6,7 +6,9 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.Splitter;
+import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
+import com.google.common.io.CharStreams;
 import org.apache.commons.lang3.StringUtils;
 import org.n3r.diamond.client.Miner;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -23,8 +26,27 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import static com.google.common.base.Charsets.UTF_8;
+
 public class Blackcats {
     private static Logger log = LoggerFactory.getLogger(Blackcats.class);
+
+
+    public static String runShellScript(String shellScript) {
+        return executeCommandLine(new String[]{"/bin/bash", "-c", shellScript});
+    }
+
+    public static String executeCommandLine(String[] cmd) {
+        try {
+            Process p = Runtime.getRuntime().exec(cmd);
+            p.waitFor();
+
+            Readable r = new InputStreamReader(p.getInputStream(), UTF_8);
+            return CharStreams.toString(r);
+        } catch (Exception e) {
+            throw Throwables.propagate(e);
+        }
+    }
 
     public static StrBuilder str(String str) {
         return new StrBuilder(str);
