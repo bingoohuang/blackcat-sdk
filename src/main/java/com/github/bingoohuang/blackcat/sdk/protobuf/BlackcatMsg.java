@@ -10495,6 +10495,20 @@ public final class BlackcatMsg {
      * <code>required bool sameThrowable = 13;</code>
      */
     boolean getSameThrowable();
+
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    boolean hasInvokeId();
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    java.lang.String getInvokeId();
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getInvokeIdBytes();
   }
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime}
@@ -10620,6 +10634,12 @@ public final class BlackcatMsg {
             case 104: {
               bitField0_ |= 0x00001000;
               sameThrowable_ = input.readBool();
+              break;
+            }
+            case 114: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00002000;
+              invokeId_ = bs;
               break;
             }
           }
@@ -11100,6 +11120,48 @@ public final class BlackcatMsg {
       return sameThrowable_;
     }
 
+    public static final int INVOKEID_FIELD_NUMBER = 14;
+    private java.lang.Object invokeId_;
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    public boolean hasInvokeId() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    public java.lang.String getInvokeId() {
+      java.lang.Object ref = invokeId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          invokeId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string invokeId = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInvokeIdBytes() {
+      java.lang.Object ref = invokeId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        invokeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       pid_ = "";
       executionId_ = "";
@@ -11114,6 +11176,7 @@ public final class BlackcatMsg {
       throwableCaught_ = "";
       throwableUncaught_ = "";
       sameThrowable_ = false;
+      invokeId_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11165,6 +11228,10 @@ public final class BlackcatMsg {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasInvokeId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -11210,6 +11277,9 @@ public final class BlackcatMsg {
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeBool(13, sameThrowable_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeBytes(14, getInvokeIdBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -11271,6 +11341,10 @@ public final class BlackcatMsg {
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(13, sameThrowable_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(14, getInvokeIdBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11415,6 +11489,8 @@ public final class BlackcatMsg {
         bitField0_ = (bitField0_ & ~0x00000800);
         sameThrowable_ = false;
         bitField0_ = (bitField0_ & ~0x00001000);
+        invokeId_ = "";
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
 
@@ -11495,6 +11571,10 @@ public final class BlackcatMsg {
           to_bitField0_ |= 0x00001000;
         }
         result.sameThrowable_ = sameThrowable_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.invokeId_ = invokeId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11568,6 +11648,11 @@ public final class BlackcatMsg {
         if (other.hasSameThrowable()) {
           setSameThrowable(other.getSameThrowable());
         }
+        if (other.hasInvokeId()) {
+          bitField0_ |= 0x00002000;
+          invokeId_ = other.invokeId_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -11614,6 +11699,10 @@ public final class BlackcatMsg {
           return false;
         }
         if (!hasSameThrowable()) {
+          
+          return false;
+        }
+        if (!hasInvokeId()) {
           
           return false;
         }
@@ -12447,6 +12536,82 @@ public final class BlackcatMsg {
       public Builder clearSameThrowable() {
         bitField0_ = (bitField0_ & ~0x00001000);
         sameThrowable_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object invokeId_ = "";
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public boolean hasInvokeId() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public java.lang.String getInvokeId() {
+        java.lang.Object ref = invokeId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            invokeId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getInvokeIdBytes() {
+        java.lang.Object ref = invokeId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          invokeId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public Builder setInvokeId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00002000;
+        invokeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public Builder clearInvokeId() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        invokeId_ = getDefaultInstance().getInvokeId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string invokeId = 14;</code>
+       */
+      public Builder setInvokeIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00002000;
+        invokeId_ = value;
         onChanged();
         return this;
       }
@@ -18487,39 +18652,39 @@ public final class BlackcatMsg {
       "com.github.bingoohuang.blackcat.sdk.prot",
       "obuf.BlackcatProcess.Proc\032O\n\004Proc\022\013\n\003pid" +
       "\030\001 \002(\004\022\014\n\004args\030\002 \002(\t\022\013\n\003res\030\003 \002(\004\022\021\n\tsta" +
-      "rtTime\030\004 \002(\004\022\014\n\004name\030\005 \002(\t\"\227\002\n\025BlackcatM" +
+      "rtTime\030\004 \002(\004\022\014\n\004name\030\005 \002(\t\"\251\002\n\025BlackcatM" +
       "ethodRuntime\022\013\n\003pid\030\001 \002(\t\022\023\n\013executionId" +
       "\030\002 \002(\t\022\023\n\013startMillis\030\003 \002(\004\022\021\n\tendMillis" +
       "\030\004 \002(\004\022\020\n\010costNano\030\005 \002(\004\022\021\n\tclassName\030\006 " +
       "\002(\t\022\022\n\nmethodName\030\007 \002(\t\022\022\n\nmethodDesc\030\010 " +
       "\002(\t\022\014\n\004args\030\t \002(\t\022\016\n\006result\030\n \002(\t\022\027\n\017thr" +
       "owableCaught\030\013 \001(\t\022\031\n\021throwableUncaught\030" +
-      "\014 \001(\t\022\025\n\rsameThrowable\030\r \002(\010\"\223\003\n\027Blackca",
-      "tFileSystemUsage\022Z\n\005usage\030\001 \003(\0132K.com.gi" +
-      "thub.bingoohuang.blackcat.sdk.protobuf.B" +
-      "lackcatFileSystemUsage.Usage\032\233\002\n\005Usage\022\017" +
-      "\n\007devName\030\001 \002(\t\022\017\n\007dirName\030\002 \002(\t\022\021\n\tdisk" +
-      "Reads\030\003 \002(\004\022\022\n\ndiskWrites\030\004 \002(\004\022\025\n\rdiskR" +
-      "eadBytes\030\005 \002(\004\022\026\n\016diskWriteBytes\030\006 \002(\004\022\021" +
-      "\n\tdiskQueue\030\007 \002(\001\022\027\n\017diskServiceTime\030\010 \002" +
-      "(\001\022\r\n\005avail\030\t \002(\004\022\014\n\004used\030\n \002(\004\022\r\n\005total" +
-      "\030\013 \002(\004\022\022\n\nusePercent\030\014 \002(\001\022\014\n\004free\030\r \002(\004" +
-      "\022\021\n\tfreeFiles\030\016 \002(\004\022\r\n\005files\030\017 \002(\004\"\374\002\n\017B",
-      "lackcatNetStat\022\027\n\017tcpInboundTotal\030\001 \002(\r\022" +
-      "\030\n\020tcpOutboundTotal\030\002 \002(\r\022\027\n\017allInboundT" +
-      "otal\030\003 \002(\r\022\030\n\020allOutboundTotal\030\004 \002(\r\022\026\n\016" +
-      "tcpEstablished\030\005 \002(\r\022\022\n\ntcpSynSent\030\006 \002(\r" +
-      "\022\022\n\ntcpSynRecv\030\007 \002(\r\022\023\n\013tcpFinWait1\030\010 \002(" +
-      "\r\022\023\n\013tcpFinWait2\030\t \002(\r\022\023\n\013tcpTimeWait\030\n " +
-      "\002(\r\022\020\n\010tcpClose\030\013 \002(\r\022\024\n\014tcpCloseWait\030\014 " +
-      "\002(\r\022\022\n\ntcpLastAck\030\r \002(\r\022\021\n\ttcpListen\030\016 \002" +
-      "(\r\022\022\n\ntcpClosing\030\017 \002(\r\022\017\n\007tcpIdle\030\020 \002(\r\022" +
-      "\020\n\010tcpBound\030\021 \002(\r\",\n\014BlackcatJSON\022\016\n\006sch",
-      "ema\030\001 \002(\t\022\014\n\004json\030\002 \002(\t\"N\n\rBlackcatTrace" +
-      "\022\017\n\007traceId\030\001 \002(\t\022\016\n\006linkId\030\002 \002(\t\022\017\n\007msg" +
-      "Type\030\003 \002(\t\022\013\n\003msg\030\004 \002(\tB;\n,com.github.bi" +
-      "ngoohuang.blackcat.sdk.protobufB\013Blackca" +
-      "tMsg"
+      "\014 \001(\t\022\025\n\rsameThrowable\030\r \002(\010\022\020\n\010invokeId",
+      "\030\016 \002(\t\"\223\003\n\027BlackcatFileSystemUsage\022Z\n\005us" +
+      "age\030\001 \003(\0132K.com.github.bingoohuang.black" +
+      "cat.sdk.protobuf.BlackcatFileSystemUsage" +
+      ".Usage\032\233\002\n\005Usage\022\017\n\007devName\030\001 \002(\t\022\017\n\007dir" +
+      "Name\030\002 \002(\t\022\021\n\tdiskReads\030\003 \002(\004\022\022\n\ndiskWri" +
+      "tes\030\004 \002(\004\022\025\n\rdiskReadBytes\030\005 \002(\004\022\026\n\016disk" +
+      "WriteBytes\030\006 \002(\004\022\021\n\tdiskQueue\030\007 \002(\001\022\027\n\017d" +
+      "iskServiceTime\030\010 \002(\001\022\r\n\005avail\030\t \002(\004\022\014\n\004u" +
+      "sed\030\n \002(\004\022\r\n\005total\030\013 \002(\004\022\022\n\nusePercent\030\014" +
+      " \002(\001\022\014\n\004free\030\r \002(\004\022\021\n\tfreeFiles\030\016 \002(\004\022\r\n",
+      "\005files\030\017 \002(\004\"\374\002\n\017BlackcatNetStat\022\027\n\017tcpI" +
+      "nboundTotal\030\001 \002(\r\022\030\n\020tcpOutboundTotal\030\002 " +
+      "\002(\r\022\027\n\017allInboundTotal\030\003 \002(\r\022\030\n\020allOutbo" +
+      "undTotal\030\004 \002(\r\022\026\n\016tcpEstablished\030\005 \002(\r\022\022" +
+      "\n\ntcpSynSent\030\006 \002(\r\022\022\n\ntcpSynRecv\030\007 \002(\r\022\023" +
+      "\n\013tcpFinWait1\030\010 \002(\r\022\023\n\013tcpFinWait2\030\t \002(\r" +
+      "\022\023\n\013tcpTimeWait\030\n \002(\r\022\020\n\010tcpClose\030\013 \002(\r\022" +
+      "\024\n\014tcpCloseWait\030\014 \002(\r\022\022\n\ntcpLastAck\030\r \002(" +
+      "\r\022\021\n\ttcpListen\030\016 \002(\r\022\022\n\ntcpClosing\030\017 \002(\r" +
+      "\022\017\n\007tcpIdle\030\020 \002(\r\022\020\n\010tcpBound\030\021 \002(\r\",\n\014B",
+      "lackcatJSON\022\016\n\006schema\030\001 \002(\t\022\014\n\004json\030\002 \002(" +
+      "\t\"N\n\rBlackcatTrace\022\017\n\007traceId\030\001 \002(\t\022\016\n\006l" +
+      "inkId\030\002 \002(\t\022\017\n\007msgType\030\003 \002(\t\022\013\n\003msg\030\004 \002(" +
+      "\tB;\n,com.github.bingoohuang.blackcat.sdk" +
+      ".protobufB\013BlackcatMsg"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18610,7 +18775,7 @@ public final class BlackcatMsg {
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor,
-        new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostNano", "ClassName", "MethodName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", });
+        new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostNano", "ClassName", "MethodName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", "InvokeId", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable = new
