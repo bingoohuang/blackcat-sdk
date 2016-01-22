@@ -20,6 +20,7 @@ message BlackcatReqHead {
         BlackcatNetStat = 7;
         BlackcatJSON = 8;
         BlackcatTrace = 9;
+        BlackcatMetric = 10;
     }
     required ReqType reqType = 1;
     required string hostname = 2;
@@ -38,6 +39,7 @@ message BlackcatReq {
     optional BlackcatNetStat blackcatNetStat = 8;
     optional BlackcatJSON blackcatJSON = 9;
     optional BlackcatTrace blackcatTrace = 10;
+    optional BlackcatMetric blackcatMetric = 11;
 }
 
 message BlackcatRspHead {
@@ -175,4 +177,9 @@ message BlackcatTrace {
     required string linkId = 2;
     required string msgType = 3;
     required string msg = 4;
+}
+
+message BlackcatMetric {
+    required string name = 1;
+    required uint64 value = 2;
 }
