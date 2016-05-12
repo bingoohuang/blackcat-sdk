@@ -58,4 +58,8 @@ public class StrBuilder {
         sb.append(obj);
         return this;
     }
+
+    public int len() {
+        return sb.length();
+    }
 }

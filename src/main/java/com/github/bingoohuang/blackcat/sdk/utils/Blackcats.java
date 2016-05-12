@@ -7,7 +7,6 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.Splitter;
 import com.google.common.base.Throwables;
-import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
 import org.apache.commons.lang3.StringUtils;
 import org.n3r.diamond.client.Miner;
@@ -48,6 +47,10 @@ public class Blackcats {
         }
     }
 
+    public static StrBuilder str() {
+        return new StrBuilder();
+    }
+
     public static StrBuilder str(String str) {
         return new StrBuilder(str);
     }
@@ -64,25 +67,6 @@ public class Blackcats {
                 .setReqType(reqType)
                 .setTimestamp(System.currentTimeMillis())
                 .build();
-    }
-
-    public static List<String> splitLinesWoComments(String text, String commentStart) {
-        Splitter splitter = Splitter.on('\n').trimResults().omitEmptyStrings();
-        List<String> lines = Lists.newArrayList();
-
-        for (String line : splitter.split(text)) {
-            int commentIndex = line.indexOf(commentStart);
-            if (commentIndex < 0) {
-                lines.add(line);
-                continue;
-            }
-
-            line = line.substring(0, commentIndex);
-            line = StringUtils.trim(line);
-            if (StringUtils.isNotEmpty(line)) lines.add(line);
-        }
-
-        return lines;
     }
 
     public static Object parseReq(String packageName, BlackcatReq req) {
