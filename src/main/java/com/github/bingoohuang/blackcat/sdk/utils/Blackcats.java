@@ -82,6 +82,8 @@ public class Blackcats {
             Constructor<?> ctor = reqClass.getConstructor(
                     BlackcatReqHead.class, methodResult.getClass());
             return ctor.newInstance(req.getBlackcatReqHead(), methodResult);
+        } catch (ClassNotFoundException e) {
+            log.debug("ClassNotFoundException:{}", e.getMessage());
         } catch (Exception e) {
             log.warn("error", e);
         }
