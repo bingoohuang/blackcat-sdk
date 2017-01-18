@@ -6,59 +6,38 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.Splitter;
-import com.google.common.base.Throwables;
 import com.google.common.io.CharStreams;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.n3r.diamond.client.Miner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.net.InetAddress;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Charsets.UTF_8;
 
+@Slf4j
 public class Blackcats {
-    private static Logger log = LoggerFactory.getLogger(Blackcats.class);
-
-
     public static String runShellScript(String shellScript) {
         return executeCommandLine(new String[]{"/bin/bash", "-c", shellScript});
     }
 
+    @SneakyThrows
     public static String executeCommandLine(String[] cmd) {
-        try {
-            Process p = Runtime.getRuntime().exec(cmd);
-            p.waitFor();
+        Process p = Runtime.getRuntime().exec(cmd);
+        p.waitFor();
 
-            Readable r = new InputStreamReader(p.getInputStream(), UTF_8);
-            return CharStreams.toString(r);
-        } catch (Exception e) {
-            throw Throwables.propagate(e);
-        }
-    }
-
-    public static StrBuilder str() {
-        return new StrBuilder();
-    }
-
-    public static StrBuilder str(String str) {
-        return new StrBuilder(str);
-    }
-
-    public static StrBuilder str(char ch) {
-        StrBuilder strBuilder = new StrBuilder();
-        strBuilder.p(ch);
-        return strBuilder;
+        Readable r = new InputStreamReader(p.getInputStream(), UTF_8);
+        return CharStreams.toString(r);
     }
 
     public static BlackcatReqHead buildHead(BlackcatReqHead.ReqType reqType) {
@@ -75,11 +54,11 @@ public class Blackcats {
         String simpleName = msgType.toString();
         String className = packageName + "." + simpleName + "Req";
         try {
-            Method getMethod = req.getClass().getMethod("get" + simpleName);
-            Object methodResult = getMethod.invoke(req);
+            val getMethod = req.getClass().getMethod("get" + simpleName);
+            val methodResult = getMethod.invoke(req);
 
-            Class<?> reqClass = Class.forName(className);
-            Constructor<?> ctor = reqClass.getConstructor(
+            val reqClass = Class.forName(className);
+            val ctor = reqClass.getConstructor(
                     BlackcatReqHead.class, methodResult.getClass());
             return ctor.newInstance(req.getBlackcatReqHead(), methodResult);
         } catch (ClassNotFoundException e) {
@@ -96,7 +75,7 @@ public class Blackcats {
 
         String simpleName = msgType.toString();
         try {
-            Method getMethod = req.getClass().getMethod("get" + simpleName);
+            val getMethod = req.getClass().getMethod("get" + simpleName);
             return getMethod.invoke(req);
 
         } catch (Exception e) {
@@ -112,7 +91,7 @@ public class Blackcats {
 
         String simpleName = msgType.toString();
         try {
-            Method getMethod = rsp.getClass().getMethod("get" + simpleName);
+            val getMethod = rsp.getClass().getMethod("get" + simpleName);
             return getMethod.invoke(rsp);
         } catch (Exception e) {
             log.warn("error", e);
@@ -126,11 +105,15 @@ public class Blackcats {
         if (parts.size() == 1) {
             String dataId = parts.get(0);
             return new Miner().getString(dataId);
-        } else if (parts.size() == 2) {
+        }
+
+        if (parts.size() == 2) {
             String group = parts.get(0);
             String dataId = parts.get(1);
             return new Miner().getStone(group, dataId);
-        } else if (parts.size() == 3) {
+        }
+
+        if (parts.size() == 3) {
             String group = parts.get(0);
             String dataId = parts.get(1);
             String key = parts.get(2);
@@ -140,14 +123,14 @@ public class Blackcats {
         return null;
     }
 
+    static DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+
     public static String format(long time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(new Date(time));
+        return new DateTime(time).toString(formatter);
     }
 
     public static String now() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(new Date());
+        return DateTime.now().toString(formatter);
     }
 
     public static void sleep(int timeout, TimeUnit timeUnit) {
@@ -174,7 +157,7 @@ public class Blackcats {
     public static String getHostname() {
         try {
             return StringUtils.trim(execReadToString("hostname"));
-        } catch (IOException e) {
+        } catch (Throwable ex) {
             // ignore
         }
 
@@ -187,7 +170,8 @@ public class Blackcats {
         throw new RuntimeException("unable to get hostname");
     }
 
-    public static String execReadToString(String execCommand) throws IOException {
+    @SneakyThrows
+    public static String execReadToString(String execCommand) {
         Process proc = Runtime.getRuntime().exec(execCommand);
         try (InputStream stream = proc.getInputStream()) {
             try (Scanner s = new Scanner(stream).useDelimiter("\\A")) {

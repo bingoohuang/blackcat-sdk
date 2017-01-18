@@ -1,10 +1,24 @@
 package com.github.bingoohuang.blackcat.sdk.utils;
 
 public class StrBuilder {
+    public static StrBuilder str() {
+        return new StrBuilder();
+    }
+
+    public static StrBuilder str(String str) {
+        return new StrBuilder(str);
+    }
+
+    public static StrBuilder str(char ch) {
+        StrBuilder strBuilder = new StrBuilder();
+        strBuilder.p(ch);
+        return strBuilder;
+    }
+
     private StringBuilder sb;
 
     public StrBuilder() {
-        sb = new StringBuilder();
+        this(new StringBuilder());
     }
 
     public StrBuilder(StringBuilder sb) {
@@ -12,7 +26,7 @@ public class StrBuilder {
     }
 
     public StrBuilder(String str) {
-        sb = new StringBuilder(str);
+        this(new StringBuilder(str));
     }
 
     public StrBuilder p(String str) {

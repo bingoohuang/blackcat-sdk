@@ -1,21 +1,17 @@
 package com.github.bingoohuang.blackcat.sdk.netty;
 
-
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.utils.Blackcats;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoop;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
-public class BlackcatClientHandler
-        extends SimpleChannelInboundHandler<BlackcatRsp> {
-    Logger log = LoggerFactory.getLogger(BlackcatClientHandler.class);
-
+@Slf4j
+public class BlackcatClientHandler extends SimpleChannelInboundHandler<BlackcatRsp> {
     private final BlackcatNettyClient blackcatNettyClient;
     long startTime = -1;
 
@@ -25,10 +21,7 @@ public class BlackcatClientHandler
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, BlackcatRsp rsp
-    ) throws Exception {
-        System.out.println(rsp);
-
+    public void channelRead0(ChannelHandlerContext ctx, BlackcatRsp rsp) throws Exception {
         Object o = Blackcats.parseRspBody(rsp);
         blackcatNettyClient.post(o);
     }
@@ -62,7 +55,7 @@ public class BlackcatClientHandler
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("Disconnected from: " + ctx.channel().remoteAddress());
+        println("Disconnected from: " + ctx.channel().remoteAddress());
         blackcatNettyClient.setChannel(null);
 
         super.channelInactive(ctx);
