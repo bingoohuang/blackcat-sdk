@@ -4,7 +4,9 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.google.common.eventbus.EventBus;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -12,61 +14,48 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
-import io.netty.handler.ssl.SslContext;
 import lombok.Setter;
-import lombok.SneakyThrows;
+import lombok.val;
 
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.HOST;
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.PORT;
 
 public final class BlackcatNettyClient {
-    EventLoopGroup eventLoop = new NioEventLoopGroup(1);
     @Setter volatile Channel channel;
-    BlackcatClientHandler clientHandler;
     EventBus eventBus = new EventBus();
 
-    private final SslContext sslCtx = BlackcatConfig.configureSslForClient();
+    private void initSocketChannel(SocketChannel ch) {
+        val p = ch.pipeline();
+        val ctx = BlackcatConfig.configureSslForClient();
+        if (ctx != null) p.addLast(ctx.newHandler(ch.alloc(), HOST, PORT));
 
-    @SneakyThrows
-    private Bootstrap configureBootstrap() {
-        Bootstrap b = new Bootstrap();
-        b.group(eventLoop);
-        b.channel(NioSocketChannel.class);
-        b.option(ChannelOption.SO_KEEPALIVE, true);
-        b.remoteAddress(HOST, PORT);
-        clientHandler = new BlackcatClientHandler(this);
-
-        b.handler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            public void initChannel(SocketChannel ch) {
-                ChannelPipeline p = ch.pipeline();
-                if (sslCtx != null)
-                    p.addLast(sslCtx.newHandler(ch.alloc(), HOST, PORT));
-
-                p.addLast(new ProtobufVarint32FrameDecoder());
-                p.addLast(new ProtobufDecoder(BlackcatRsp.getDefaultInstance()));
-
-                p.addLast(new ProtobufVarint32LengthFieldPrepender());
-                p.addLast(new ProtobufEncoder());
-
-
-                p.addLast(clientHandler);
-            }
-        });
-        return b;
-
+        p.addLast(new ProtobufVarint32FrameDecoder());
+        p.addLast(new ProtobufDecoder(BlackcatRsp.getDefaultInstance()));
+        p.addLast(new ProtobufVarint32LengthFieldPrepender());
+        p.addLast(new ProtobufEncoder());
+        p.addLast(new BlackcatClientHandler(this));
     }
 
     public void connect() {
-        configureBootstrap().connect();
-    }
-
-    public void post(Object o) {
-        eventBus.post(o);
+        new Bootstrap()
+                .group(new NioEventLoopGroup(1))
+                .channel(NioSocketChannel.class)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .remoteAddress(HOST, PORT)
+                .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    public void initChannel(SocketChannel ch) {
+                        initSocketChannel(ch);
+                    }
+                }).connect();
     }
 
     public void send(BlackcatReq req) {
         if (channel != null) channel.writeAndFlush(req);
+    }
+
+    public void post(Object o) {
+        eventBus.post(o);
     }
 
     public void register(Object o) {

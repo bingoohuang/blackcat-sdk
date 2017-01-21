@@ -5,8 +5,10 @@ import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Splitter;
 import com.google.common.io.CharStreams;
+import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -173,14 +175,41 @@ public class Blackcats {
     @SneakyThrows
     public static String execReadToString(String execCommand) {
         Process proc = Runtime.getRuntime().exec(execCommand);
-        try (InputStream stream = proc.getInputStream()) {
-            try (Scanner s = new Scanner(stream).useDelimiter("\\A")) {
-                return s.hasNext() ? s.next() : "";
-            }
-        }
+        @Cleanup val stream = proc.getInputStream();
+        @Cleanup val scanner = new Scanner(stream).useDelimiter("\\A");
+        return scanner.hasNext() ? scanner.next() : "";
     }
 
     public static String decimal(double v) {
         return String.format("%.02f", v);
+    }
+
+    public static ClassLoader getClassLoader() {
+        return MoreObjects.firstNonNull(
+                Thread.currentThread().getContextClassLoader(),
+                Blackcats.class.getClassLoader());
+    }
+
+    public static InputStream classpathInputStream(String pathname, boolean silent) {
+        InputStream is = classpathInputStream(pathname);
+        if (is != null || silent) return is;
+
+        throw new RuntimeException("fail to find " + pathname + " in current dir or classpath");
+    }
+
+    public static InputStream classpathInputStream(String resourceName) {
+        return getClassLoader().getResourceAsStream(resourceName);
+    }
+
+    public static boolean hasSpring = classExists("org.springframework.context.ApplicationContext");
+    public static boolean hasDiamond = classExists("org.n3r.diamond.client.Miner");
+
+    public static boolean classExists(String className) {
+        try {
+            Class.forName(className, false, Blackcats.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 }

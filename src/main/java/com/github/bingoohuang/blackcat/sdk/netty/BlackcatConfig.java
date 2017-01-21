@@ -10,8 +10,8 @@ import lombok.val;
 public class BlackcatConfig {
     public static final String HOST = System.getProperty("host", "127.0.0.1");
     public static final int PORT = Integer.parseInt(System.getProperty("port", "6667"));
-    // Sleep 5 seconds before a reconnection attempt.
-    public static final int RECONNECT_DELAY = Integer.parseInt(System.getProperty("reconnectDelay", "5"));
+    // Sleep 15 seconds before a reconnection attempt.
+    public static final int RECONNECT_DELAY = Integer.parseInt(System.getProperty("reconnectDelay", "15"));
     // Reconnect when the server sends nothing for 10 seconds.
     // public static final int READ_TIMEOUT = Integer.parseInt(System.getProperty("readTimeout", "10"));
 

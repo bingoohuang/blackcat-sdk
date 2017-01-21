@@ -88,6 +88,7 @@
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>diamond-client</artifactId>
             <version>0.0.20</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
@@ -104,11 +105,16 @@
             <artifactId>guava</artifactId>
             <version>20.0</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.truth</groupId>
+            <artifactId>truth</artifactId>
+            <version>0.31</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -136,8 +142,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
