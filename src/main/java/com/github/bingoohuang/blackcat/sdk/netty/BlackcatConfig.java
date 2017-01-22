@@ -75,7 +75,7 @@ public class BlackcatConfig {
     }
 
     private static void trySystemProperties() {
-        String prop1 = System.getProperty("blackcat-server.hostAndPort", "127.0.0.1");
+        String prop1 = System.getProperty("blackcat-server.hostAndPort", "127.0.0.1:6667");
         hostAndPort = HostAndPort.fromString(prop1);
 
         String prop2 = System.getProperty("blackcat-server.reconnectDelay", "15");
