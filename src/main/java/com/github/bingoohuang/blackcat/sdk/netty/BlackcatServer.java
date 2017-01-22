@@ -35,7 +35,8 @@ public final class BlackcatServer {
         };
 
         val b = createServerBootstrap(bossGroup, workerGroup);
-        val channel = b.bind(BlackcatConfig.PORT).sync().channel();
+        int port = BlackcatConfig.getHostAndPort().getPort();
+        val channel = b.bind(port).sync().channel();
         channel.closeFuture().sync();
     }
 

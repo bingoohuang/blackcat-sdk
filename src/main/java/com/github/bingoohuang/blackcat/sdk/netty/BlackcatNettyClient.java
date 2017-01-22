@@ -17,8 +17,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import lombok.Setter;
 import lombok.val;
 
-import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.HOST;
-import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.PORT;
+import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.getHostAndPort;
 
 public final class BlackcatNettyClient {
     @Setter volatile Channel channel;
@@ -27,7 +26,10 @@ public final class BlackcatNettyClient {
     private void initSocketChannel(SocketChannel ch) {
         val p = ch.pipeline();
         val ctx = BlackcatConfig.configureSslForClient();
-        if (ctx != null) p.addLast(ctx.newHandler(ch.alloc(), HOST, PORT));
+        if (ctx != null) {
+            val hp = getHostAndPort();
+            p.addLast(ctx.newHandler(ch.alloc(), hp.getHost(), hp.getPort()));
+        }
 
         p.addLast(new ProtobufVarint32FrameDecoder());
         p.addLast(new ProtobufDecoder(BlackcatRsp.getDefaultInstance()));
@@ -37,11 +39,12 @@ public final class BlackcatNettyClient {
     }
 
     public void connect() {
+        val hp = getHostAndPort();
         new Bootstrap()
                 .group(new NioEventLoopGroup(1))
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.SO_KEEPALIVE, true)
-                .remoteAddress(HOST, PORT)
+                .remoteAddress(hp.getHost(), hp.getPort())
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch) {

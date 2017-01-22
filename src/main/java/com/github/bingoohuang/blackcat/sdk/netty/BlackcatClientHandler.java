@@ -42,15 +42,16 @@ public class BlackcatClientHandler extends SimpleChannelInboundHandler<BlackcatR
     }
 
     public void reconnect(final EventLoop loop) {
-        println("Sleeping for: " + BlackcatConfig.RECONNECT_DELAY + 's');
+        println("Sleeping for: " + BlackcatConfig.getReconnectDelay() + 's');
+
 
         loop.schedule(new Runnable() {
             @Override
             public void run() {
-                println("Reconnecting to: " + BlackcatConfig.HOST + ':' + BlackcatConfig.PORT);
+                println("Reconnecting to: " + BlackcatConfig.getHostAndPort());
                 blackcatNettyClient.connect();
             }
-        }, BlackcatConfig.RECONNECT_DELAY, TimeUnit.SECONDS);
+        }, BlackcatConfig.getReconnectDelay(), TimeUnit.SECONDS);
     }
 
     @Override
