@@ -10749,15 +10749,15 @@ public final class BlackcatMsg {
         getLinkIdBytes();
 
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     boolean hasThrowableMessage();
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     java.lang.String getThrowableMessage();
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     com.google.protobuf.ByteString
         getThrowableMessageBytes();
@@ -11519,13 +11519,13 @@ public final class BlackcatMsg {
     public static final int THROWABLEMESSAGE_FIELD_NUMBER = 17;
     private java.lang.Object throwableMessage_;
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     public boolean hasThrowableMessage() {
       return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     public java.lang.String getThrowableMessage() {
       java.lang.Object ref = throwableMessage_;
@@ -11542,7 +11542,7 @@ public final class BlackcatMsg {
       }
     }
     /**
-     * <code>required string throwableMessage = 17;</code>
+     * <code>optional string throwableMessage = 17;</code>
      */
     public com.google.protobuf.ByteString
         getThrowableMessageBytes() {
@@ -11636,10 +11636,6 @@ public final class BlackcatMsg {
         return false;
       }
       if (!hasLinkId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasThrowableMessage()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -12176,10 +12172,6 @@ public final class BlackcatMsg {
           return false;
         }
         if (!hasLinkId()) {
-          
-          return false;
-        }
-        if (!hasThrowableMessage()) {
           
           return false;
         }
@@ -13247,13 +13239,13 @@ public final class BlackcatMsg {
 
       private java.lang.Object throwableMessage_ = "";
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public boolean hasThrowableMessage() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public java.lang.String getThrowableMessage() {
         java.lang.Object ref = throwableMessage_;
@@ -13270,7 +13262,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public com.google.protobuf.ByteString
           getThrowableMessageBytes() {
@@ -13286,7 +13278,7 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public Builder setThrowableMessage(
           java.lang.String value) {
@@ -13299,7 +13291,7 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public Builder clearThrowableMessage() {
         bitField0_ = (bitField0_ & ~0x00010000);
@@ -13308,7 +13300,7 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>required string throwableMessage = 17;</code>
+       * <code>optional string throwableMessage = 17;</code>
        */
       public Builder setThrowableMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -19944,7 +19936,7 @@ public final class BlackcatMsg {
       " \001(\t\022\031\n\021throwableUncaught\030\014 \001(\t\022\025\n\rsameT" +
       "hrowable\030\r \002(\010\022\020\n\010invokeId\030\016 \002(\t\022\017\n\007trac" +
       "eId\030\017 \002(\t\022\016\n\006linkId\030\020 \002(\t\022\030\n\020throwableMe" +
-      "ssage\030\021 \002(\t\"\223\003\n\027BlackcatFileSystemUsage\022" +
+      "ssage\030\021 \001(\t\"\223\003\n\027BlackcatFileSystemUsage\022" +
       "Z\n\005usage\030\001 \003(\0132K.com.github.bingoohuang." +
       "blackcat.sdk.protobuf.BlackcatFileSystem" +
       "Usage.Usage\032\233\002\n\005Usage\022\017\n\007devName\030\001 \002(\t\022\017" +
