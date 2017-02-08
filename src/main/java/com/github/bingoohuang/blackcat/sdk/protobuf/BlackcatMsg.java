@@ -10719,6 +10719,48 @@ public final class BlackcatMsg {
      */
     com.google.protobuf.ByteString
         getInvokeIdBytes();
+
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    boolean hasTraceId();
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    java.lang.String getTraceId();
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getTraceIdBytes();
+
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    boolean hasLinkId();
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    java.lang.String getLinkId();
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    com.google.protobuf.ByteString
+        getLinkIdBytes();
+
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    boolean hasThrowableMessage();
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    java.lang.String getThrowableMessage();
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    com.google.protobuf.ByteString
+        getThrowableMessageBytes();
   }
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime}
@@ -10850,6 +10892,24 @@ public final class BlackcatMsg {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00002000;
               invokeId_ = bs;
+              break;
+            }
+            case 122: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00004000;
+              traceId_ = bs;
+              break;
+            }
+            case 130: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00008000;
+              linkId_ = bs;
+              break;
+            }
+            case 138: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00010000;
+              throwableMessage_ = bs;
               break;
             }
           }
@@ -11372,6 +11432,132 @@ public final class BlackcatMsg {
       }
     }
 
+    public static final int TRACEID_FIELD_NUMBER = 15;
+    private java.lang.Object traceId_;
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    public boolean hasTraceId() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    public java.lang.String getTraceId() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          traceId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string traceId = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTraceIdBytes() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        traceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LINKID_FIELD_NUMBER = 16;
+    private java.lang.Object linkId_;
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    public boolean hasLinkId() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    public java.lang.String getLinkId() {
+      java.lang.Object ref = linkId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          linkId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string linkId = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLinkIdBytes() {
+      java.lang.Object ref = linkId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        linkId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int THROWABLEMESSAGE_FIELD_NUMBER = 17;
+    private java.lang.Object throwableMessage_;
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    public boolean hasThrowableMessage() {
+      return ((bitField0_ & 0x00010000) == 0x00010000);
+    }
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    public java.lang.String getThrowableMessage() {
+      java.lang.Object ref = throwableMessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          throwableMessage_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string throwableMessage = 17;</code>
+     */
+    public com.google.protobuf.ByteString
+        getThrowableMessageBytes() {
+      java.lang.Object ref = throwableMessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        throwableMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       pid_ = "";
       executionId_ = "";
@@ -11387,6 +11573,9 @@ public final class BlackcatMsg {
       throwableUncaught_ = "";
       sameThrowable_ = false;
       invokeId_ = "";
+      traceId_ = "";
+      linkId_ = "";
+      throwableMessage_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11442,6 +11631,18 @@ public final class BlackcatMsg {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasTraceId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLinkId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasThrowableMessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -11490,6 +11691,15 @@ public final class BlackcatMsg {
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         output.writeBytes(14, getInvokeIdBytes());
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeBytes(15, getTraceIdBytes());
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeBytes(16, getLinkIdBytes());
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        output.writeBytes(17, getThrowableMessageBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -11555,6 +11765,18 @@ public final class BlackcatMsg {
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(14, getInvokeIdBytes());
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(15, getTraceIdBytes());
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(16, getLinkIdBytes());
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(17, getThrowableMessageBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11701,6 +11923,12 @@ public final class BlackcatMsg {
         bitField0_ = (bitField0_ & ~0x00001000);
         invokeId_ = "";
         bitField0_ = (bitField0_ & ~0x00002000);
+        traceId_ = "";
+        bitField0_ = (bitField0_ & ~0x00004000);
+        linkId_ = "";
+        bitField0_ = (bitField0_ & ~0x00008000);
+        throwableMessage_ = "";
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
 
@@ -11785,6 +12013,18 @@ public final class BlackcatMsg {
           to_bitField0_ |= 0x00002000;
         }
         result.invokeId_ = invokeId_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.traceId_ = traceId_;
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.linkId_ = linkId_;
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00010000;
+        }
+        result.throwableMessage_ = throwableMessage_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11863,6 +12103,21 @@ public final class BlackcatMsg {
           invokeId_ = other.invokeId_;
           onChanged();
         }
+        if (other.hasTraceId()) {
+          bitField0_ |= 0x00004000;
+          traceId_ = other.traceId_;
+          onChanged();
+        }
+        if (other.hasLinkId()) {
+          bitField0_ |= 0x00008000;
+          linkId_ = other.linkId_;
+          onChanged();
+        }
+        if (other.hasThrowableMessage()) {
+          bitField0_ |= 0x00010000;
+          throwableMessage_ = other.throwableMessage_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -11913,6 +12168,18 @@ public final class BlackcatMsg {
           return false;
         }
         if (!hasInvokeId()) {
+          
+          return false;
+        }
+        if (!hasTraceId()) {
+          
+          return false;
+        }
+        if (!hasLinkId()) {
+          
+          return false;
+        }
+        if (!hasThrowableMessage()) {
           
           return false;
         }
@@ -12822,6 +13089,234 @@ public final class BlackcatMsg {
   }
   bitField0_ |= 0x00002000;
         invokeId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object traceId_ = "";
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public boolean hasTraceId() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public java.lang.String getTraceId() {
+        java.lang.Object ref = traceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            traceId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTraceIdBytes() {
+        java.lang.Object ref = traceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          traceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public Builder setTraceId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public Builder clearTraceId() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        traceId_ = getDefaultInstance().getTraceId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string traceId = 15;</code>
+       */
+      public Builder setTraceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object linkId_ = "";
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public boolean hasLinkId() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public java.lang.String getLinkId() {
+        java.lang.Object ref = linkId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            linkId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLinkIdBytes() {
+        java.lang.Object ref = linkId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          linkId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public Builder setLinkId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00008000;
+        linkId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public Builder clearLinkId() {
+        bitField0_ = (bitField0_ & ~0x00008000);
+        linkId_ = getDefaultInstance().getLinkId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string linkId = 16;</code>
+       */
+      public Builder setLinkIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00008000;
+        linkId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object throwableMessage_ = "";
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public boolean hasThrowableMessage() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public java.lang.String getThrowableMessage() {
+        java.lang.Object ref = throwableMessage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            throwableMessage_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public com.google.protobuf.ByteString
+          getThrowableMessageBytes() {
+        java.lang.Object ref = throwableMessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          throwableMessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public Builder setThrowableMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00010000;
+        throwableMessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public Builder clearThrowableMessage() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        throwableMessage_ = getDefaultInstance().getThrowableMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string throwableMessage = 17;</code>
+       */
+      public Builder setThrowableMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00010000;
+        throwableMessage_ = value;
         onChanged();
         return this;
       }
@@ -19440,40 +19935,41 @@ public final class BlackcatMsg {
       "goohuang.blackcat.sdk.protobuf.BlackcatP" +
       "rocess.Proc\032O\n\004Proc\022\013\n\003pid\030\001 \002(\004\022\014\n\004args" +
       "\030\002 \002(\t\022\013\n\003res\030\003 \002(\004\022\021\n\tstartTime\030\004 \002(\004\022\014" +
-      "\n\004name\030\005 \002(\t\"\251\002\n\025BlackcatMethodRuntime\022\013" +
+      "\n\004name\030\005 \002(\t\"\344\002\n\025BlackcatMethodRuntime\022\013" +
       "\n\003pid\030\001 \002(\t\022\023\n\013executionId\030\002 \002(\t\022\023\n\013star" +
       "tMillis\030\003 \002(\004\022\021\n\tendMillis\030\004 \002(\004\022\020\n\010cost" +
       "Nano\030\005 \002(\004\022\021\n\tclassName\030\006 \002(\t\022\022\n\nmethodN" +
       "ame\030\007 \002(\t\022\022\n\nmethodDesc\030\010 \002(\t\022\014\n\004args\030\t ",
       "\002(\t\022\016\n\006result\030\n \002(\t\022\027\n\017throwableCaught\030\013" +
       " \001(\t\022\031\n\021throwableUncaught\030\014 \001(\t\022\025\n\rsameT" +
-      "hrowable\030\r \002(\010\022\020\n\010invokeId\030\016 \002(\t\"\223\003\n\027Bla" +
-      "ckcatFileSystemUsage\022Z\n\005usage\030\001 \003(\0132K.co" +
-      "m.github.bingoohuang.blackcat.sdk.protob" +
-      "uf.BlackcatFileSystemUsage.Usage\032\233\002\n\005Usa" +
-      "ge\022\017\n\007devName\030\001 \002(\t\022\017\n\007dirName\030\002 \002(\t\022\021\n\t" +
-      "diskReads\030\003 \002(\004\022\022\n\ndiskWrites\030\004 \002(\004\022\025\n\rd" +
-      "iskReadBytes\030\005 \002(\004\022\026\n\016diskWriteBytes\030\006 \002" +
-      "(\004\022\021\n\tdiskQueue\030\007 \002(\001\022\027\n\017diskServiceTime",
-      "\030\010 \002(\001\022\r\n\005avail\030\t \002(\004\022\014\n\004used\030\n \002(\004\022\r\n\005t" +
-      "otal\030\013 \002(\004\022\022\n\nusePercent\030\014 \002(\001\022\014\n\004free\030\r" +
-      " \002(\004\022\021\n\tfreeFiles\030\016 \002(\004\022\r\n\005files\030\017 \002(\004\"\374" +
-      "\002\n\017BlackcatNetStat\022\027\n\017tcpInboundTotal\030\001 " +
-      "\002(\r\022\030\n\020tcpOutboundTotal\030\002 \002(\r\022\027\n\017allInbo" +
-      "undTotal\030\003 \002(\r\022\030\n\020allOutboundTotal\030\004 \002(\r" +
-      "\022\026\n\016tcpEstablished\030\005 \002(\r\022\022\n\ntcpSynSent\030\006" +
-      " \002(\r\022\022\n\ntcpSynRecv\030\007 \002(\r\022\023\n\013tcpFinWait1\030" +
-      "\010 \002(\r\022\023\n\013tcpFinWait2\030\t \002(\r\022\023\n\013tcpTimeWai" +
-      "t\030\n \002(\r\022\020\n\010tcpClose\030\013 \002(\r\022\024\n\014tcpCloseWai",
-      "t\030\014 \002(\r\022\022\n\ntcpLastAck\030\r \002(\r\022\021\n\ttcpListen" +
-      "\030\016 \002(\r\022\022\n\ntcpClosing\030\017 \002(\r\022\017\n\007tcpIdle\030\020 " +
-      "\002(\r\022\020\n\010tcpBound\030\021 \002(\r\",\n\014BlackcatJSON\022\016\n" +
-      "\006schema\030\001 \002(\t\022\014\n\004json\030\002 \002(\t\"N\n\rBlackcatT" +
-      "race\022\017\n\007traceId\030\001 \002(\t\022\016\n\006linkId\030\002 \002(\t\022\017\n" +
-      "\007msgType\030\003 \002(\t\022\013\n\003msg\030\004 \002(\t\"-\n\016BlackcatM" +
-      "etric\022\014\n\004name\030\001 \002(\t\022\r\n\005value\030\002 \002(\004B;\n,co" +
-      "m.github.bingoohuang.blackcat.sdk.protob" +
-      "ufB\013BlackcatMsg"
+      "hrowable\030\r \002(\010\022\020\n\010invokeId\030\016 \002(\t\022\017\n\007trac" +
+      "eId\030\017 \002(\t\022\016\n\006linkId\030\020 \002(\t\022\030\n\020throwableMe" +
+      "ssage\030\021 \002(\t\"\223\003\n\027BlackcatFileSystemUsage\022" +
+      "Z\n\005usage\030\001 \003(\0132K.com.github.bingoohuang." +
+      "blackcat.sdk.protobuf.BlackcatFileSystem" +
+      "Usage.Usage\032\233\002\n\005Usage\022\017\n\007devName\030\001 \002(\t\022\017" +
+      "\n\007dirName\030\002 \002(\t\022\021\n\tdiskReads\030\003 \002(\004\022\022\n\ndi" +
+      "skWrites\030\004 \002(\004\022\025\n\rdiskReadBytes\030\005 \002(\004\022\026\n",
+      "\016diskWriteBytes\030\006 \002(\004\022\021\n\tdiskQueue\030\007 \002(\001" +
+      "\022\027\n\017diskServiceTime\030\010 \002(\001\022\r\n\005avail\030\t \002(\004" +
+      "\022\014\n\004used\030\n \002(\004\022\r\n\005total\030\013 \002(\004\022\022\n\nusePerc" +
+      "ent\030\014 \002(\001\022\014\n\004free\030\r \002(\004\022\021\n\tfreeFiles\030\016 \002" +
+      "(\004\022\r\n\005files\030\017 \002(\004\"\374\002\n\017BlackcatNetStat\022\027\n" +
+      "\017tcpInboundTotal\030\001 \002(\r\022\030\n\020tcpOutboundTot" +
+      "al\030\002 \002(\r\022\027\n\017allInboundTotal\030\003 \002(\r\022\030\n\020all" +
+      "OutboundTotal\030\004 \002(\r\022\026\n\016tcpEstablished\030\005 " +
+      "\002(\r\022\022\n\ntcpSynSent\030\006 \002(\r\022\022\n\ntcpSynRecv\030\007 " +
+      "\002(\r\022\023\n\013tcpFinWait1\030\010 \002(\r\022\023\n\013tcpFinWait2\030",
+      "\t \002(\r\022\023\n\013tcpTimeWait\030\n \002(\r\022\020\n\010tcpClose\030\013" +
+      " \002(\r\022\024\n\014tcpCloseWait\030\014 \002(\r\022\022\n\ntcpLastAck" +
+      "\030\r \002(\r\022\021\n\ttcpListen\030\016 \002(\r\022\022\n\ntcpClosing\030" +
+      "\017 \002(\r\022\017\n\007tcpIdle\030\020 \002(\r\022\020\n\010tcpBound\030\021 \002(\r" +
+      "\",\n\014BlackcatJSON\022\016\n\006schema\030\001 \002(\t\022\014\n\004json" +
+      "\030\002 \002(\t\"N\n\rBlackcatTrace\022\017\n\007traceId\030\001 \002(\t" +
+      "\022\016\n\006linkId\030\002 \002(\t\022\017\n\007msgType\030\003 \002(\t\022\013\n\003msg" +
+      "\030\004 \002(\t\"-\n\016BlackcatMetric\022\014\n\004name\030\001 \002(\t\022\r" +
+      "\n\005value\030\002 \002(\004B;\n,com.github.bingoohuang." +
+      "blackcat.sdk.protobufB\013BlackcatMsg"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19564,7 +20060,7 @@ public final class BlackcatMsg {
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor,
-        new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostNano", "ClassName", "MethodName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", "InvokeId", });
+        new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostNano", "ClassName", "MethodName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", "InvokeId", "TraceId", "LinkId", "ThrowableMessage", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable = new

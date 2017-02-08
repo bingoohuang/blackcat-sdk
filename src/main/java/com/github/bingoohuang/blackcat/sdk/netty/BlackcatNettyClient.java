@@ -54,7 +54,9 @@ public final class BlackcatNettyClient {
     }
 
     public void send(BlackcatReq req) {
-        if (channel != null) channel.writeAndFlush(req);
+        if (channel == null) return;
+
+        channel.writeAndFlush(req);
     }
 
     public void post(Object o) {

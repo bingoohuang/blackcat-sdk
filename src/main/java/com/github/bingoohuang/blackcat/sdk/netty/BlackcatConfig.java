@@ -65,10 +65,13 @@ public class BlackcatConfig {
     private static boolean tryDiamond() {
         if (!Blackcats.hasDiamond) return false;
 
-        val miner = new Miner().getMiner("blackcat", "server");
+        val miner = new Miner().getMiner("blackcat-server", "config");
         if (miner == null) return false;
 
-        hostAndPort = HostAndPort.fromString(miner.getString("hostAndPort"));
+        String hostAndPortConfig = miner.getString("hostAndPort");
+        if (hostAndPortConfig == null) return false;
+
+        hostAndPort = HostAndPort.fromString(hostAndPortConfig);
         reconnectDelay = miner.getInt("reconnectDelay", 15);
 
         return true;

@@ -123,6 +123,9 @@ message BlackcatMethodRuntime {
     optional string throwableUncaught = 12;
     required bool sameThrowable = 13;
     required string invokeId = 14;
+    required string traceId = 15;
+    required string linkId = 16;
+    optional string throwableMessage = 17;
 }
 
 message BlackcatFileSystemUsage {
