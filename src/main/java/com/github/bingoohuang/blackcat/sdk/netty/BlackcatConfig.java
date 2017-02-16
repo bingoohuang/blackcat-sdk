@@ -50,7 +50,7 @@ public class BlackcatConfig {
         if (is == null) return false;
 
         @Cleanup val bis = is;
-        Properties properties = new Properties();
+        val properties = new Properties();
         properties.load(bis);
 
         String prop1 = properties.getProperty("hostAndPort", "127.0.0.1");
@@ -99,8 +99,8 @@ public class BlackcatConfig {
 
     @SneakyThrows
     public static SslContext configureSslForServer() {
-        boolean SSL = System.getProperty("ssl") != null;
-        if (!SSL) return null;
+        val ssl = System.getProperty("ssl") != null;
+        if (!ssl) return null;
 
         val ssc = new SelfSignedCertificate();
         return SslContextBuilder
@@ -110,8 +110,8 @@ public class BlackcatConfig {
 
     @SneakyThrows
     public static SslContext configureSslForClient() {
-        boolean SSL = System.getProperty("ssl") != null;
-        if (!SSL) return null;
+        val ssl = System.getProperty("ssl") != null;
+        if (!ssl) return null;
 
         return SslContextBuilder.forClient()
                 .trustManager(InsecureTrustManagerFactory.INSTANCE)
