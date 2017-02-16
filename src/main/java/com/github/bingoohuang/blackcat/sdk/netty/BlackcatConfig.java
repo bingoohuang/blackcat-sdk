@@ -46,7 +46,7 @@ public class BlackcatConfig {
 
     @SneakyThrows
     private static boolean tryClasspathConfig() {
-        val is = classpathInputStream("blackcat-server.properties");
+        val is = classpathInputStream("blackcatserver.properties");
         if (is == null) return false;
 
         @Cleanup val bis = is;
@@ -65,7 +65,7 @@ public class BlackcatConfig {
     private static boolean tryDiamond() {
         if (!Blackcats.hasDiamond) return false;
 
-        val miner = new Miner().getMiner("blackcat-server", "config");
+        val miner = new Miner().getMiner("blackcatserver", "config");
         if (miner == null) return false;
 
         String hostAndPortConfig = miner.getString("hostAndPort");
@@ -78,10 +78,10 @@ public class BlackcatConfig {
     }
 
     private static void trySystemProperties() {
-        String prop1 = System.getProperty("blackcat-server.hostAndPort", "127.0.0.1:6667");
+        String prop1 = System.getProperty("blackcatserver.hostAndPort", "127.0.0.1:6667");
         hostAndPort = HostAndPort.fromString(prop1);
 
-        String prop2 = System.getProperty("blackcat-server.reconnectDelay", "15");
+        String prop2 = System.getProperty("blackcatserver.reconnectDelay", "15");
         reconnectDelay = Integer.parseInt(prop2);
     }
 
