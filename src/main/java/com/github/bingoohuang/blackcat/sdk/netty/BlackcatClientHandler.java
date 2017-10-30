@@ -7,6 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoop;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +45,6 @@ public class BlackcatClientHandler extends SimpleChannelInboundHandler<BlackcatR
     public void reconnect(final EventLoop loop) {
         println("Sleeping for: " + BlackcatConfig.getReconnectDelay() + 's');
 
-
         loop.schedule(new Runnable() {
             @Override
             public void run() {
@@ -72,7 +72,7 @@ public class BlackcatClientHandler extends SimpleChannelInboundHandler<BlackcatR
         if (startTime < 0) {
             log.info("[SERVER IS DOWN] {}", msg);
         } else {
-            long seconds = (System.currentTimeMillis() - startTime) / 1000;
+            val seconds = (System.currentTimeMillis() - startTime) / 1000;
             log.info("[UPTIME: {}] {}", seconds, msg);
         }
     }

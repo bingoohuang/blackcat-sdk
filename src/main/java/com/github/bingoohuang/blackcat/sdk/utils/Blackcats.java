@@ -2,9 +2,7 @@ package com.github.bingoohuang.blackcat.sdk.utils;
 
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead;
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType;
 import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp;
-import com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Splitter;
 import com.google.common.io.CharStreams;
@@ -21,7 +19,6 @@ import org.n3r.diamond.client.Miner;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -35,10 +32,10 @@ public class Blackcats {
 
     @SneakyThrows
     public static String executeCommandLine(String[] cmd) {
-        Process p = Runtime.getRuntime().exec(cmd);
+        val p = Runtime.getRuntime().exec(cmd);
         p.waitFor();
 
-        Readable r = new InputStreamReader(p.getInputStream(), UTF_8);
+        @Cleanup val r = new InputStreamReader(p.getInputStream(), UTF_8);
         return CharStreams.toString(r);
     }
 
@@ -51,10 +48,10 @@ public class Blackcats {
     }
 
     public static Object parseReq(String packageName, BlackcatReq req) {
-        ReqType msgType = req.getBlackcatReqHead().getReqType();
+        val msgType = req.getBlackcatReqHead().getReqType();
 
-        String simpleName = msgType.toString();
-        String className = packageName + "." + simpleName + "Req";
+        val simpleName = msgType.toString();
+        val className = packageName + "." + simpleName + "Req";
         try {
             val getMethod = req.getClass().getMethod("get" + simpleName);
             val methodResult = getMethod.invoke(req);
@@ -73,9 +70,9 @@ public class Blackcats {
     }
 
     public static Object parseReqBody(BlackcatReq req) {
-        ReqType msgType = req.getBlackcatReqHead().getReqType();
+        val msgType = req.getBlackcatReqHead().getReqType();
 
-        String simpleName = msgType.toString();
+        val simpleName = msgType.toString();
         try {
             val getMethod = req.getClass().getMethod("get" + simpleName);
             return getMethod.invoke(req);
@@ -89,9 +86,9 @@ public class Blackcats {
 
 
     public static Object parseRspBody(BlackcatRsp rsp) {
-        RspType msgType = rsp.getBlackcatRspHead().getRspType();
+        val msgType = rsp.getBlackcatRspHead().getRspType();
 
-        String simpleName = msgType.toString();
+        val simpleName = msgType.toString();
         try {
             val getMethod = rsp.getClass().getMethod("get" + simpleName);
             return getMethod.invoke(rsp);
@@ -103,22 +100,22 @@ public class Blackcats {
     }
 
     public static String readDiamond(String axis) {
-        List<String> parts = Splitter.on('^').splitToList(axis);
+        val parts = Splitter.on('^').splitToList(axis);
         if (parts.size() == 1) {
-            String dataId = parts.get(0);
+            val dataId = parts.get(0);
             return new Miner().getString(dataId);
         }
 
         if (parts.size() == 2) {
-            String group = parts.get(0);
-            String dataId = parts.get(1);
+            val group = parts.get(0);
+            val dataId = parts.get(1);
             return new Miner().getStone(group, dataId);
         }
 
         if (parts.size() == 3) {
-            String group = parts.get(0);
-            String dataId = parts.get(1);
-            String key = parts.get(2);
+            val group = parts.get(0);
+            val dataId = parts.get(1);
+            val key = parts.get(2);
             return new Miner().getProperties(group, dataId).getProperty(key);
         }
 
@@ -174,7 +171,7 @@ public class Blackcats {
 
     @SneakyThrows
     public static String execReadToString(String execCommand) {
-        Process proc = Runtime.getRuntime().exec(execCommand);
+        val proc = Runtime.getRuntime().exec(execCommand);
         @Cleanup val stream = proc.getInputStream();
         @Cleanup val scanner = new Scanner(stream).useDelimiter("\\A");
         return scanner.hasNext() ? scanner.next() : "";
@@ -191,7 +188,7 @@ public class Blackcats {
     }
 
     public static InputStream classpathInputStream(String pathname, boolean silent) {
-        InputStream is = classpathInputStream(pathname);
+        val is = classpathInputStream(pathname);
         if (is != null || silent) return is;
 
         throw new RuntimeException("fail to find " + pathname + " in current dir or classpath");
