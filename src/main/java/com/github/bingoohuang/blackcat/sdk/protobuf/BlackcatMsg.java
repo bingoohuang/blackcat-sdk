@@ -6,7 +6,13 @@ package com.github.bingoohuang.blackcat.sdk.protobuf;
 public final class BlackcatMsg {
   private BlackcatMsg() {}
   public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface BlackcatReqHeadOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
@@ -47,37 +53,31 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead}
    */
-  public static final class BlackcatReqHead extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatReqHead extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
       BlackcatReqHeadOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatReqHead.newBuilder() to construct.
-    private BlackcatReqHead(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatReqHead(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatReqHead(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatReqHead defaultInstance;
-    public static BlackcatReqHead getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatReqHead() {
+      reqType_ = 0;
+      hostname_ = "";
+      timestamp_ = 0L;
     }
 
-    public BlackcatReqHead getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatReqHead(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -90,8 +90,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -103,7 +103,7 @@ public final class BlackcatMsg {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                reqType_ = value;
+                reqType_ = rawValue;
               }
               break;
             }
@@ -124,7 +124,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -135,26 +135,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatReqHead> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatReqHead>() {
-      public BlackcatReqHead parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatReqHead(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatReqHead> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -165,47 +150,47 @@ public final class BlackcatMsg {
       /**
        * <code>BlackcatMemory = 0;</code>
        */
-      BlackcatMemory(0, 0),
+      BlackcatMemory(0),
       /**
        * <code>BlackcatFileStores = 1;</code>
        */
-      BlackcatFileStores(1, 1),
+      BlackcatFileStores(1),
       /**
        * <code>BlackcatLoad = 2;</code>
        */
-      BlackcatLoad(2, 2),
+      BlackcatLoad(2),
       /**
        * <code>BlackcatProcess = 3;</code>
        */
-      BlackcatProcess(3, 3),
+      BlackcatProcess(3),
       /**
        * <code>BlackcatConfig = 4;</code>
        */
-      BlackcatConfig(4, 4),
+      BlackcatConfig(4),
       /**
        * <code>BlackcatMethodRuntime = 5;</code>
        */
-      BlackcatMethodRuntime(5, 5),
+      BlackcatMethodRuntime(5),
       /**
        * <code>BlackcatFileSystemUsage = 6;</code>
        */
-      BlackcatFileSystemUsage(6, 6),
+      BlackcatFileSystemUsage(6),
       /**
        * <code>BlackcatNetStat = 7;</code>
        */
-      BlackcatNetStat(7, 7),
+      BlackcatNetStat(7),
       /**
        * <code>BlackcatJSON = 8;</code>
        */
-      BlackcatJSON(8, 8),
+      BlackcatJSON(8),
       /**
        * <code>BlackcatTrace = 9;</code>
        */
-      BlackcatTrace(9, 9),
+      BlackcatTrace(9),
       /**
        * <code>BlackcatMetric = 10;</code>
        */
-      BlackcatMetric(10, 10),
+      BlackcatMetric(10),
       ;
 
       /**
@@ -254,9 +239,19 @@ public final class BlackcatMsg {
       public static final int BlackcatMetric_VALUE = 10;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static ReqType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ReqType forNumber(int value) {
         switch (value) {
           case 0: return BlackcatMemory;
           case 1: return BlackcatFileStores;
@@ -277,17 +272,17 @@ public final class BlackcatMsg {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<ReqType>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ReqType> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<ReqType>() {
               public ReqType findValueByNumber(int number) {
-                return ReqType.valueOf(number);
+                return ReqType.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -309,11 +304,9 @@ public final class BlackcatMsg {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private ReqType(int index, int value) {
-        this.index = index;
+      private ReqType(int value) {
         this.value = value;
       }
 
@@ -322,7 +315,7 @@ public final class BlackcatMsg {
 
     private int bitField0_;
     public static final int REQTYPE_FIELD_NUMBER = 1;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType reqType_;
+    private int reqType_;
     /**
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead.ReqType reqType = 1;</code>
      */
@@ -333,11 +326,12 @@ public final class BlackcatMsg {
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead.ReqType reqType = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType getReqType() {
-      return reqType_;
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType result = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.valueOf(reqType_);
+      return result == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory : result;
     }
 
     public static final int HOSTNAME_FIELD_NUMBER = 2;
-    private java.lang.Object hostname_;
+    private volatile java.lang.Object hostname_;
     /**
      * <code>required string hostname = 2;</code>
      */
@@ -393,11 +387,6 @@ public final class BlackcatMsg {
       return timestamp_;
     }
 
-    private void initFields() {
-      reqType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory;
-      hostname_ = "";
-      timestamp_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -422,49 +411,104 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, reqType_.getNumber());
+        output.writeEnum(1, reqType_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getHostnameBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hostname_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt64(3, timestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, reqType_.getNumber());
+          .computeEnumSize(1, reqType_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getHostnameBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hostname_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, timestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead) obj;
+
+      boolean result = true;
+      result = result && (hasReqType() == other.hasReqType());
+      if (hasReqType()) {
+        result = result && reqType_ == other.reqType_;
+      }
+      result = result && (hasHostname() == other.hasHostname());
+      if (hasHostname()) {
+        result = result && getHostname()
+            .equals(other.getHostname());
+      }
+      result = result && (hasTimestamp() == other.hasTimestamp());
+      if (hasTimestamp()) {
+        result = result && (getTimestamp()
+            == other.getTimestamp());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasReqType()) {
+        hash = (37 * hash) + REQTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + reqType_;
+      }
+      if (hasHostname()) {
+        hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getHostname().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -488,46 +532,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -535,7 +590,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHeadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -543,7 +598,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -556,31 +611,24 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
-        reqType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory;
+        reqType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         hostname_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -621,6 +669,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead)other);
@@ -643,21 +717,19 @@ public final class BlackcatMsg {
         if (other.hasTimestamp()) {
           setTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasReqType()) {
-          
           return false;
         }
         if (!hasHostname()) {
-          
           return false;
         }
         if (!hasTimestamp()) {
-          
           return false;
         }
         return true;
@@ -672,7 +744,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -682,7 +754,7 @@ public final class BlackcatMsg {
       }
       private int bitField0_;
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType reqType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory;
+      private int reqType_ = 0;
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead.ReqType reqType = 1;</code>
        */
@@ -693,7 +765,8 @@ public final class BlackcatMsg {
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead.ReqType reqType = 1;</code>
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType getReqType() {
-        return reqType_;
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType result = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.valueOf(reqType_);
+        return result == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory : result;
       }
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead.ReqType reqType = 1;</code>
@@ -703,7 +776,7 @@ public final class BlackcatMsg {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        reqType_ = value;
+        reqType_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -712,7 +785,7 @@ public final class BlackcatMsg {
        */
       public Builder clearReqType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        reqType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.ReqType.BlackcatMemory;
+        reqType_ = 0;
         onChanged();
         return this;
       }
@@ -824,16 +897,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatReqHead(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatReqHead>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatReqHead>() {
+      public BlackcatReqHead parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatReqHead(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatReqHead> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatReqHead> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatReqOrBuilder extends
@@ -984,43 +1094,34 @@ public final class BlackcatMsg {
     com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder getBlackcatMetricOrBuilder();
   }
   /**
-   * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq}
-   *
    * <pre>
    * 请求消息
    * </pre>
+   *
+   * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq}
    */
-  public static final class BlackcatReq extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq)
       BlackcatReqOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatReq.newBuilder() to construct.
-    private BlackcatReq(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatReq(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatReq defaultInstance;
-    public static BlackcatReq getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatReq() {
     }
 
-    public BlackcatReq getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatReq(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1033,8 +1134,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1188,7 +1289,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1199,26 +1300,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatReq> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatReq>() {
-      public BlackcatReq parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatReq(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatReq> getParserForType() {
-      return PARSER;
     }
 
     private int bitField0_;
@@ -1234,13 +1320,13 @@ public final class BlackcatMsg {
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead blackcatReqHead = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead getBlackcatReqHead() {
-      return blackcatReqHead_;
+      return blackcatReqHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance() : blackcatReqHead_;
     }
     /**
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead blackcatReqHead = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHeadOrBuilder getBlackcatReqHeadOrBuilder() {
-      return blackcatReqHead_;
+      return blackcatReqHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance() : blackcatReqHead_;
     }
 
     public static final int BLACKCATMEMORY_FIELD_NUMBER = 2;
@@ -1255,13 +1341,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getBlackcatMemory() {
-      return blackcatMemory_;
+      return blackcatMemory_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance() : blackcatMemory_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder getBlackcatMemoryOrBuilder() {
-      return blackcatMemory_;
+      return blackcatMemory_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance() : blackcatMemory_;
     }
 
     public static final int BLACKCATFILESTORES_FIELD_NUMBER = 3;
@@ -1276,13 +1362,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getBlackcatFileStores() {
-      return blackcatFileStores_;
+      return blackcatFileStores_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance() : blackcatFileStores_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder getBlackcatFileStoresOrBuilder() {
-      return blackcatFileStores_;
+      return blackcatFileStores_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance() : blackcatFileStores_;
     }
 
     public static final int BLACKCATLOAD_FIELD_NUMBER = 4;
@@ -1297,13 +1383,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getBlackcatLoad() {
-      return blackcatLoad_;
+      return blackcatLoad_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance() : blackcatLoad_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder getBlackcatLoadOrBuilder() {
-      return blackcatLoad_;
+      return blackcatLoad_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance() : blackcatLoad_;
     }
 
     public static final int BLACKCATPROCESS_FIELD_NUMBER = 5;
@@ -1318,13 +1404,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getBlackcatProcess() {
-      return blackcatProcess_;
+      return blackcatProcess_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance() : blackcatProcess_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder getBlackcatProcessOrBuilder() {
-      return blackcatProcess_;
+      return blackcatProcess_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance() : blackcatProcess_;
     }
 
     public static final int BLACKCATMETHODRUNTIME_FIELD_NUMBER = 6;
@@ -1339,13 +1425,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime blackcatMethodRuntime = 6;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime getBlackcatMethodRuntime() {
-      return blackcatMethodRuntime_;
+      return blackcatMethodRuntime_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance() : blackcatMethodRuntime_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime blackcatMethodRuntime = 6;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntimeOrBuilder getBlackcatMethodRuntimeOrBuilder() {
-      return blackcatMethodRuntime_;
+      return blackcatMethodRuntime_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance() : blackcatMethodRuntime_;
     }
 
     public static final int BLACKCATFILESYSTEMUSAGE_FIELD_NUMBER = 7;
@@ -1360,13 +1446,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage blackcatFileSystemUsage = 7;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage getBlackcatFileSystemUsage() {
-      return blackcatFileSystemUsage_;
+      return blackcatFileSystemUsage_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance() : blackcatFileSystemUsage_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage blackcatFileSystemUsage = 7;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsageOrBuilder getBlackcatFileSystemUsageOrBuilder() {
-      return blackcatFileSystemUsage_;
+      return blackcatFileSystemUsage_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance() : blackcatFileSystemUsage_;
     }
 
     public static final int BLACKCATNETSTAT_FIELD_NUMBER = 8;
@@ -1381,13 +1467,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat blackcatNetStat = 8;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat getBlackcatNetStat() {
-      return blackcatNetStat_;
+      return blackcatNetStat_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance() : blackcatNetStat_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat blackcatNetStat = 8;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStatOrBuilder getBlackcatNetStatOrBuilder() {
-      return blackcatNetStat_;
+      return blackcatNetStat_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance() : blackcatNetStat_;
     }
 
     public static final int BLACKCATJSON_FIELD_NUMBER = 9;
@@ -1402,13 +1488,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON blackcatJSON = 9;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON getBlackcatJSON() {
-      return blackcatJSON_;
+      return blackcatJSON_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance() : blackcatJSON_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON blackcatJSON = 9;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSONOrBuilder getBlackcatJSONOrBuilder() {
-      return blackcatJSON_;
+      return blackcatJSON_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance() : blackcatJSON_;
     }
 
     public static final int BLACKCATTRACE_FIELD_NUMBER = 10;
@@ -1423,13 +1509,13 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace blackcatTrace = 10;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace getBlackcatTrace() {
-      return blackcatTrace_;
+      return blackcatTrace_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance() : blackcatTrace_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace blackcatTrace = 10;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTraceOrBuilder getBlackcatTraceOrBuilder() {
-      return blackcatTrace_;
+      return blackcatTrace_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance() : blackcatTrace_;
     }
 
     public static final int BLACKCATMETRIC_FIELD_NUMBER = 11;
@@ -1444,28 +1530,15 @@ public final class BlackcatMsg {
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric blackcatMetric = 11;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric getBlackcatMetric() {
-      return blackcatMetric_;
+      return blackcatMetric_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance() : blackcatMetric_;
     }
     /**
      * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric blackcatMetric = 11;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder getBlackcatMetricOrBuilder() {
-      return blackcatMetric_;
+      return blackcatMetric_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance() : blackcatMetric_;
     }
 
-    private void initFields() {
-      blackcatReqHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance();
-      blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
-      blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
-      blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
-      blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
-      blackcatMethodRuntime_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance();
-      blackcatFileSystemUsage_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance();
-      blackcatNetStat_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance();
-      blackcatJSON_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance();
-      blackcatTrace_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance();
-      blackcatMetric_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1546,105 +1619,233 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, blackcatReqHead_);
+        output.writeMessage(1, getBlackcatReqHead());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, blackcatMemory_);
+        output.writeMessage(2, getBlackcatMemory());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, blackcatFileStores_);
+        output.writeMessage(3, getBlackcatFileStores());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, blackcatLoad_);
+        output.writeMessage(4, getBlackcatLoad());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeMessage(5, blackcatProcess_);
+        output.writeMessage(5, getBlackcatProcess());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(6, blackcatMethodRuntime_);
+        output.writeMessage(6, getBlackcatMethodRuntime());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeMessage(7, blackcatFileSystemUsage_);
+        output.writeMessage(7, getBlackcatFileSystemUsage());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeMessage(8, blackcatNetStat_);
+        output.writeMessage(8, getBlackcatNetStat());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeMessage(9, blackcatJSON_);
+        output.writeMessage(9, getBlackcatJSON());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeMessage(10, blackcatTrace_);
+        output.writeMessage(10, getBlackcatTrace());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeMessage(11, blackcatMetric_);
+        output.writeMessage(11, getBlackcatMetric());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, blackcatReqHead_);
+          .computeMessageSize(1, getBlackcatReqHead());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, blackcatMemory_);
+          .computeMessageSize(2, getBlackcatMemory());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, blackcatFileStores_);
+          .computeMessageSize(3, getBlackcatFileStores());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, blackcatLoad_);
+          .computeMessageSize(4, getBlackcatLoad());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, blackcatProcess_);
+          .computeMessageSize(5, getBlackcatProcess());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, blackcatMethodRuntime_);
+          .computeMessageSize(6, getBlackcatMethodRuntime());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, blackcatFileSystemUsage_);
+          .computeMessageSize(7, getBlackcatFileSystemUsage());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, blackcatNetStat_);
+          .computeMessageSize(8, getBlackcatNetStat());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, blackcatJSON_);
+          .computeMessageSize(9, getBlackcatJSON());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, blackcatTrace_);
+          .computeMessageSize(10, getBlackcatTrace());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, blackcatMetric_);
+          .computeMessageSize(11, getBlackcatMetric());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq) obj;
+
+      boolean result = true;
+      result = result && (hasBlackcatReqHead() == other.hasBlackcatReqHead());
+      if (hasBlackcatReqHead()) {
+        result = result && getBlackcatReqHead()
+            .equals(other.getBlackcatReqHead());
+      }
+      result = result && (hasBlackcatMemory() == other.hasBlackcatMemory());
+      if (hasBlackcatMemory()) {
+        result = result && getBlackcatMemory()
+            .equals(other.getBlackcatMemory());
+      }
+      result = result && (hasBlackcatFileStores() == other.hasBlackcatFileStores());
+      if (hasBlackcatFileStores()) {
+        result = result && getBlackcatFileStores()
+            .equals(other.getBlackcatFileStores());
+      }
+      result = result && (hasBlackcatLoad() == other.hasBlackcatLoad());
+      if (hasBlackcatLoad()) {
+        result = result && getBlackcatLoad()
+            .equals(other.getBlackcatLoad());
+      }
+      result = result && (hasBlackcatProcess() == other.hasBlackcatProcess());
+      if (hasBlackcatProcess()) {
+        result = result && getBlackcatProcess()
+            .equals(other.getBlackcatProcess());
+      }
+      result = result && (hasBlackcatMethodRuntime() == other.hasBlackcatMethodRuntime());
+      if (hasBlackcatMethodRuntime()) {
+        result = result && getBlackcatMethodRuntime()
+            .equals(other.getBlackcatMethodRuntime());
+      }
+      result = result && (hasBlackcatFileSystemUsage() == other.hasBlackcatFileSystemUsage());
+      if (hasBlackcatFileSystemUsage()) {
+        result = result && getBlackcatFileSystemUsage()
+            .equals(other.getBlackcatFileSystemUsage());
+      }
+      result = result && (hasBlackcatNetStat() == other.hasBlackcatNetStat());
+      if (hasBlackcatNetStat()) {
+        result = result && getBlackcatNetStat()
+            .equals(other.getBlackcatNetStat());
+      }
+      result = result && (hasBlackcatJSON() == other.hasBlackcatJSON());
+      if (hasBlackcatJSON()) {
+        result = result && getBlackcatJSON()
+            .equals(other.getBlackcatJSON());
+      }
+      result = result && (hasBlackcatTrace() == other.hasBlackcatTrace());
+      if (hasBlackcatTrace()) {
+        result = result && getBlackcatTrace()
+            .equals(other.getBlackcatTrace());
+      }
+      result = result && (hasBlackcatMetric() == other.hasBlackcatMetric());
+      if (hasBlackcatMetric()) {
+        result = result && getBlackcatMetric()
+            .equals(other.getBlackcatMetric());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasBlackcatReqHead()) {
+        hash = (37 * hash) + BLACKCATREQHEAD_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatReqHead().hashCode();
+      }
+      if (hasBlackcatMemory()) {
+        hash = (37 * hash) + BLACKCATMEMORY_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatMemory().hashCode();
+      }
+      if (hasBlackcatFileStores()) {
+        hash = (37 * hash) + BLACKCATFILESTORES_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatFileStores().hashCode();
+      }
+      if (hasBlackcatLoad()) {
+        hash = (37 * hash) + BLACKCATLOAD_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatLoad().hashCode();
+      }
+      if (hasBlackcatProcess()) {
+        hash = (37 * hash) + BLACKCATPROCESS_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatProcess().hashCode();
+      }
+      if (hasBlackcatMethodRuntime()) {
+        hash = (37 * hash) + BLACKCATMETHODRUNTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatMethodRuntime().hashCode();
+      }
+      if (hasBlackcatFileSystemUsage()) {
+        hash = (37 * hash) + BLACKCATFILESYSTEMUSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatFileSystemUsage().hashCode();
+      }
+      if (hasBlackcatNetStat()) {
+        hash = (37 * hash) + BLACKCATNETSTAT_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatNetStat().hashCode();
+      }
+      if (hasBlackcatJSON()) {
+        hash = (37 * hash) + BLACKCATJSON_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatJSON().hashCode();
+      }
+      if (hasBlackcatTrace()) {
+        hash = (37 * hash) + BLACKCATTRACE_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatTrace().hashCode();
+      }
+      if (hasBlackcatMetric()) {
+        hash = (37 * hash) + BLACKCATMETRIC_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatMetric().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1668,58 +1869,69 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq}
-     *
      * <pre>
      * 请求消息
      * </pre>
+     *
+     * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1727,7 +1939,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1740,12 +1952,13 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getBlackcatReqHeadFieldBuilder();
           getBlackcatMemoryFieldBuilder();
           getBlackcatFileStoresFieldBuilder();
@@ -1759,83 +1972,75 @@ public final class BlackcatMsg {
           getBlackcatMetricFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (blackcatReqHeadBuilder_ == null) {
-          blackcatReqHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance();
+          blackcatReqHead_ = null;
         } else {
           blackcatReqHeadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (blackcatMemoryBuilder_ == null) {
-          blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+          blackcatMemory_ = null;
         } else {
           blackcatMemoryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (blackcatFileStoresBuilder_ == null) {
-          blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+          blackcatFileStores_ = null;
         } else {
           blackcatFileStoresBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (blackcatLoadBuilder_ == null) {
-          blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+          blackcatLoad_ = null;
         } else {
           blackcatLoadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         if (blackcatProcessBuilder_ == null) {
-          blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+          blackcatProcess_ = null;
         } else {
           blackcatProcessBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         if (blackcatMethodRuntimeBuilder_ == null) {
-          blackcatMethodRuntime_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance();
+          blackcatMethodRuntime_ = null;
         } else {
           blackcatMethodRuntimeBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000020);
         if (blackcatFileSystemUsageBuilder_ == null) {
-          blackcatFileSystemUsage_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance();
+          blackcatFileSystemUsage_ = null;
         } else {
           blackcatFileSystemUsageBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000040);
         if (blackcatNetStatBuilder_ == null) {
-          blackcatNetStat_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance();
+          blackcatNetStat_ = null;
         } else {
           blackcatNetStatBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000080);
         if (blackcatJSONBuilder_ == null) {
-          blackcatJSON_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance();
+          blackcatJSON_ = null;
         } else {
           blackcatJSONBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
         if (blackcatTraceBuilder_ == null) {
-          blackcatTrace_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance();
+          blackcatTrace_ = null;
         } else {
           blackcatTraceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000200);
         if (blackcatMetricBuilder_ == null) {
-          blackcatMetric_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance();
+          blackcatMetric_ = null;
         } else {
           blackcatMetricBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000400);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -1952,6 +2157,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq)other);
@@ -1996,76 +2227,65 @@ public final class BlackcatMsg {
         if (other.hasBlackcatMetric()) {
           mergeBlackcatMetric(other.getBlackcatMetric());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasBlackcatReqHead()) {
-          
           return false;
         }
         if (!getBlackcatReqHead().isInitialized()) {
-          
           return false;
         }
         if (hasBlackcatMemory()) {
           if (!getBlackcatMemory().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatFileStores()) {
           if (!getBlackcatFileStores().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatLoad()) {
           if (!getBlackcatLoad().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatProcess()) {
           if (!getBlackcatProcess().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatMethodRuntime()) {
           if (!getBlackcatMethodRuntime().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatFileSystemUsage()) {
           if (!getBlackcatFileSystemUsage().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatNetStat()) {
           if (!getBlackcatNetStat().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatJSON()) {
           if (!getBlackcatJSON().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatTrace()) {
           if (!getBlackcatTrace().isInitialized()) {
-            
             return false;
           }
         }
         if (hasBlackcatMetric()) {
           if (!getBlackcatMetric().isInitialized()) {
-            
             return false;
           }
         }
@@ -2081,7 +2301,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2091,8 +2311,8 @@ public final class BlackcatMsg {
       }
       private int bitField0_;
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead blackcatReqHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead blackcatReqHead_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHeadOrBuilder> blackcatReqHeadBuilder_;
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead blackcatReqHead = 1;</code>
@@ -2105,7 +2325,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead getBlackcatReqHead() {
         if (blackcatReqHeadBuilder_ == null) {
-          return blackcatReqHead_;
+          return blackcatReqHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance() : blackcatReqHead_;
         } else {
           return blackcatReqHeadBuilder_.getMessage();
         }
@@ -2146,6 +2366,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatReqHead(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead value) {
         if (blackcatReqHeadBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              blackcatReqHead_ != null &&
               blackcatReqHead_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance()) {
             blackcatReqHead_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.newBuilder(blackcatReqHead_).mergeFrom(value).buildPartial();
@@ -2164,7 +2385,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatReqHead() {
         if (blackcatReqHeadBuilder_ == null) {
-          blackcatReqHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance();
+          blackcatReqHead_ = null;
           onChanged();
         } else {
           blackcatReqHeadBuilder_.clear();
@@ -2187,17 +2408,18 @@ public final class BlackcatMsg {
         if (blackcatReqHeadBuilder_ != null) {
           return blackcatReqHeadBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatReqHead_;
+          return blackcatReqHead_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.getDefaultInstance() : blackcatReqHead_;
         }
       }
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReqHead blackcatReqHead = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHeadOrBuilder> 
           getBlackcatReqHeadFieldBuilder() {
         if (blackcatReqHeadBuilder_ == null) {
-          blackcatReqHeadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatReqHeadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReqHeadOrBuilder>(
                   getBlackcatReqHead(),
                   getParentForChildren(),
@@ -2207,8 +2429,8 @@ public final class BlackcatMsg {
         return blackcatReqHeadBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory blackcatMemory_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder> blackcatMemoryBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
@@ -2221,7 +2443,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getBlackcatMemory() {
         if (blackcatMemoryBuilder_ == null) {
-          return blackcatMemory_;
+          return blackcatMemory_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance() : blackcatMemory_;
         } else {
           return blackcatMemoryBuilder_.getMessage();
         }
@@ -2262,6 +2484,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatMemory(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory value) {
         if (blackcatMemoryBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              blackcatMemory_ != null &&
               blackcatMemory_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance()) {
             blackcatMemory_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.newBuilder(blackcatMemory_).mergeFrom(value).buildPartial();
@@ -2280,7 +2503,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatMemory() {
         if (blackcatMemoryBuilder_ == null) {
-          blackcatMemory_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance();
+          blackcatMemory_ = null;
           onChanged();
         } else {
           blackcatMemoryBuilder_.clear();
@@ -2303,17 +2526,18 @@ public final class BlackcatMsg {
         if (blackcatMemoryBuilder_ != null) {
           return blackcatMemoryBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatMemory_;
+          return blackcatMemory_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.getDefaultInstance() : blackcatMemory_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory blackcatMemory = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder> 
           getBlackcatMemoryFieldBuilder() {
         if (blackcatMemoryBuilder_ == null) {
-          blackcatMemoryBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatMemoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder>(
                   getBlackcatMemory(),
                   getParentForChildren(),
@@ -2323,8 +2547,8 @@ public final class BlackcatMsg {
         return blackcatMemoryBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores blackcatFileStores_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder> blackcatFileStoresBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
@@ -2337,7 +2561,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getBlackcatFileStores() {
         if (blackcatFileStoresBuilder_ == null) {
-          return blackcatFileStores_;
+          return blackcatFileStores_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance() : blackcatFileStores_;
         } else {
           return blackcatFileStoresBuilder_.getMessage();
         }
@@ -2378,6 +2602,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatFileStores(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores value) {
         if (blackcatFileStoresBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              blackcatFileStores_ != null &&
               blackcatFileStores_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance()) {
             blackcatFileStores_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.newBuilder(blackcatFileStores_).mergeFrom(value).buildPartial();
@@ -2396,7 +2621,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatFileStores() {
         if (blackcatFileStoresBuilder_ == null) {
-          blackcatFileStores_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance();
+          blackcatFileStores_ = null;
           onChanged();
         } else {
           blackcatFileStoresBuilder_.clear();
@@ -2419,17 +2644,18 @@ public final class BlackcatMsg {
         if (blackcatFileStoresBuilder_ != null) {
           return blackcatFileStoresBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatFileStores_;
+          return blackcatFileStores_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.getDefaultInstance() : blackcatFileStores_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores blackcatFileStores = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder> 
           getBlackcatFileStoresFieldBuilder() {
         if (blackcatFileStoresBuilder_ == null) {
-          blackcatFileStoresBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatFileStoresBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder>(
                   getBlackcatFileStores(),
                   getParentForChildren(),
@@ -2439,8 +2665,8 @@ public final class BlackcatMsg {
         return blackcatFileStoresBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad blackcatLoad_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder> blackcatLoadBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
@@ -2453,7 +2679,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getBlackcatLoad() {
         if (blackcatLoadBuilder_ == null) {
-          return blackcatLoad_;
+          return blackcatLoad_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance() : blackcatLoad_;
         } else {
           return blackcatLoadBuilder_.getMessage();
         }
@@ -2494,6 +2720,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatLoad(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad value) {
         if (blackcatLoadBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              blackcatLoad_ != null &&
               blackcatLoad_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance()) {
             blackcatLoad_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.newBuilder(blackcatLoad_).mergeFrom(value).buildPartial();
@@ -2512,7 +2739,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatLoad() {
         if (blackcatLoadBuilder_ == null) {
-          blackcatLoad_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance();
+          blackcatLoad_ = null;
           onChanged();
         } else {
           blackcatLoadBuilder_.clear();
@@ -2535,17 +2762,18 @@ public final class BlackcatMsg {
         if (blackcatLoadBuilder_ != null) {
           return blackcatLoadBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatLoad_;
+          return blackcatLoad_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.getDefaultInstance() : blackcatLoad_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad blackcatLoad = 4;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder> 
           getBlackcatLoadFieldBuilder() {
         if (blackcatLoadBuilder_ == null) {
-          blackcatLoadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatLoadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder>(
                   getBlackcatLoad(),
                   getParentForChildren(),
@@ -2555,8 +2783,8 @@ public final class BlackcatMsg {
         return blackcatLoadBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess blackcatProcess_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder> blackcatProcessBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
@@ -2569,7 +2797,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getBlackcatProcess() {
         if (blackcatProcessBuilder_ == null) {
-          return blackcatProcess_;
+          return blackcatProcess_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance() : blackcatProcess_;
         } else {
           return blackcatProcessBuilder_.getMessage();
         }
@@ -2610,6 +2838,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess value) {
         if (blackcatProcessBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              blackcatProcess_ != null &&
               blackcatProcess_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance()) {
             blackcatProcess_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.newBuilder(blackcatProcess_).mergeFrom(value).buildPartial();
@@ -2628,7 +2857,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatProcess() {
         if (blackcatProcessBuilder_ == null) {
-          blackcatProcess_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance();
+          blackcatProcess_ = null;
           onChanged();
         } else {
           blackcatProcessBuilder_.clear();
@@ -2651,17 +2880,18 @@ public final class BlackcatMsg {
         if (blackcatProcessBuilder_ != null) {
           return blackcatProcessBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatProcess_;
+          return blackcatProcess_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.getDefaultInstance() : blackcatProcess_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess blackcatProcess = 5;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder> 
           getBlackcatProcessFieldBuilder() {
         if (blackcatProcessBuilder_ == null) {
-          blackcatProcessBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatProcessBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder>(
                   getBlackcatProcess(),
                   getParentForChildren(),
@@ -2671,8 +2901,8 @@ public final class BlackcatMsg {
         return blackcatProcessBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime blackcatMethodRuntime_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime blackcatMethodRuntime_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntimeOrBuilder> blackcatMethodRuntimeBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime blackcatMethodRuntime = 6;</code>
@@ -2685,7 +2915,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime getBlackcatMethodRuntime() {
         if (blackcatMethodRuntimeBuilder_ == null) {
-          return blackcatMethodRuntime_;
+          return blackcatMethodRuntime_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance() : blackcatMethodRuntime_;
         } else {
           return blackcatMethodRuntimeBuilder_.getMessage();
         }
@@ -2726,6 +2956,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatMethodRuntime(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime value) {
         if (blackcatMethodRuntimeBuilder_ == null) {
           if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              blackcatMethodRuntime_ != null &&
               blackcatMethodRuntime_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance()) {
             blackcatMethodRuntime_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.newBuilder(blackcatMethodRuntime_).mergeFrom(value).buildPartial();
@@ -2744,7 +2975,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatMethodRuntime() {
         if (blackcatMethodRuntimeBuilder_ == null) {
-          blackcatMethodRuntime_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance();
+          blackcatMethodRuntime_ = null;
           onChanged();
         } else {
           blackcatMethodRuntimeBuilder_.clear();
@@ -2767,17 +2998,18 @@ public final class BlackcatMsg {
         if (blackcatMethodRuntimeBuilder_ != null) {
           return blackcatMethodRuntimeBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatMethodRuntime_;
+          return blackcatMethodRuntime_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.getDefaultInstance() : blackcatMethodRuntime_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime blackcatMethodRuntime = 6;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntimeOrBuilder> 
           getBlackcatMethodRuntimeFieldBuilder() {
         if (blackcatMethodRuntimeBuilder_ == null) {
-          blackcatMethodRuntimeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatMethodRuntimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntimeOrBuilder>(
                   getBlackcatMethodRuntime(),
                   getParentForChildren(),
@@ -2787,8 +3019,8 @@ public final class BlackcatMsg {
         return blackcatMethodRuntimeBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage blackcatFileSystemUsage_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage blackcatFileSystemUsage_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsageOrBuilder> blackcatFileSystemUsageBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage blackcatFileSystemUsage = 7;</code>
@@ -2801,7 +3033,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage getBlackcatFileSystemUsage() {
         if (blackcatFileSystemUsageBuilder_ == null) {
-          return blackcatFileSystemUsage_;
+          return blackcatFileSystemUsage_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance() : blackcatFileSystemUsage_;
         } else {
           return blackcatFileSystemUsageBuilder_.getMessage();
         }
@@ -2842,6 +3074,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatFileSystemUsage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage value) {
         if (blackcatFileSystemUsageBuilder_ == null) {
           if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              blackcatFileSystemUsage_ != null &&
               blackcatFileSystemUsage_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance()) {
             blackcatFileSystemUsage_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.newBuilder(blackcatFileSystemUsage_).mergeFrom(value).buildPartial();
@@ -2860,7 +3093,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatFileSystemUsage() {
         if (blackcatFileSystemUsageBuilder_ == null) {
-          blackcatFileSystemUsage_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance();
+          blackcatFileSystemUsage_ = null;
           onChanged();
         } else {
           blackcatFileSystemUsageBuilder_.clear();
@@ -2883,17 +3116,18 @@ public final class BlackcatMsg {
         if (blackcatFileSystemUsageBuilder_ != null) {
           return blackcatFileSystemUsageBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatFileSystemUsage_;
+          return blackcatFileSystemUsage_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.getDefaultInstance() : blackcatFileSystemUsage_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage blackcatFileSystemUsage = 7;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsageOrBuilder> 
           getBlackcatFileSystemUsageFieldBuilder() {
         if (blackcatFileSystemUsageBuilder_ == null) {
-          blackcatFileSystemUsageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatFileSystemUsageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsageOrBuilder>(
                   getBlackcatFileSystemUsage(),
                   getParentForChildren(),
@@ -2903,8 +3137,8 @@ public final class BlackcatMsg {
         return blackcatFileSystemUsageBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat blackcatNetStat_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat blackcatNetStat_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStatOrBuilder> blackcatNetStatBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat blackcatNetStat = 8;</code>
@@ -2917,7 +3151,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat getBlackcatNetStat() {
         if (blackcatNetStatBuilder_ == null) {
-          return blackcatNetStat_;
+          return blackcatNetStat_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance() : blackcatNetStat_;
         } else {
           return blackcatNetStatBuilder_.getMessage();
         }
@@ -2958,6 +3192,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatNetStat(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat value) {
         if (blackcatNetStatBuilder_ == null) {
           if (((bitField0_ & 0x00000080) == 0x00000080) &&
+              blackcatNetStat_ != null &&
               blackcatNetStat_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance()) {
             blackcatNetStat_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.newBuilder(blackcatNetStat_).mergeFrom(value).buildPartial();
@@ -2976,7 +3211,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatNetStat() {
         if (blackcatNetStatBuilder_ == null) {
-          blackcatNetStat_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance();
+          blackcatNetStat_ = null;
           onChanged();
         } else {
           blackcatNetStatBuilder_.clear();
@@ -2999,17 +3234,18 @@ public final class BlackcatMsg {
         if (blackcatNetStatBuilder_ != null) {
           return blackcatNetStatBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatNetStat_;
+          return blackcatNetStat_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.getDefaultInstance() : blackcatNetStat_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat blackcatNetStat = 8;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStatOrBuilder> 
           getBlackcatNetStatFieldBuilder() {
         if (blackcatNetStatBuilder_ == null) {
-          blackcatNetStatBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatNetStatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStatOrBuilder>(
                   getBlackcatNetStat(),
                   getParentForChildren(),
@@ -3019,8 +3255,8 @@ public final class BlackcatMsg {
         return blackcatNetStatBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON blackcatJSON_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON blackcatJSON_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSONOrBuilder> blackcatJSONBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON blackcatJSON = 9;</code>
@@ -3033,7 +3269,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON getBlackcatJSON() {
         if (blackcatJSONBuilder_ == null) {
-          return blackcatJSON_;
+          return blackcatJSON_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance() : blackcatJSON_;
         } else {
           return blackcatJSONBuilder_.getMessage();
         }
@@ -3074,6 +3310,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatJSON(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON value) {
         if (blackcatJSONBuilder_ == null) {
           if (((bitField0_ & 0x00000100) == 0x00000100) &&
+              blackcatJSON_ != null &&
               blackcatJSON_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance()) {
             blackcatJSON_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.newBuilder(blackcatJSON_).mergeFrom(value).buildPartial();
@@ -3092,7 +3329,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatJSON() {
         if (blackcatJSONBuilder_ == null) {
-          blackcatJSON_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance();
+          blackcatJSON_ = null;
           onChanged();
         } else {
           blackcatJSONBuilder_.clear();
@@ -3115,17 +3352,18 @@ public final class BlackcatMsg {
         if (blackcatJSONBuilder_ != null) {
           return blackcatJSONBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatJSON_;
+          return blackcatJSON_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.getDefaultInstance() : blackcatJSON_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON blackcatJSON = 9;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSONOrBuilder> 
           getBlackcatJSONFieldBuilder() {
         if (blackcatJSONBuilder_ == null) {
-          blackcatJSONBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatJSONBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSONOrBuilder>(
                   getBlackcatJSON(),
                   getParentForChildren(),
@@ -3135,8 +3373,8 @@ public final class BlackcatMsg {
         return blackcatJSONBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace blackcatTrace_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace blackcatTrace_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTraceOrBuilder> blackcatTraceBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace blackcatTrace = 10;</code>
@@ -3149,7 +3387,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace getBlackcatTrace() {
         if (blackcatTraceBuilder_ == null) {
-          return blackcatTrace_;
+          return blackcatTrace_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance() : blackcatTrace_;
         } else {
           return blackcatTraceBuilder_.getMessage();
         }
@@ -3190,6 +3428,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatTrace(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace value) {
         if (blackcatTraceBuilder_ == null) {
           if (((bitField0_ & 0x00000200) == 0x00000200) &&
+              blackcatTrace_ != null &&
               blackcatTrace_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance()) {
             blackcatTrace_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.newBuilder(blackcatTrace_).mergeFrom(value).buildPartial();
@@ -3208,7 +3447,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatTrace() {
         if (blackcatTraceBuilder_ == null) {
-          blackcatTrace_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance();
+          blackcatTrace_ = null;
           onChanged();
         } else {
           blackcatTraceBuilder_.clear();
@@ -3231,17 +3470,18 @@ public final class BlackcatMsg {
         if (blackcatTraceBuilder_ != null) {
           return blackcatTraceBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatTrace_;
+          return blackcatTrace_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.getDefaultInstance() : blackcatTrace_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace blackcatTrace = 10;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTraceOrBuilder> 
           getBlackcatTraceFieldBuilder() {
         if (blackcatTraceBuilder_ == null) {
-          blackcatTraceBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatTraceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTraceOrBuilder>(
                   getBlackcatTrace(),
                   getParentForChildren(),
@@ -3251,8 +3491,8 @@ public final class BlackcatMsg {
         return blackcatTraceBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric blackcatMetric_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric blackcatMetric_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder> blackcatMetricBuilder_;
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric blackcatMetric = 11;</code>
@@ -3265,7 +3505,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric getBlackcatMetric() {
         if (blackcatMetricBuilder_ == null) {
-          return blackcatMetric_;
+          return blackcatMetric_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance() : blackcatMetric_;
         } else {
           return blackcatMetricBuilder_.getMessage();
         }
@@ -3306,6 +3546,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatMetric(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric value) {
         if (blackcatMetricBuilder_ == null) {
           if (((bitField0_ & 0x00000400) == 0x00000400) &&
+              blackcatMetric_ != null &&
               blackcatMetric_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance()) {
             blackcatMetric_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.newBuilder(blackcatMetric_).mergeFrom(value).buildPartial();
@@ -3324,7 +3565,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatMetric() {
         if (blackcatMetricBuilder_ == null) {
-          blackcatMetric_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance();
+          blackcatMetric_ = null;
           onChanged();
         } else {
           blackcatMetricBuilder_.clear();
@@ -3347,17 +3588,18 @@ public final class BlackcatMsg {
         if (blackcatMetricBuilder_ != null) {
           return blackcatMetricBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatMetric_;
+          return blackcatMetric_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.getDefaultInstance() : blackcatMetric_;
         }
       }
       /**
        * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric blackcatMetric = 11;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder> 
           getBlackcatMetricFieldBuilder() {
         if (blackcatMetricBuilder_ == null) {
-          blackcatMetricBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatMetricBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder>(
                   getBlackcatMetric(),
                   getParentForChildren(),
@@ -3366,16 +3608,53 @@ public final class BlackcatMsg {
         }
         return blackcatMetricBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatReq(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatReq)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatReq>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatReq>() {
+      public BlackcatReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatRspHeadOrBuilder extends
@@ -3394,37 +3673,29 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead}
    */
-  public static final class BlackcatRspHead extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatRspHead extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead)
       BlackcatRspHeadOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatRspHead.newBuilder() to construct.
-    private BlackcatRspHead(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatRspHead(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatRspHead(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatRspHead defaultInstance;
-    public static BlackcatRspHead getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatRspHead() {
+      rspType_ = 0;
     }
 
-    public BlackcatRspHead getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatRspHead(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3437,8 +3708,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -3450,7 +3721,7 @@ public final class BlackcatMsg {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                rspType_ = value;
+                rspType_ = rawValue;
               }
               break;
             }
@@ -3460,7 +3731,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3471,26 +3742,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatRspHead> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatRspHead>() {
-      public BlackcatRspHead parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatRspHead(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatRspHead> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -3501,11 +3757,11 @@ public final class BlackcatMsg {
       /**
        * <code>BlackcatEvent = 0;</code>
        */
-      BlackcatEvent(0, 0),
+      BlackcatEvent(0),
       /**
        * <code>BlackcatWarnConfig = 1;</code>
        */
-      BlackcatWarnConfig(1, 1),
+      BlackcatWarnConfig(1),
       ;
 
       /**
@@ -3518,9 +3774,19 @@ public final class BlackcatMsg {
       public static final int BlackcatWarnConfig_VALUE = 1;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static RspType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static RspType forNumber(int value) {
         switch (value) {
           case 0: return BlackcatEvent;
           case 1: return BlackcatWarnConfig;
@@ -3532,17 +3798,17 @@ public final class BlackcatMsg {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<RspType>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          RspType> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<RspType>() {
               public RspType findValueByNumber(int number) {
-                return RspType.valueOf(number);
+                return RspType.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -3564,11 +3830,9 @@ public final class BlackcatMsg {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private RspType(int index, int value) {
-        this.index = index;
+      private RspType(int value) {
         this.value = value;
       }
 
@@ -3577,7 +3841,7 @@ public final class BlackcatMsg {
 
     private int bitField0_;
     public static final int RSPTYPE_FIELD_NUMBER = 1;
-    private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType rspType_;
+    private int rspType_;
     /**
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead.RspType rspType = 1;</code>
      */
@@ -3588,12 +3852,10 @@ public final class BlackcatMsg {
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead.RspType rspType = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType getRspType() {
-      return rspType_;
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType result = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.valueOf(rspType_);
+      return result == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent : result;
     }
 
-    private void initFields() {
-      rspType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3610,35 +3872,72 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, rspType_.getNumber());
+        output.writeEnum(1, rspType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, rspType_.getNumber());
+          .computeEnumSize(1, rspType_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead) obj;
+
+      boolean result = true;
+      result = result && (hasRspType() == other.hasRspType());
+      if (hasRspType()) {
+        result = result && rspType_ == other.rspType_;
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasRspType()) {
+        hash = (37 * hash) + RSPTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + rspType_;
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3662,46 +3961,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3709,7 +4019,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -3717,7 +4027,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3730,27 +4040,20 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
-        rspType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent;
+        rspType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -3783,6 +4086,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead)other);
@@ -3797,13 +4126,13 @@ public final class BlackcatMsg {
         if (other.hasRspType()) {
           setRspType(other.getRspType());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasRspType()) {
-          
           return false;
         }
         return true;
@@ -3818,7 +4147,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -3828,7 +4157,7 @@ public final class BlackcatMsg {
       }
       private int bitField0_;
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType rspType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent;
+      private int rspType_ = 0;
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead.RspType rspType = 1;</code>
        */
@@ -3839,7 +4168,8 @@ public final class BlackcatMsg {
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead.RspType rspType = 1;</code>
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType getRspType() {
-        return rspType_;
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType result = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.valueOf(rspType_);
+        return result == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent : result;
       }
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead.RspType rspType = 1;</code>
@@ -3849,7 +4179,7 @@ public final class BlackcatMsg {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        rspType_ = value;
+        rspType_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -3858,20 +4188,57 @@ public final class BlackcatMsg {
        */
       public Builder clearRspType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        rspType_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.RspType.BlackcatEvent;
+        rspType_ = 0;
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatRspHead(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatRspHead>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatRspHead>() {
+      public BlackcatRspHead parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatRspHead(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatRspHead> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatRspHead> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatWarnConfigOrBuilder extends
@@ -3905,37 +4272,29 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig}
    */
-  public static final class BlackcatWarnConfig extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatWarnConfig extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig)
       BlackcatWarnConfigOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatWarnConfig.newBuilder() to construct.
-    private BlackcatWarnConfig(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatWarnConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatWarnConfig(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatWarnConfig defaultInstance;
-    public static BlackcatWarnConfig getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatWarnConfig() {
+      blackcatWarnProcess_ = java.util.Collections.emptyList();
     }
 
-    public BlackcatWarnConfig getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatWarnConfig(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3948,8 +4307,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -3959,7 +4318,8 @@ public final class BlackcatMsg {
                 blackcatWarnProcess_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              blackcatWarnProcess_.add(input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.PARSER, extensionRegistry));
+              blackcatWarnProcess_.add(
+                  input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.PARSER, extensionRegistry));
               break;
             }
           }
@@ -3968,7 +4328,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           blackcatWarnProcess_ = java.util.Collections.unmodifiableList(blackcatWarnProcess_);
@@ -3982,26 +4342,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatWarnConfig> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatWarnConfig>() {
-      public BlackcatWarnConfig parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatWarnConfig(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatWarnConfig> getParserForType() {
-      return PARSER;
     }
 
     public interface BlackcatWarnProcessOrBuilder extends
@@ -4009,62 +4354,62 @@ public final class BlackcatMsg {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       boolean hasProcessName();
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       java.lang.String getProcessName();
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       com.google.protobuf.ByteString
           getProcessNameBytes();
 
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
-      com.google.protobuf.ProtocolStringList
+      java.util.List<java.lang.String>
           getProcessKeysList();
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       int getProcessKeysCount();
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       java.lang.String getProcessKeys(int index);
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       com.google.protobuf.ByteString
           getProcessKeysBytes(int index);
@@ -4072,37 +4417,30 @@ public final class BlackcatMsg {
     /**
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess}
      */
-    public static final class BlackcatWarnProcess extends
-        com.google.protobuf.GeneratedMessage implements
+    public  static final class BlackcatWarnProcess extends
+        com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess)
         BlackcatWarnProcessOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use BlackcatWarnProcess.newBuilder() to construct.
-      private BlackcatWarnProcess(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private BlackcatWarnProcess(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private BlackcatWarnProcess(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final BlackcatWarnProcess defaultInstance;
-      public static BlackcatWarnProcess getDefaultInstance() {
-        return defaultInstance;
+      private BlackcatWarnProcess() {
+        processName_ = "";
+        processKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       }
 
-      public BlackcatWarnProcess getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private BlackcatWarnProcess(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4115,8 +4453,8 @@ public final class BlackcatMsg {
                 done = true;
                 break;
               default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
@@ -4142,7 +4480,7 @@ public final class BlackcatMsg {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
             processKeys_ = processKeys_.getUnmodifiableView();
@@ -4156,47 +4494,32 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<BlackcatWarnProcess> PARSER =
-          new com.google.protobuf.AbstractParser<BlackcatWarnProcess>() {
-        public BlackcatWarnProcess parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new BlackcatWarnProcess(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<BlackcatWarnProcess> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
       public static final int PROCESSNAME_FIELD_NUMBER = 1;
-      private java.lang.Object processName_;
+      private volatile java.lang.Object processName_;
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       public boolean hasProcessName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       public java.lang.String getProcessName() {
         java.lang.Object ref = processName_;
@@ -4213,11 +4536,11 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string processName = 1;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string processName = 1;</code>
        */
       public com.google.protobuf.ByteString
           getProcessNameBytes() {
@@ -4236,52 +4559,48 @@ public final class BlackcatMsg {
       public static final int PROCESSKEYS_FIELD_NUMBER = 2;
       private com.google.protobuf.LazyStringList processKeys_;
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getProcessKeysList() {
         return processKeys_;
       }
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       public int getProcessKeysCount() {
         return processKeys_.size();
       }
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       public java.lang.String getProcessKeys(int index) {
         return processKeys_.get(index);
       }
       /**
-       * <code>repeated string processKeys = 2;</code>
-       *
        * <pre>
        * 进程识别关键字
        * </pre>
+       *
+       * <code>repeated string processKeys = 2;</code>
        */
       public com.google.protobuf.ByteString
           getProcessKeysBytes(int index) {
         return processKeys_.getByteString(index);
       }
 
-      private void initFields() {
-        processName_ = "";
-        processKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -4298,47 +4617,89 @@ public final class BlackcatMsg {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getProcessNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, processName_);
         }
         for (int i = 0; i < processKeys_.size(); i++) {
-          output.writeBytes(2, processKeys_.getByteString(i));
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, processKeys_.getRaw(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getProcessNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, processName_);
         }
         {
           int dataSize = 0;
           for (int i = 0; i < processKeys_.size(); i++) {
-            dataSize += com.google.protobuf.CodedOutputStream
-              .computeBytesSizeNoTag(processKeys_.getByteString(i));
+            dataSize += computeStringSizeNoTag(processKeys_.getRaw(i));
           }
           size += dataSize;
           size += 1 * getProcessKeysList().size();
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
-      private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess)) {
+          return super.equals(obj);
+        }
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess) obj;
+
+        boolean result = true;
+        result = result && (hasProcessName() == other.hasProcessName());
+        if (hasProcessName()) {
+          result = result && getProcessName()
+              .equals(other.getProcessName());
+        }
+        result = result && getProcessKeysList()
+            .equals(other.getProcessKeysList());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
       }
 
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasProcessName()) {
+          hash = (37 * hash) + PROCESSNAME_FIELD_NUMBER;
+          hash = (53 * hash) + getProcessName().hashCode();
+        }
+        if (getProcessKeysCount() > 0) {
+          hash = (37 * hash) + PROCESSKEYS_FIELD_NUMBER;
+          hash = (53 * hash) + getProcessKeysList().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4362,46 +4723,57 @@ public final class BlackcatMsg {
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -4409,7 +4781,7 @@ public final class BlackcatMsg {
        * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess)
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcessOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
@@ -4417,7 +4789,7 @@ public final class BlackcatMsg {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -4430,18 +4802,15 @@ public final class BlackcatMsg {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           processName_ = "";
@@ -4449,10 +4818,6 @@ public final class BlackcatMsg {
           processKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000002);
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -4490,6 +4855,32 @@ public final class BlackcatMsg {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess) {
             return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess)other);
@@ -4516,13 +4907,13 @@ public final class BlackcatMsg {
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasProcessName()) {
-            
             return false;
           }
           return true;
@@ -4537,7 +4928,7 @@ public final class BlackcatMsg {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -4549,21 +4940,21 @@ public final class BlackcatMsg {
 
         private java.lang.Object processName_ = "";
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public boolean hasProcessName() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public java.lang.String getProcessName() {
           java.lang.Object ref = processName_;
@@ -4580,11 +4971,11 @@ public final class BlackcatMsg {
           }
         }
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public com.google.protobuf.ByteString
             getProcessNameBytes() {
@@ -4600,11 +4991,11 @@ public final class BlackcatMsg {
           }
         }
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public Builder setProcessName(
             java.lang.String value) {
@@ -4617,11 +5008,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public Builder clearProcessName() {
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -4630,11 +5021,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>required string processName = 1;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string processName = 1;</code>
          */
         public Builder setProcessNameBytes(
             com.google.protobuf.ByteString value) {
@@ -4655,53 +5046,53 @@ public final class BlackcatMsg {
            }
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public com.google.protobuf.ProtocolStringList
             getProcessKeysList() {
           return processKeys_.getUnmodifiableView();
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public int getProcessKeysCount() {
           return processKeys_.size();
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public java.lang.String getProcessKeys(int index) {
           return processKeys_.get(index);
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public com.google.protobuf.ByteString
             getProcessKeysBytes(int index) {
           return processKeys_.getByteString(index);
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public Builder setProcessKeys(
             int index, java.lang.String value) {
@@ -4714,11 +5105,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public Builder addProcessKeys(
             java.lang.String value) {
@@ -4731,11 +5122,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public Builder addAllProcessKeys(
             java.lang.Iterable<java.lang.String> values) {
@@ -4746,11 +5137,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public Builder clearProcessKeys() {
           processKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4759,11 +5150,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>repeated string processKeys = 2;</code>
-         *
          * <pre>
          * 进程识别关键字
          * </pre>
+         *
+         * <code>repeated string processKeys = 2;</code>
          */
         public Builder addProcessKeysBytes(
             com.google.protobuf.ByteString value) {
@@ -4775,16 +5166,53 @@ public final class BlackcatMsg {
           onChanged();
           return this;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess)
       }
 
+      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess)
+      private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess DEFAULT_INSTANCE;
       static {
-        defaultInstance = new BlackcatWarnProcess(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess();
       }
 
-      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig.BlackcatWarnProcess)
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatWarnProcess>
+          PARSER = new com.google.protobuf.AbstractParser<BlackcatWarnProcess>() {
+        public BlackcatWarnProcess parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new BlackcatWarnProcess(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<BlackcatWarnProcess> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<BlackcatWarnProcess> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int BLACKCATWARNPROCESS_FIELD_NUMBER = 1;
@@ -4822,9 +5250,6 @@ public final class BlackcatMsg {
       return blackcatWarnProcess_.get(index);
     }
 
-    private void initFields() {
-      blackcatWarnProcess_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4843,16 +5268,14 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < blackcatWarnProcess_.size(); i++) {
         output.writeMessage(1, blackcatWarnProcess_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -4860,18 +5283,55 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, blackcatWarnProcess_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig) obj;
+
+      boolean result = true;
+      result = result && getBlackcatWarnProcessList()
+          .equals(other.getBlackcatWarnProcessList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getBlackcatWarnProcessCount() > 0) {
+        hash = (37 * hash) + BLACKCATWARNPROCESS_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatWarnProcessList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4895,46 +5355,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4942,7 +5413,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -4950,7 +5421,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4963,19 +5434,16 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getBlackcatWarnProcessFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (blackcatWarnProcessBuilder_ == null) {
@@ -4985,10 +5453,6 @@ public final class BlackcatMsg {
           blackcatWarnProcessBuilder_.clear();
         }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -5024,6 +5488,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig)other);
@@ -5054,21 +5544,21 @@ public final class BlackcatMsg {
               blackcatWarnProcess_ = other.blackcatWarnProcess_;
               bitField0_ = (bitField0_ & ~0x00000001);
               blackcatWarnProcessBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBlackcatWarnProcessFieldBuilder() : null;
             } else {
               blackcatWarnProcessBuilder_.addAllMessages(other.blackcatWarnProcess_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         for (int i = 0; i < getBlackcatWarnProcessCount(); i++) {
           if (!getBlackcatWarnProcess(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -5084,7 +5574,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -5103,7 +5593,7 @@ public final class BlackcatMsg {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcessOrBuilder> blackcatWarnProcessBuilder_;
 
       /**
@@ -5319,11 +5809,11 @@ public final class BlackcatMsg {
            getBlackcatWarnProcessBuilderList() {
         return getBlackcatWarnProcessFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcessOrBuilder> 
           getBlackcatWarnProcessFieldBuilder() {
         if (blackcatWarnProcessBuilder_ == null) {
-          blackcatWarnProcessBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          blackcatWarnProcessBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.BlackcatWarnProcessOrBuilder>(
                   blackcatWarnProcess_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -5333,16 +5823,53 @@ public final class BlackcatMsg {
         }
         return blackcatWarnProcessBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatWarnConfig(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatWarnConfig>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatWarnConfig>() {
+      public BlackcatWarnConfig parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatWarnConfig(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatWarnConfig> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatWarnConfig> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatRspOrBuilder extends
@@ -5363,68 +5890,59 @@ public final class BlackcatMsg {
     com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder getBlackcatRspHeadOrBuilder();
 
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     boolean hasBlackcatWarnConfig();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig getBlackcatWarnConfig();
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder getBlackcatWarnConfigOrBuilder();
   }
   /**
-   * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp}
-   *
    * <pre>
    * 响应消息
    * </pre>
+   *
+   * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp}
    */
-  public static final class BlackcatRsp extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatRsp extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp)
       BlackcatRspOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatRsp.newBuilder() to construct.
-    private BlackcatRsp(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatRsp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatRsp(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatRsp defaultInstance;
-    public static BlackcatRsp getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatRsp() {
     }
 
-    public BlackcatRsp getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatRsp(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5437,8 +5955,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -5475,7 +5993,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5486,26 +6004,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatRsp> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatRsp>() {
-      public BlackcatRsp parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatRsp(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatRsp> getParserForType() {
-      return PARSER;
     }
 
     private int bitField0_;
@@ -5521,52 +6024,48 @@ public final class BlackcatMsg {
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead blackcatRspHead = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead getBlackcatRspHead() {
-      return blackcatRspHead_;
+      return blackcatRspHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance() : blackcatRspHead_;
     }
     /**
      * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead blackcatRspHead = 1;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder getBlackcatRspHeadOrBuilder() {
-      return blackcatRspHead_;
+      return blackcatRspHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance() : blackcatRspHead_;
     }
 
     public static final int BLACKCATWARNCONFIG_FIELD_NUMBER = 2;
     private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig blackcatWarnConfig_;
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     public boolean hasBlackcatWarnConfig() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig getBlackcatWarnConfig() {
-      return blackcatWarnConfig_;
+      return blackcatWarnConfig_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance() : blackcatWarnConfig_;
     }
     /**
-     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-     *
      * <pre>
      * 响应监控设置参数
      * </pre>
+     *
+     * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
      */
     public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder getBlackcatWarnConfigOrBuilder() {
-      return blackcatWarnConfig_;
+      return blackcatWarnConfig_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance() : blackcatWarnConfig_;
     }
 
-    private void initFields() {
-      blackcatRspHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance();
-      blackcatWarnConfig_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5593,42 +6092,89 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, blackcatRspHead_);
+        output.writeMessage(1, getBlackcatRspHead());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, blackcatWarnConfig_);
+        output.writeMessage(2, getBlackcatWarnConfig());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, blackcatRspHead_);
+          .computeMessageSize(1, getBlackcatRspHead());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, blackcatWarnConfig_);
+          .computeMessageSize(2, getBlackcatWarnConfig());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp) obj;
+
+      boolean result = true;
+      result = result && (hasBlackcatRspHead() == other.hasBlackcatRspHead());
+      if (hasBlackcatRspHead()) {
+        result = result && getBlackcatRspHead()
+            .equals(other.getBlackcatRspHead());
+      }
+      result = result && (hasBlackcatWarnConfig() == other.hasBlackcatWarnConfig());
+      if (hasBlackcatWarnConfig()) {
+        result = result && getBlackcatWarnConfig()
+            .equals(other.getBlackcatWarnConfig());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasBlackcatRspHead()) {
+        hash = (37 * hash) + BLACKCATRSPHEAD_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatRspHead().hashCode();
+      }
+      if (hasBlackcatWarnConfig()) {
+        hash = (37 * hash) + BLACKCATWARNCONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackcatWarnConfig().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5652,58 +6198,69 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp}
-     *
      * <pre>
      * 响应消息
      * </pre>
+     *
+     * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -5711,7 +6268,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5724,39 +6281,32 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getBlackcatRspHeadFieldBuilder();
           getBlackcatWarnConfigFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (blackcatRspHeadBuilder_ == null) {
-          blackcatRspHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance();
+          blackcatRspHead_ = null;
         } else {
           blackcatRspHeadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (blackcatWarnConfigBuilder_ == null) {
-          blackcatWarnConfig_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance();
+          blackcatWarnConfig_ = null;
         } else {
           blackcatWarnConfigBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -5801,6 +6351,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp)other);
@@ -5818,22 +6394,20 @@ public final class BlackcatMsg {
         if (other.hasBlackcatWarnConfig()) {
           mergeBlackcatWarnConfig(other.getBlackcatWarnConfig());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasBlackcatRspHead()) {
-          
           return false;
         }
         if (!getBlackcatRspHead().isInitialized()) {
-          
           return false;
         }
         if (hasBlackcatWarnConfig()) {
           if (!getBlackcatWarnConfig().isInitialized()) {
-            
             return false;
           }
         }
@@ -5849,7 +6423,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -5859,8 +6433,8 @@ public final class BlackcatMsg {
       }
       private int bitField0_;
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead blackcatRspHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead blackcatRspHead_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder> blackcatRspHeadBuilder_;
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead blackcatRspHead = 1;</code>
@@ -5873,7 +6447,7 @@ public final class BlackcatMsg {
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead getBlackcatRspHead() {
         if (blackcatRspHeadBuilder_ == null) {
-          return blackcatRspHead_;
+          return blackcatRspHead_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance() : blackcatRspHead_;
         } else {
           return blackcatRspHeadBuilder_.getMessage();
         }
@@ -5914,6 +6488,7 @@ public final class BlackcatMsg {
       public Builder mergeBlackcatRspHead(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead value) {
         if (blackcatRspHeadBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              blackcatRspHead_ != null &&
               blackcatRspHead_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance()) {
             blackcatRspHead_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.newBuilder(blackcatRspHead_).mergeFrom(value).buildPartial();
@@ -5932,7 +6507,7 @@ public final class BlackcatMsg {
        */
       public Builder clearBlackcatRspHead() {
         if (blackcatRspHeadBuilder_ == null) {
-          blackcatRspHead_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance();
+          blackcatRspHead_ = null;
           onChanged();
         } else {
           blackcatRspHeadBuilder_.clear();
@@ -5955,17 +6530,18 @@ public final class BlackcatMsg {
         if (blackcatRspHeadBuilder_ != null) {
           return blackcatRspHeadBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatRspHead_;
+          return blackcatRspHead_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.getDefaultInstance() : blackcatRspHead_;
         }
       }
       /**
        * <code>required .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRspHead blackcatRspHead = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder> 
           getBlackcatRspHeadFieldBuilder() {
         if (blackcatRspHeadBuilder_ == null) {
-          blackcatRspHeadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatRspHeadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHead.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRspHeadOrBuilder>(
                   getBlackcatRspHead(),
                   getParentForChildren(),
@@ -5975,39 +6551,39 @@ public final class BlackcatMsg {
         return blackcatRspHeadBuilder_;
       }
 
-      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig blackcatWarnConfig_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig blackcatWarnConfig_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder> blackcatWarnConfigBuilder_;
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public boolean hasBlackcatWarnConfig() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig getBlackcatWarnConfig() {
         if (blackcatWarnConfigBuilder_ == null) {
-          return blackcatWarnConfig_;
+          return blackcatWarnConfig_ == null ? com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance() : blackcatWarnConfig_;
         } else {
           return blackcatWarnConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public Builder setBlackcatWarnConfig(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig value) {
         if (blackcatWarnConfigBuilder_ == null) {
@@ -6023,11 +6599,11 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public Builder setBlackcatWarnConfig(
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder builderForValue) {
@@ -6041,15 +6617,16 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public Builder mergeBlackcatWarnConfig(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig value) {
         if (blackcatWarnConfigBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              blackcatWarnConfig_ != null &&
               blackcatWarnConfig_ != com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance()) {
             blackcatWarnConfig_ =
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.newBuilder(blackcatWarnConfig_).mergeFrom(value).buildPartial();
@@ -6064,15 +6641,15 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public Builder clearBlackcatWarnConfig() {
         if (blackcatWarnConfigBuilder_ == null) {
-          blackcatWarnConfig_ = com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance();
+          blackcatWarnConfig_ = null;
           onChanged();
         } else {
           blackcatWarnConfigBuilder_.clear();
@@ -6081,11 +6658,11 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder getBlackcatWarnConfigBuilder() {
         bitField0_ |= 0x00000002;
@@ -6093,31 +6670,32 @@ public final class BlackcatMsg {
         return getBlackcatWarnConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
       public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder getBlackcatWarnConfigOrBuilder() {
         if (blackcatWarnConfigBuilder_ != null) {
           return blackcatWarnConfigBuilder_.getMessageOrBuilder();
         } else {
-          return blackcatWarnConfig_;
+          return blackcatWarnConfig_ == null ?
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.getDefaultInstance() : blackcatWarnConfig_;
         }
       }
       /**
-       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
-       *
        * <pre>
        * 响应监控设置参数
        * </pre>
+       *
+       * <code>optional .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatWarnConfig blackcatWarnConfig = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder> 
           getBlackcatWarnConfigFieldBuilder() {
         if (blackcatWarnConfigBuilder_ == null) {
-          blackcatWarnConfigBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          blackcatWarnConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfig.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatWarnConfigOrBuilder>(
                   getBlackcatWarnConfig(),
                   getParentForChildren(),
@@ -6126,16 +6704,53 @@ public final class BlackcatMsg {
         }
         return blackcatWarnConfigBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatRsp(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatRsp)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatRsp>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatRsp>() {
+      public BlackcatRsp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatRsp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatRsp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatRsp> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatRsp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatMemoryOrBuilder extends
@@ -6163,37 +6778,30 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory}
    */
-  public static final class BlackcatMemory extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatMemory extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory)
       BlackcatMemoryOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatMemory.newBuilder() to construct.
-    private BlackcatMemory(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatMemory(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatMemory(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatMemory defaultInstance;
-    public static BlackcatMemory getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatMemory() {
+      total_ = 0L;
+      available_ = 0L;
     }
 
-    public BlackcatMemory getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatMemory(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6206,8 +6814,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -6228,7 +6836,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -6239,26 +6847,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatMemory> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatMemory>() {
-      public BlackcatMemory parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatMemory(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatMemory> getParserForType() {
-      return PARSER;
     }
 
     private int bitField0_;
@@ -6292,10 +6885,6 @@ public final class BlackcatMsg {
       return available_;
     }
 
-    private void initFields() {
-      total_ = 0L;
-      available_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6316,19 +6905,17 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt64(1, total_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, available_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -6340,18 +6927,69 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, available_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory) obj;
+
+      boolean result = true;
+      result = result && (hasTotal() == other.hasTotal());
+      if (hasTotal()) {
+        result = result && (getTotal()
+            == other.getTotal());
+      }
+      result = result && (hasAvailable() == other.hasAvailable());
+      if (hasAvailable()) {
+        result = result && (getAvailable()
+            == other.getAvailable());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTotal()) {
+        hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTotal());
+      }
+      if (hasAvailable()) {
+        hash = (37 * hash) + AVAILABLE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getAvailable());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6375,46 +7013,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6422,7 +7071,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemoryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -6430,7 +7079,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6443,18 +7092,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         total_ = 0L;
@@ -6462,10 +7108,6 @@ public final class BlackcatMsg {
         available_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -6502,6 +7144,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory)other);
@@ -6519,17 +7187,16 @@ public final class BlackcatMsg {
         if (other.hasAvailable()) {
           setAvailable(other.getAvailable());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasTotal()) {
-          
           return false;
         }
         if (!hasAvailable()) {
-          
           return false;
         }
         return true;
@@ -6544,7 +7211,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -6617,16 +7284,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatMemory(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMemory)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatMemory>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatMemory>() {
+      public BlackcatMemory parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatMemory(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatMemory> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatMemory> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMemory getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatFileStoresOrBuilder extends
@@ -6660,37 +7364,29 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores}
    */
-  public static final class BlackcatFileStores extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatFileStores extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores)
       BlackcatFileStoresOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatFileStores.newBuilder() to construct.
-    private BlackcatFileStores(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatFileStores(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatFileStores(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatFileStores defaultInstance;
-    public static BlackcatFileStores getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatFileStores() {
+      fileStore_ = java.util.Collections.emptyList();
     }
 
-    public BlackcatFileStores getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatFileStores(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6703,8 +7399,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -6714,7 +7410,8 @@ public final class BlackcatMsg {
                 fileStore_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              fileStore_.add(input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.PARSER, extensionRegistry));
+              fileStore_.add(
+                  input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.PARSER, extensionRegistry));
               break;
             }
           }
@@ -6723,7 +7420,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           fileStore_ = java.util.Collections.unmodifiableList(fileStore_);
@@ -6737,26 +7434,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatFileStores> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatFileStores>() {
-      public BlackcatFileStores parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatFileStores(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatFileStores> getParserForType() {
-      return PARSER;
     }
 
     public interface FileStoreOrBuilder extends
@@ -6812,37 +7494,32 @@ public final class BlackcatMsg {
     /**
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore}
      */
-    public static final class FileStore extends
-        com.google.protobuf.GeneratedMessage implements
+    public  static final class FileStore extends
+        com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore)
         FileStoreOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use FileStore.newBuilder() to construct.
-      private FileStore(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private FileStore(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private FileStore(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final FileStore defaultInstance;
-      public static FileStore getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public FileStore getDefaultInstanceForType() {
-        return defaultInstance;
+      private FileStore() {
+        name_ = "";
+        description_ = "";
+        total_ = 0L;
+        usable_ = 0L;
       }
 
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private FileStore(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6855,8 +7532,8 @@ public final class BlackcatMsg {
                 done = true;
                 break;
               default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
@@ -6889,7 +7566,7 @@ public final class BlackcatMsg {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -6900,31 +7577,16 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<FileStore> PARSER =
-          new com.google.protobuf.AbstractParser<FileStore>() {
-        public FileStore parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FileStore(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<FileStore> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
       public static final int NAME_FIELD_NUMBER = 1;
-      private java.lang.Object name_;
+      private volatile java.lang.Object name_;
       /**
        * <code>required string name = 1;</code>
        */
@@ -6966,7 +7628,7 @@ public final class BlackcatMsg {
       }
 
       public static final int DESCRIPTION_FIELD_NUMBER = 2;
-      private java.lang.Object description_;
+      private volatile java.lang.Object description_;
       /**
        * <code>required string description = 2;</code>
        */
@@ -7037,12 +7699,6 @@ public final class BlackcatMsg {
         return usable_;
       }
 
-      private void initFields() {
-        name_ = "";
-        description_ = "";
-        total_ = 0L;
-        usable_ = 0L;
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -7071,12 +7727,11 @@ public final class BlackcatMsg {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getDescriptionBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           output.writeUInt64(3, total_);
@@ -7084,22 +7739,19 @@ public final class BlackcatMsg {
         if (((bitField0_ & 0x00000008) == 0x00000008)) {
           output.writeUInt64(4, usable_);
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getDescriptionBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           size += com.google.protobuf.CodedOutputStream
@@ -7109,18 +7761,87 @@ public final class BlackcatMsg {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt64Size(4, usable_);
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
-      private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore)) {
+          return super.equals(obj);
+        }
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore) obj;
+
+        boolean result = true;
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && (hasDescription() == other.hasDescription());
+        if (hasDescription()) {
+          result = result && getDescription()
+              .equals(other.getDescription());
+        }
+        result = result && (hasTotal() == other.hasTotal());
+        if (hasTotal()) {
+          result = result && (getTotal()
+              == other.getTotal());
+        }
+        result = result && (hasUsable() == other.hasUsable());
+        if (hasUsable()) {
+          result = result && (getUsable()
+              == other.getUsable());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
       }
 
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
+        if (hasDescription()) {
+          hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+          hash = (53 * hash) + getDescription().hashCode();
+        }
+        if (hasTotal()) {
+          hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getTotal());
+        }
+        if (hasUsable()) {
+          hash = (37 * hash) + USABLE_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getUsable());
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7144,46 +7865,57 @@ public final class BlackcatMsg {
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -7191,7 +7923,7 @@ public final class BlackcatMsg {
        * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore)
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStoreOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
@@ -7199,7 +7931,7 @@ public final class BlackcatMsg {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -7212,18 +7944,15 @@ public final class BlackcatMsg {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           name_ = "";
@@ -7235,10 +7964,6 @@ public final class BlackcatMsg {
           usable_ = 0L;
           bitField0_ = (bitField0_ & ~0x00000008);
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -7283,6 +8008,32 @@ public final class BlackcatMsg {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore) {
             return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore)other);
@@ -7310,25 +8061,22 @@ public final class BlackcatMsg {
           if (other.hasUsable()) {
             setUsable(other.getUsable());
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasName()) {
-            
             return false;
           }
           if (!hasDescription()) {
-            
             return false;
           }
           if (!hasTotal()) {
-            
             return false;
           }
           if (!hasUsable()) {
-            
             return false;
           }
           return true;
@@ -7343,7 +8091,7 @@ public final class BlackcatMsg {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -7568,16 +8316,53 @@ public final class BlackcatMsg {
           onChanged();
           return this;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore)
       }
 
+      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore)
+      private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore DEFAULT_INSTANCE;
       static {
-        defaultInstance = new FileStore(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore();
       }
 
-      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores.FileStore)
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<FileStore>
+          PARSER = new com.google.protobuf.AbstractParser<FileStore>() {
+        public FileStore parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new FileStore(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<FileStore> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<FileStore> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int FILESTORE_FIELD_NUMBER = 1;
@@ -7615,9 +8400,6 @@ public final class BlackcatMsg {
       return fileStore_.get(index);
     }
 
-    private void initFields() {
-      fileStore_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7636,16 +8418,14 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < fileStore_.size(); i++) {
         output.writeMessage(1, fileStore_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -7653,18 +8433,55 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, fileStore_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores) obj;
+
+      boolean result = true;
+      result = result && getFileStoreList()
+          .equals(other.getFileStoreList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFileStoreCount() > 0) {
+        hash = (37 * hash) + FILESTORE_FIELD_NUMBER;
+        hash = (53 * hash) + getFileStoreList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7688,46 +8505,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7735,7 +8563,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStoresOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -7743,7 +8571,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7756,19 +8584,16 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getFileStoreFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (fileStoreBuilder_ == null) {
@@ -7778,10 +8603,6 @@ public final class BlackcatMsg {
           fileStoreBuilder_.clear();
         }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -7817,6 +8638,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores)other);
@@ -7847,21 +8694,21 @@ public final class BlackcatMsg {
               fileStore_ = other.fileStore_;
               bitField0_ = (bitField0_ & ~0x00000001);
               fileStoreBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFileStoreFieldBuilder() : null;
             } else {
               fileStoreBuilder_.addAllMessages(other.fileStore_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         for (int i = 0; i < getFileStoreCount(); i++) {
           if (!getFileStore(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -7877,7 +8724,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -7896,7 +8743,7 @@ public final class BlackcatMsg {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStoreOrBuilder> fileStoreBuilder_;
 
       /**
@@ -8112,11 +8959,11 @@ public final class BlackcatMsg {
            getFileStoreBuilderList() {
         return getFileStoreFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStoreOrBuilder> 
           getFileStoreFieldBuilder() {
         if (fileStoreBuilder_ == null) {
-          fileStoreBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          fileStoreBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStore.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores.FileStoreOrBuilder>(
                   fileStore_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -8126,16 +8973,53 @@ public final class BlackcatMsg {
         }
         return fileStoreBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatFileStores(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileStores)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatFileStores>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatFileStores>() {
+      public BlackcatFileStores parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatFileStores(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatFileStores> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatFileStores> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileStores getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatLoadOrBuilder extends
@@ -8152,19 +9036,19 @@ public final class BlackcatMsg {
     int getCpuNum();
 
     /**
-     * <code>required float oneMinAvg = 2;</code>
-     *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
+     *
+     * <code>required float oneMinAvg = 2;</code>
      */
     boolean hasOneMinAvg();
     /**
-     * <code>required float oneMinAvg = 2;</code>
-     *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
+     *
+     * <code>required float oneMinAvg = 2;</code>
      */
     float getOneMinAvg();
 
@@ -8185,41 +9069,61 @@ public final class BlackcatMsg {
      * <code>required float fifteenMinsAvg = 4;</code>
      */
     float getFifteenMinsAvg();
+
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> 
+        getTopProcessList();
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getTopProcess(int index);
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    int getTopProcessCount();
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    java.util.List<? extends com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder> 
+        getTopProcessOrBuilderList();
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder getTopProcessOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad}
    */
-  public static final class BlackcatLoad extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatLoad extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad)
       BlackcatLoadOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatLoad.newBuilder() to construct.
-    private BlackcatLoad(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatLoad(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatLoad(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatLoad defaultInstance;
-    public static BlackcatLoad getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public BlackcatLoad getDefaultInstanceForType() {
-      return defaultInstance;
+    private BlackcatLoad() {
+      cpuNum_ = 0;
+      oneMinAvg_ = 0F;
+      fiveMinsAvg_ = 0F;
+      fifteenMinsAvg_ = 0F;
+      topProcess_ = java.util.Collections.emptyList();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatLoad(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8232,8 +9136,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -8258,14 +9162,26 @@ public final class BlackcatMsg {
               fifteenMinsAvg_ = input.readFloat();
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                topProcess_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              topProcess_.add(
+                  input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          topProcess_ = java.util.Collections.unmodifiableList(topProcess_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -8275,26 +9191,765 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BlackcatLoad> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatLoad>() {
-      public BlackcatLoad parsePartialFrom(
+    public interface TopProcessOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required uint64 pid = 1;</code>
+       */
+      boolean hasPid();
+      /**
+       * <code>required uint64 pid = 1;</code>
+       */
+      long getPid();
+
+      /**
+       * <code>required string name = 2;</code>
+       */
+      boolean hasName();
+      /**
+       * <code>required string name = 2;</code>
+       */
+      java.lang.String getName();
+      /**
+       * <code>required string name = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getNameBytes();
+
+      /**
+       * <code>required double cpuPercent = 3;</code>
+       */
+      boolean hasCpuPercent();
+      /**
+       * <code>required double cpuPercent = 3;</code>
+       */
+      double getCpuPercent();
+    }
+    /**
+     * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess}
+     */
+    public  static final class TopProcess extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess)
+        TopProcessOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use TopProcess.newBuilder() to construct.
+      private TopProcess(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private TopProcess() {
+        pid_ = 0L;
+        name_ = "";
+        cpuPercent_ = 0D;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private TopProcess(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatLoad(input, extensionRegistry);
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                bitField0_ |= 0x00000001;
+                pid_ = input.readUInt64();
+                break;
+              }
+              case 18: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                name_ = bs;
+                break;
+              }
+              case 25: {
+                bitField0_ |= 0x00000004;
+                cpuPercent_ = input.readDouble();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
       }
-    };
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor;
+      }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatLoad> getParserForType() {
-      return PARSER;
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int PID_FIELD_NUMBER = 1;
+      private long pid_;
+      /**
+       * <code>required uint64 pid = 1;</code>
+       */
+      public boolean hasPid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint64 pid = 1;</code>
+       */
+      public long getPid() {
+        return pid_;
+      }
+
+      public static final int NAME_FIELD_NUMBER = 2;
+      private volatile java.lang.Object name_;
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int CPUPERCENT_FIELD_NUMBER = 3;
+      private double cpuPercent_;
+      /**
+       * <code>required double cpuPercent = 3;</code>
+       */
+      public boolean hasCpuPercent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required double cpuPercent = 3;</code>
+       */
+      public double getCpuPercent() {
+        return cpuPercent_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasPid()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasName()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasCpuPercent()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeUInt64(1, pid_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeDouble(3, cpuPercent_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(1, pid_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeDoubleSize(3, cpuPercent_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess)) {
+          return super.equals(obj);
+        }
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess) obj;
+
+        boolean result = true;
+        result = result && (hasPid() == other.hasPid());
+        if (hasPid()) {
+          result = result && (getPid()
+              == other.getPid());
+        }
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && (hasCpuPercent() == other.hasCpuPercent());
+        if (hasCpuPercent()) {
+          result = result && (
+              java.lang.Double.doubleToLongBits(getCpuPercent())
+              == java.lang.Double.doubleToLongBits(
+                  other.getCpuPercent()));
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasPid()) {
+          hash = (37 * hash) + PID_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getPid());
+        }
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
+        if (hasCpuPercent()) {
+          hash = (37 * hash) + CPUPERCENT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getCpuPercent()));
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess)
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder.class);
+        }
+
+        // Construct using com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          pid_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          name_ = "";
+          bitField0_ = (bitField0_ & ~0x00000002);
+          cpuPercent_ = 0D;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor;
+        }
+
+        public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getDefaultInstanceForType() {
+          return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.getDefaultInstance();
+        }
+
+        public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess build() {
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess buildPartial() {
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess result = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.pid_ = pid_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.name_ = name_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.cpuPercent_ = cpuPercent_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess) {
+            return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess other) {
+          if (other == com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.getDefaultInstance()) return this;
+          if (other.hasPid()) {
+            setPid(other.getPid());
+          }
+          if (other.hasName()) {
+            bitField0_ |= 0x00000002;
+            name_ = other.name_;
+            onChanged();
+          }
+          if (other.hasCpuPercent()) {
+            setCpuPercent(other.getCpuPercent());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasPid()) {
+            return false;
+          }
+          if (!hasName()) {
+            return false;
+          }
+          if (!hasCpuPercent()) {
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private long pid_ ;
+        /**
+         * <code>required uint64 pid = 1;</code>
+         */
+        public boolean hasPid() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required uint64 pid = 1;</code>
+         */
+        public long getPid() {
+          return pid_;
+        }
+        /**
+         * <code>required uint64 pid = 1;</code>
+         */
+        public Builder setPid(long value) {
+          bitField0_ |= 0x00000001;
+          pid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required uint64 pid = 1;</code>
+         */
+        public Builder clearPid() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          pid_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object name_ = "";
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public boolean hasName() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public java.lang.String getName() {
+          java.lang.Object ref = name_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              name_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          java.lang.Object ref = name_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            name_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public Builder setName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          name_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public Builder clearName() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          name_ = getDefaultInstance().getName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string name = 2;</code>
+         */
+        public Builder setNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          name_ = value;
+          onChanged();
+          return this;
+        }
+
+        private double cpuPercent_ ;
+        /**
+         * <code>required double cpuPercent = 3;</code>
+         */
+        public boolean hasCpuPercent() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>required double cpuPercent = 3;</code>
+         */
+        public double getCpuPercent() {
+          return cpuPercent_;
+        }
+        /**
+         * <code>required double cpuPercent = 3;</code>
+         */
+        public Builder setCpuPercent(double value) {
+          bitField0_ |= 0x00000004;
+          cpuPercent_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required double cpuPercent = 3;</code>
+         */
+        public Builder clearCpuPercent() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          cpuPercent_ = 0D;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess)
+      }
+
+      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess)
+      private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess();
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<TopProcess>
+          PARSER = new com.google.protobuf.AbstractParser<TopProcess>() {
+        public TopProcess parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new TopProcess(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<TopProcess> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<TopProcess> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     private int bitField0_;
@@ -8316,21 +9971,21 @@ public final class BlackcatMsg {
     public static final int ONEMINAVG_FIELD_NUMBER = 2;
     private float oneMinAvg_;
     /**
-     * <code>required float oneMinAvg = 2;</code>
-     *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
+     *
+     * <code>required float oneMinAvg = 2;</code>
      */
     public boolean hasOneMinAvg() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required float oneMinAvg = 2;</code>
-     *
      * <pre>
      * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
      * </pre>
+     *
+     * <code>required float oneMinAvg = 2;</code>
      */
     public float getOneMinAvg() {
       return oneMinAvg_;
@@ -8366,12 +10021,41 @@ public final class BlackcatMsg {
       return fifteenMinsAvg_;
     }
 
-    private void initFields() {
-      cpuNum_ = 0;
-      oneMinAvg_ = 0F;
-      fiveMinsAvg_ = 0F;
-      fifteenMinsAvg_ = 0F;
+    public static final int TOPPROCESS_FIELD_NUMBER = 5;
+    private java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> topProcess_;
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    public java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> getTopProcessList() {
+      return topProcess_;
     }
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    public java.util.List<? extends com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder> 
+        getTopProcessOrBuilderList() {
+      return topProcess_;
+    }
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    public int getTopProcessCount() {
+      return topProcess_.size();
+    }
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getTopProcess(int index) {
+      return topProcess_.get(index);
+    }
+    /**
+     * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+     */
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder getTopProcessOrBuilder(
+        int index) {
+      return topProcess_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -8394,13 +10078,18 @@ public final class BlackcatMsg {
         memoizedIsInitialized = 0;
         return false;
       }
+      for (int i = 0; i < getTopProcessCount(); i++) {
+        if (!getTopProcess(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt32(1, cpuNum_);
       }
@@ -8413,12 +10102,14 @@ public final class BlackcatMsg {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeFloat(4, fifteenMinsAvg_);
       }
-      getUnknownFields().writeTo(output);
+      for (int i = 0; i < topProcess_.size(); i++) {
+        output.writeMessage(5, topProcess_.get(i));
+      }
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -8438,18 +10129,104 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, fifteenMinsAvg_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      for (int i = 0; i < topProcess_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, topProcess_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad) obj;
+
+      boolean result = true;
+      result = result && (hasCpuNum() == other.hasCpuNum());
+      if (hasCpuNum()) {
+        result = result && (getCpuNum()
+            == other.getCpuNum());
+      }
+      result = result && (hasOneMinAvg() == other.hasOneMinAvg());
+      if (hasOneMinAvg()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getOneMinAvg())
+            == java.lang.Float.floatToIntBits(
+                other.getOneMinAvg()));
+      }
+      result = result && (hasFiveMinsAvg() == other.hasFiveMinsAvg());
+      if (hasFiveMinsAvg()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getFiveMinsAvg())
+            == java.lang.Float.floatToIntBits(
+                other.getFiveMinsAvg()));
+      }
+      result = result && (hasFifteenMinsAvg() == other.hasFifteenMinsAvg());
+      if (hasFifteenMinsAvg()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getFifteenMinsAvg())
+            == java.lang.Float.floatToIntBits(
+                other.getFifteenMinsAvg()));
+      }
+      result = result && getTopProcessList()
+          .equals(other.getTopProcessList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCpuNum()) {
+        hash = (37 * hash) + CPUNUM_FIELD_NUMBER;
+        hash = (53 * hash) + getCpuNum();
+      }
+      if (hasOneMinAvg()) {
+        hash = (37 * hash) + ONEMINAVG_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getOneMinAvg());
+      }
+      if (hasFiveMinsAvg()) {
+        hash = (37 * hash) + FIVEMINSAVG_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getFiveMinsAvg());
+      }
+      if (hasFifteenMinsAvg()) {
+        hash = (37 * hash) + FIFTEENMINSAVG_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getFifteenMinsAvg());
+      }
+      if (getTopProcessCount() > 0) {
+        hash = (37 * hash) + TOPPROCESS_FIELD_NUMBER;
+        hash = (53 * hash) + getTopProcessList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8473,46 +10250,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8520,7 +10308,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -8528,7 +10316,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8541,18 +10329,16 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTopProcessFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         cpuNum_ = 0;
@@ -8563,11 +10349,13 @@ public final class BlackcatMsg {
         bitField0_ = (bitField0_ & ~0x00000004);
         fifteenMinsAvg_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (topProcessBuilder_ == null) {
+          topProcess_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          topProcessBuilder_.clear();
+        }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -8607,11 +10395,46 @@ public final class BlackcatMsg {
           to_bitField0_ |= 0x00000008;
         }
         result.fifteenMinsAvg_ = fifteenMinsAvg_;
+        if (topProcessBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            topProcess_ = java.util.Collections.unmodifiableList(topProcess_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.topProcess_ = topProcess_;
+        } else {
+          result.topProcess_ = topProcessBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad)other);
@@ -8635,26 +10458,54 @@ public final class BlackcatMsg {
         if (other.hasFifteenMinsAvg()) {
           setFifteenMinsAvg(other.getFifteenMinsAvg());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        if (topProcessBuilder_ == null) {
+          if (!other.topProcess_.isEmpty()) {
+            if (topProcess_.isEmpty()) {
+              topProcess_ = other.topProcess_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureTopProcessIsMutable();
+              topProcess_.addAll(other.topProcess_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.topProcess_.isEmpty()) {
+            if (topProcessBuilder_.isEmpty()) {
+              topProcessBuilder_.dispose();
+              topProcessBuilder_ = null;
+              topProcess_ = other.topProcess_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              topProcessBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTopProcessFieldBuilder() : null;
+            } else {
+              topProcessBuilder_.addAllMessages(other.topProcess_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasCpuNum()) {
-          
           return false;
         }
         if (!hasOneMinAvg()) {
-          
           return false;
         }
         if (!hasFiveMinsAvg()) {
-          
           return false;
         }
         if (!hasFifteenMinsAvg()) {
-          
           return false;
+        }
+        for (int i = 0; i < getTopProcessCount(); i++) {
+          if (!getTopProcess(i).isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -8668,7 +10519,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -8712,31 +10563,31 @@ public final class BlackcatMsg {
 
       private float oneMinAvg_ ;
       /**
-       * <code>required float oneMinAvg = 2;</code>
-       *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
+       *
+       * <code>required float oneMinAvg = 2;</code>
        */
       public boolean hasOneMinAvg() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required float oneMinAvg = 2;</code>
-       *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
+       *
+       * <code>required float oneMinAvg = 2;</code>
        */
       public float getOneMinAvg() {
         return oneMinAvg_;
       }
       /**
-       * <code>required float oneMinAvg = 2;</code>
-       *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
+       *
+       * <code>required float oneMinAvg = 2;</code>
        */
       public Builder setOneMinAvg(float value) {
         bitField0_ |= 0x00000002;
@@ -8745,11 +10596,11 @@ public final class BlackcatMsg {
         return this;
       }
       /**
-       * <code>required float oneMinAvg = 2;</code>
-       *
        * <pre>
        * Load meaning, pls refer http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
        * </pre>
+       *
+       * <code>required float oneMinAvg = 2;</code>
        */
       public Builder clearOneMinAvg() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -8822,15 +10673,292 @@ public final class BlackcatMsg {
         return this;
       }
 
+      private java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> topProcess_ =
+        java.util.Collections.emptyList();
+      private void ensureTopProcessIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          topProcess_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess>(topProcess_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder> topProcessBuilder_;
+
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> getTopProcessList() {
+        if (topProcessBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(topProcess_);
+        } else {
+          return topProcessBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public int getTopProcessCount() {
+        if (topProcessBuilder_ == null) {
+          return topProcess_.size();
+        } else {
+          return topProcessBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess getTopProcess(int index) {
+        if (topProcessBuilder_ == null) {
+          return topProcess_.get(index);
+        } else {
+          return topProcessBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder setTopProcess(
+          int index, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess value) {
+        if (topProcessBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTopProcessIsMutable();
+          topProcess_.set(index, value);
+          onChanged();
+        } else {
+          topProcessBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder setTopProcess(
+          int index, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder builderForValue) {
+        if (topProcessBuilder_ == null) {
+          ensureTopProcessIsMutable();
+          topProcess_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          topProcessBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder addTopProcess(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess value) {
+        if (topProcessBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTopProcessIsMutable();
+          topProcess_.add(value);
+          onChanged();
+        } else {
+          topProcessBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder addTopProcess(
+          int index, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess value) {
+        if (topProcessBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTopProcessIsMutable();
+          topProcess_.add(index, value);
+          onChanged();
+        } else {
+          topProcessBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder addTopProcess(
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder builderForValue) {
+        if (topProcessBuilder_ == null) {
+          ensureTopProcessIsMutable();
+          topProcess_.add(builderForValue.build());
+          onChanged();
+        } else {
+          topProcessBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder addTopProcess(
+          int index, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder builderForValue) {
+        if (topProcessBuilder_ == null) {
+          ensureTopProcessIsMutable();
+          topProcess_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          topProcessBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder addAllTopProcess(
+          java.lang.Iterable<? extends com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess> values) {
+        if (topProcessBuilder_ == null) {
+          ensureTopProcessIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, topProcess_);
+          onChanged();
+        } else {
+          topProcessBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder clearTopProcess() {
+        if (topProcessBuilder_ == null) {
+          topProcess_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          topProcessBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public Builder removeTopProcess(int index) {
+        if (topProcessBuilder_ == null) {
+          ensureTopProcessIsMutable();
+          topProcess_.remove(index);
+          onChanged();
+        } else {
+          topProcessBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder getTopProcessBuilder(
+          int index) {
+        return getTopProcessFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder getTopProcessOrBuilder(
+          int index) {
+        if (topProcessBuilder_ == null) {
+          return topProcess_.get(index);  } else {
+          return topProcessBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public java.util.List<? extends com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder> 
+           getTopProcessOrBuilderList() {
+        if (topProcessBuilder_ != null) {
+          return topProcessBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(topProcess_);
+        }
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder addTopProcessBuilder() {
+        return getTopProcessFieldBuilder().addBuilder(
+            com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder addTopProcessBuilder(
+          int index) {
+        return getTopProcessFieldBuilder().addBuilder(
+            index, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad.TopProcess topProcess = 5;</code>
+       */
+      public java.util.List<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder> 
+           getTopProcessBuilderList() {
+        return getTopProcessFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder> 
+          getTopProcessFieldBuilder() {
+        if (topProcessBuilder_ == null) {
+          topProcessBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcess.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad.TopProcessOrBuilder>(
+                  topProcess_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          topProcess_ = null;
+        }
+        return topProcessBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatLoad(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatLoad)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatLoad>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatLoad>() {
+      public BlackcatLoad parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatLoad(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatLoad> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatLoad> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatLoad getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatProcessOrBuilder extends
@@ -8864,37 +10992,29 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess}
    */
-  public static final class BlackcatProcess extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatProcess extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess)
       BlackcatProcessOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatProcess.newBuilder() to construct.
-    private BlackcatProcess(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatProcess(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatProcess(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatProcess defaultInstance;
-    public static BlackcatProcess getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatProcess() {
+      proc_ = java.util.Collections.emptyList();
     }
 
-    public BlackcatProcess getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatProcess(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8907,8 +11027,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -8918,7 +11038,8 @@ public final class BlackcatMsg {
                 proc_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              proc_.add(input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.PARSER, extensionRegistry));
+              proc_.add(
+                  input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.PARSER, extensionRegistry));
               break;
             }
           }
@@ -8927,7 +11048,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           proc_ = java.util.Collections.unmodifiableList(proc_);
@@ -8941,26 +11062,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatProcess> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatProcess>() {
-      public BlackcatProcess parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatProcess(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatProcess> getParserForType() {
-      return PARSER;
     }
 
     public interface ProcOrBuilder extends
@@ -8991,8 +11097,6 @@ public final class BlackcatMsg {
           getArgsBytes();
 
       /**
-       * <code>required uint64 res = 3;</code>
-       *
        * <pre>
        * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
        * RES stands for the resident size,
@@ -9000,11 +11104,11 @@ public final class BlackcatMsg {
        * of how much actual physical memory a process is consuming.
        * (This also corresponds directly to the %MEM column.)
        * </pre>
+       *
+       * <code>required uint64 res = 3;</code>
        */
       boolean hasRes();
       /**
-       * <code>required uint64 res = 3;</code>
-       *
        * <pre>
        * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
        * RES stands for the resident size,
@@ -9012,6 +11116,8 @@ public final class BlackcatMsg {
        * of how much actual physical memory a process is consuming.
        * (This also corresponds directly to the %MEM column.)
        * </pre>
+       *
+       * <code>required uint64 res = 3;</code>
        */
       long getRes();
 
@@ -9025,27 +11131,27 @@ public final class BlackcatMsg {
       long getStartTime();
 
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       boolean hasName();
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       java.lang.String getName();
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       com.google.protobuf.ByteString
           getNameBytes();
@@ -9053,37 +11159,33 @@ public final class BlackcatMsg {
     /**
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc}
      */
-    public static final class Proc extends
-        com.google.protobuf.GeneratedMessage implements
+    public  static final class Proc extends
+        com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc)
         ProcOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use Proc.newBuilder() to construct.
-      private Proc(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private Proc(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private Proc(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Proc defaultInstance;
-      public static Proc getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public Proc getDefaultInstanceForType() {
-        return defaultInstance;
+      private Proc() {
+        pid_ = 0L;
+        args_ = "";
+        res_ = 0L;
+        startTime_ = 0L;
+        name_ = "";
       }
 
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private Proc(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -9096,8 +11198,8 @@ public final class BlackcatMsg {
                 done = true;
                 break;
               default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
@@ -9135,7 +11237,7 @@ public final class BlackcatMsg {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -9146,26 +11248,11 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<Proc> PARSER =
-          new com.google.protobuf.AbstractParser<Proc>() {
-        public Proc parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Proc(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Proc> getParserForType() {
-        return PARSER;
       }
 
       private int bitField0_;
@@ -9185,7 +11272,7 @@ public final class BlackcatMsg {
       }
 
       public static final int ARGS_FIELD_NUMBER = 2;
-      private java.lang.Object args_;
+      private volatile java.lang.Object args_;
       /**
        * <code>required string args = 2;</code>
        */
@@ -9229,8 +11316,6 @@ public final class BlackcatMsg {
       public static final int RES_FIELD_NUMBER = 3;
       private long res_;
       /**
-       * <code>required uint64 res = 3;</code>
-       *
        * <pre>
        * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
        * RES stands for the resident size,
@@ -9238,13 +11323,13 @@ public final class BlackcatMsg {
        * of how much actual physical memory a process is consuming.
        * (This also corresponds directly to the %MEM column.)
        * </pre>
+       *
+       * <code>required uint64 res = 3;</code>
        */
       public boolean hasRes() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required uint64 res = 3;</code>
-       *
        * <pre>
        * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
        * RES stands for the resident size,
@@ -9252,6 +11337,8 @@ public final class BlackcatMsg {
        * of how much actual physical memory a process is consuming.
        * (This also corresponds directly to the %MEM column.)
        * </pre>
+       *
+       * <code>required uint64 res = 3;</code>
        */
       public long getRes() {
         return res_;
@@ -9273,23 +11360,23 @@ public final class BlackcatMsg {
       }
 
       public static final int NAME_FIELD_NUMBER = 5;
-      private java.lang.Object name_;
+      private volatile java.lang.Object name_;
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -9306,11 +11393,11 @@ public final class BlackcatMsg {
         }
       }
       /**
-       * <code>required string name = 5;</code>
-       *
        * <pre>
        * 进程名称
        * </pre>
+       *
+       * <code>required string name = 5;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -9326,13 +11413,6 @@ public final class BlackcatMsg {
         }
       }
 
-      private void initFields() {
-        pid_ = 0L;
-        args_ = "";
-        res_ = 0L;
-        startTime_ = 0L;
-        name_ = "";
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -9365,12 +11445,11 @@ public final class BlackcatMsg {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeUInt64(1, pid_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getArgsBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, args_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           output.writeUInt64(3, res_);
@@ -9379,14 +11458,13 @@ public final class BlackcatMsg {
           output.writeUInt64(4, startTime_);
         }
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          output.writeBytes(5, getNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 5, name_);
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
@@ -9395,8 +11473,7 @@ public final class BlackcatMsg {
             .computeUInt64Size(1, pid_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getArgsBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, args_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           size += com.google.protobuf.CodedOutputStream
@@ -9407,21 +11484,99 @@ public final class BlackcatMsg {
             .computeUInt64Size(4, startTime_);
         }
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(5, getNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, name_);
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
-      private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc)) {
+          return super.equals(obj);
+        }
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc) obj;
+
+        boolean result = true;
+        result = result && (hasPid() == other.hasPid());
+        if (hasPid()) {
+          result = result && (getPid()
+              == other.getPid());
+        }
+        result = result && (hasArgs() == other.hasArgs());
+        if (hasArgs()) {
+          result = result && getArgs()
+              .equals(other.getArgs());
+        }
+        result = result && (hasRes() == other.hasRes());
+        if (hasRes()) {
+          result = result && (getRes()
+              == other.getRes());
+        }
+        result = result && (hasStartTime() == other.hasStartTime());
+        if (hasStartTime()) {
+          result = result && (getStartTime()
+              == other.getStartTime());
+        }
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
       }
 
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasPid()) {
+          hash = (37 * hash) + PID_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getPid());
+        }
+        if (hasArgs()) {
+          hash = (37 * hash) + ARGS_FIELD_NUMBER;
+          hash = (53 * hash) + getArgs().hashCode();
+        }
+        if (hasRes()) {
+          hash = (37 * hash) + RES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getRes());
+        }
+        if (hasStartTime()) {
+          hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getStartTime());
+        }
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9445,46 +11600,57 @@ public final class BlackcatMsg {
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -9492,7 +11658,7 @@ public final class BlackcatMsg {
        * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc)
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.ProcOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
@@ -9500,7 +11666,7 @@ public final class BlackcatMsg {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -9513,18 +11679,15 @@ public final class BlackcatMsg {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           pid_ = 0L;
@@ -9538,10 +11701,6 @@ public final class BlackcatMsg {
           name_ = "";
           bitField0_ = (bitField0_ & ~0x00000010);
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -9590,6 +11749,32 @@ public final class BlackcatMsg {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc) {
             return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc)other);
@@ -9620,29 +11805,25 @@ public final class BlackcatMsg {
             name_ = other.name_;
             onChanged();
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasPid()) {
-            
             return false;
           }
           if (!hasArgs()) {
-            
             return false;
           }
           if (!hasRes()) {
-            
             return false;
           }
           if (!hasStartTime()) {
-            
             return false;
           }
           if (!hasName()) {
-            
             return false;
           }
           return true;
@@ -9657,7 +11838,7 @@ public final class BlackcatMsg {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -9777,8 +11958,6 @@ public final class BlackcatMsg {
 
         private long res_ ;
         /**
-         * <code>required uint64 res = 3;</code>
-         *
          * <pre>
          * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
          * RES stands for the resident size,
@@ -9786,13 +11965,13 @@ public final class BlackcatMsg {
          * of how much actual physical memory a process is consuming.
          * (This also corresponds directly to the %MEM column.)
          * </pre>
+         *
+         * <code>required uint64 res = 3;</code>
          */
         public boolean hasRes() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
         /**
-         * <code>required uint64 res = 3;</code>
-         *
          * <pre>
          * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
          * RES stands for the resident size,
@@ -9800,13 +11979,13 @@ public final class BlackcatMsg {
          * of how much actual physical memory a process is consuming.
          * (This also corresponds directly to the %MEM column.)
          * </pre>
+         *
+         * <code>required uint64 res = 3;</code>
          */
         public long getRes() {
           return res_;
         }
         /**
-         * <code>required uint64 res = 3;</code>
-         *
          * <pre>
          * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
          * RES stands for the resident size,
@@ -9814,6 +11993,8 @@ public final class BlackcatMsg {
          * of how much actual physical memory a process is consuming.
          * (This also corresponds directly to the %MEM column.)
          * </pre>
+         *
+         * <code>required uint64 res = 3;</code>
          */
         public Builder setRes(long value) {
           bitField0_ |= 0x00000004;
@@ -9822,8 +12003,6 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>required uint64 res = 3;</code>
-         *
          * <pre>
          * http://mugurel.sumanariu.ro/linux/the-difference-among-virt-res-and-shr-in-top-output/
          * RES stands for the resident size,
@@ -9831,6 +12010,8 @@ public final class BlackcatMsg {
          * of how much actual physical memory a process is consuming.
          * (This also corresponds directly to the %MEM column.)
          * </pre>
+         *
+         * <code>required uint64 res = 3;</code>
          */
         public Builder clearRes() {
           bitField0_ = (bitField0_ & ~0x00000004);
@@ -9873,21 +12054,21 @@ public final class BlackcatMsg {
 
         private java.lang.Object name_ = "";
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public boolean hasName() {
           return ((bitField0_ & 0x00000010) == 0x00000010);
         }
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public java.lang.String getName() {
           java.lang.Object ref = name_;
@@ -9904,11 +12085,11 @@ public final class BlackcatMsg {
           }
         }
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public com.google.protobuf.ByteString
             getNameBytes() {
@@ -9924,11 +12105,11 @@ public final class BlackcatMsg {
           }
         }
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public Builder setName(
             java.lang.String value) {
@@ -9941,11 +12122,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public Builder clearName() {
           bitField0_ = (bitField0_ & ~0x00000010);
@@ -9954,11 +12135,11 @@ public final class BlackcatMsg {
           return this;
         }
         /**
-         * <code>required string name = 5;</code>
-         *
          * <pre>
          * 进程名称
          * </pre>
+         *
+         * <code>required string name = 5;</code>
          */
         public Builder setNameBytes(
             com.google.protobuf.ByteString value) {
@@ -9970,16 +12151,53 @@ public final class BlackcatMsg {
           onChanged();
           return this;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc)
       }
 
+      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc)
+      private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc DEFAULT_INSTANCE;
       static {
-        defaultInstance = new Proc(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc();
       }
 
-      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess.Proc)
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Proc>
+          PARSER = new com.google.protobuf.AbstractParser<Proc>() {
+        public Proc parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Proc(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Proc> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Proc> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int PROC_FIELD_NUMBER = 1;
@@ -10017,9 +12235,6 @@ public final class BlackcatMsg {
       return proc_.get(index);
     }
 
-    private void initFields() {
-      proc_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -10038,16 +12253,14 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < proc_.size(); i++) {
         output.writeMessage(1, proc_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -10055,18 +12268,55 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, proc_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess) obj;
+
+      boolean result = true;
+      result = result && getProcList()
+          .equals(other.getProcList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getProcCount() > 0) {
+        hash = (37 * hash) + PROC_FIELD_NUMBER;
+        hash = (53 * hash) + getProcList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10090,46 +12340,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -10137,7 +12398,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcessOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -10145,7 +12406,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -10158,19 +12419,16 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getProcFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (procBuilder_ == null) {
@@ -10180,10 +12438,6 @@ public final class BlackcatMsg {
           procBuilder_.clear();
         }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -10219,6 +12473,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess)other);
@@ -10249,21 +12529,21 @@ public final class BlackcatMsg {
               proc_ = other.proc_;
               bitField0_ = (bitField0_ & ~0x00000001);
               procBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getProcFieldBuilder() : null;
             } else {
               procBuilder_.addAllMessages(other.proc_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         for (int i = 0; i < getProcCount(); i++) {
           if (!getProc(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -10279,7 +12559,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -10298,7 +12578,7 @@ public final class BlackcatMsg {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.ProcOrBuilder> procBuilder_;
 
       /**
@@ -10514,11 +12794,11 @@ public final class BlackcatMsg {
            getProcBuilderList() {
         return getProcFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.ProcOrBuilder> 
           getProcFieldBuilder() {
         if (procBuilder_ == null) {
-          procBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          procBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.Proc.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess.ProcOrBuilder>(
                   proc_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -10528,16 +12808,53 @@ public final class BlackcatMsg {
         }
         return procBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatProcess(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatProcess)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatProcess>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatProcess>() {
+      public BlackcatProcess parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatProcess(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatProcess> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatProcess> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatProcess getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatMethodRuntimeOrBuilder extends
@@ -10765,37 +13082,45 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime}
    */
-  public static final class BlackcatMethodRuntime extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatMethodRuntime extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime)
       BlackcatMethodRuntimeOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatMethodRuntime.newBuilder() to construct.
-    private BlackcatMethodRuntime(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatMethodRuntime(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatMethodRuntime(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatMethodRuntime defaultInstance;
-    public static BlackcatMethodRuntime getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatMethodRuntime() {
+      pid_ = "";
+      executionId_ = "";
+      startMillis_ = 0L;
+      endMillis_ = 0L;
+      costNano_ = 0L;
+      className_ = "";
+      methodName_ = "";
+      methodDesc_ = "";
+      args_ = "";
+      result_ = "";
+      throwableCaught_ = "";
+      throwableUncaught_ = "";
+      sameThrowable_ = false;
+      invokeId_ = "";
+      traceId_ = "";
+      linkId_ = "";
+      throwableMessage_ = "";
     }
 
-    public BlackcatMethodRuntime getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatMethodRuntime(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -10808,8 +13133,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -10918,7 +13243,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -10929,31 +13254,16 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BlackcatMethodRuntime> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatMethodRuntime>() {
-      public BlackcatMethodRuntime parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatMethodRuntime(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatMethodRuntime> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int PID_FIELD_NUMBER = 1;
-    private java.lang.Object pid_;
+    private volatile java.lang.Object pid_;
     /**
      * <code>required string pid = 1;</code>
      */
@@ -10995,7 +13305,7 @@ public final class BlackcatMsg {
     }
 
     public static final int EXECUTIONID_FIELD_NUMBER = 2;
-    private java.lang.Object executionId_;
+    private volatile java.lang.Object executionId_;
     /**
      * <code>required string executionId = 2;</code>
      */
@@ -11082,7 +13392,7 @@ public final class BlackcatMsg {
     }
 
     public static final int CLASSNAME_FIELD_NUMBER = 6;
-    private java.lang.Object className_;
+    private volatile java.lang.Object className_;
     /**
      * <code>required string className = 6;</code>
      */
@@ -11124,7 +13434,7 @@ public final class BlackcatMsg {
     }
 
     public static final int METHODNAME_FIELD_NUMBER = 7;
-    private java.lang.Object methodName_;
+    private volatile java.lang.Object methodName_;
     /**
      * <code>required string methodName = 7;</code>
      */
@@ -11166,7 +13476,7 @@ public final class BlackcatMsg {
     }
 
     public static final int METHODDESC_FIELD_NUMBER = 8;
-    private java.lang.Object methodDesc_;
+    private volatile java.lang.Object methodDesc_;
     /**
      * <code>required string methodDesc = 8;</code>
      */
@@ -11208,7 +13518,7 @@ public final class BlackcatMsg {
     }
 
     public static final int ARGS_FIELD_NUMBER = 9;
-    private java.lang.Object args_;
+    private volatile java.lang.Object args_;
     /**
      * <code>required string args = 9;</code>
      */
@@ -11250,7 +13560,7 @@ public final class BlackcatMsg {
     }
 
     public static final int RESULT_FIELD_NUMBER = 10;
-    private java.lang.Object result_;
+    private volatile java.lang.Object result_;
     /**
      * <code>required string result = 10;</code>
      */
@@ -11292,7 +13602,7 @@ public final class BlackcatMsg {
     }
 
     public static final int THROWABLECAUGHT_FIELD_NUMBER = 11;
-    private java.lang.Object throwableCaught_;
+    private volatile java.lang.Object throwableCaught_;
     /**
      * <code>optional string throwableCaught = 11;</code>
      */
@@ -11334,7 +13644,7 @@ public final class BlackcatMsg {
     }
 
     public static final int THROWABLEUNCAUGHT_FIELD_NUMBER = 12;
-    private java.lang.Object throwableUncaught_;
+    private volatile java.lang.Object throwableUncaught_;
     /**
      * <code>optional string throwableUncaught = 12;</code>
      */
@@ -11391,7 +13701,7 @@ public final class BlackcatMsg {
     }
 
     public static final int INVOKEID_FIELD_NUMBER = 14;
-    private java.lang.Object invokeId_;
+    private volatile java.lang.Object invokeId_;
     /**
      * <code>required string invokeId = 14;</code>
      */
@@ -11433,7 +13743,7 @@ public final class BlackcatMsg {
     }
 
     public static final int TRACEID_FIELD_NUMBER = 15;
-    private java.lang.Object traceId_;
+    private volatile java.lang.Object traceId_;
     /**
      * <code>required string traceId = 15;</code>
      */
@@ -11475,7 +13785,7 @@ public final class BlackcatMsg {
     }
 
     public static final int LINKID_FIELD_NUMBER = 16;
-    private java.lang.Object linkId_;
+    private volatile java.lang.Object linkId_;
     /**
      * <code>required string linkId = 16;</code>
      */
@@ -11517,7 +13827,7 @@ public final class BlackcatMsg {
     }
 
     public static final int THROWABLEMESSAGE_FIELD_NUMBER = 17;
-    private java.lang.Object throwableMessage_;
+    private volatile java.lang.Object throwableMessage_;
     /**
      * <code>optional string throwableMessage = 17;</code>
      */
@@ -11558,25 +13868,6 @@ public final class BlackcatMsg {
       }
     }
 
-    private void initFields() {
-      pid_ = "";
-      executionId_ = "";
-      startMillis_ = 0L;
-      endMillis_ = 0L;
-      costNano_ = 0L;
-      className_ = "";
-      methodName_ = "";
-      methodDesc_ = "";
-      args_ = "";
-      result_ = "";
-      throwableCaught_ = "";
-      throwableUncaught_ = "";
-      sameThrowable_ = false;
-      invokeId_ = "";
-      traceId_ = "";
-      linkId_ = "";
-      throwableMessage_ = "";
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -11645,12 +13936,11 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getPidBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getExecutionIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, executionId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt64(3, startMillis_);
@@ -11662,57 +13952,54 @@ public final class BlackcatMsg {
         output.writeUInt64(5, costNano_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getClassNameBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, className_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getMethodNameBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, methodName_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getMethodDescBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, methodDesc_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getArgsBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, args_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, getResultBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, result_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(11, getThrowableCaughtBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, throwableCaught_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeBytes(12, getThrowableUncaughtBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, throwableUncaught_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeBool(13, sameThrowable_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeBytes(14, getInvokeIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, invokeId_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeBytes(15, getTraceIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, traceId_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeBytes(16, getLinkIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, linkId_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeBytes(17, getThrowableMessageBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 17, throwableMessage_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getPidBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getExecutionIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, executionId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -11727,65 +14014,242 @@ public final class BlackcatMsg {
           .computeUInt64Size(5, costNano_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getClassNameBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, className_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getMethodNameBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, methodName_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getMethodDescBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, methodDesc_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getArgsBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, args_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getResultBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, result_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, getThrowableCaughtBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, throwableCaught_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(12, getThrowableUncaughtBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, throwableUncaught_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(13, sameThrowable_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(14, getInvokeIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, invokeId_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(15, getTraceIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, traceId_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(16, getLinkIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, linkId_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(17, getThrowableMessageBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, throwableMessage_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime) obj;
+
+      boolean result = true;
+      result = result && (hasPid() == other.hasPid());
+      if (hasPid()) {
+        result = result && getPid()
+            .equals(other.getPid());
+      }
+      result = result && (hasExecutionId() == other.hasExecutionId());
+      if (hasExecutionId()) {
+        result = result && getExecutionId()
+            .equals(other.getExecutionId());
+      }
+      result = result && (hasStartMillis() == other.hasStartMillis());
+      if (hasStartMillis()) {
+        result = result && (getStartMillis()
+            == other.getStartMillis());
+      }
+      result = result && (hasEndMillis() == other.hasEndMillis());
+      if (hasEndMillis()) {
+        result = result && (getEndMillis()
+            == other.getEndMillis());
+      }
+      result = result && (hasCostNano() == other.hasCostNano());
+      if (hasCostNano()) {
+        result = result && (getCostNano()
+            == other.getCostNano());
+      }
+      result = result && (hasClassName() == other.hasClassName());
+      if (hasClassName()) {
+        result = result && getClassName()
+            .equals(other.getClassName());
+      }
+      result = result && (hasMethodName() == other.hasMethodName());
+      if (hasMethodName()) {
+        result = result && getMethodName()
+            .equals(other.getMethodName());
+      }
+      result = result && (hasMethodDesc() == other.hasMethodDesc());
+      if (hasMethodDesc()) {
+        result = result && getMethodDesc()
+            .equals(other.getMethodDesc());
+      }
+      result = result && (hasArgs() == other.hasArgs());
+      if (hasArgs()) {
+        result = result && getArgs()
+            .equals(other.getArgs());
+      }
+      result = result && (hasResult() == other.hasResult());
+      if (hasResult()) {
+        result = result && getResult()
+            .equals(other.getResult());
+      }
+      result = result && (hasThrowableCaught() == other.hasThrowableCaught());
+      if (hasThrowableCaught()) {
+        result = result && getThrowableCaught()
+            .equals(other.getThrowableCaught());
+      }
+      result = result && (hasThrowableUncaught() == other.hasThrowableUncaught());
+      if (hasThrowableUncaught()) {
+        result = result && getThrowableUncaught()
+            .equals(other.getThrowableUncaught());
+      }
+      result = result && (hasSameThrowable() == other.hasSameThrowable());
+      if (hasSameThrowable()) {
+        result = result && (getSameThrowable()
+            == other.getSameThrowable());
+      }
+      result = result && (hasInvokeId() == other.hasInvokeId());
+      if (hasInvokeId()) {
+        result = result && getInvokeId()
+            .equals(other.getInvokeId());
+      }
+      result = result && (hasTraceId() == other.hasTraceId());
+      if (hasTraceId()) {
+        result = result && getTraceId()
+            .equals(other.getTraceId());
+      }
+      result = result && (hasLinkId() == other.hasLinkId());
+      if (hasLinkId()) {
+        result = result && getLinkId()
+            .equals(other.getLinkId());
+      }
+      result = result && (hasThrowableMessage() == other.hasThrowableMessage());
+      if (hasThrowableMessage()) {
+        result = result && getThrowableMessage()
+            .equals(other.getThrowableMessage());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPid()) {
+        hash = (37 * hash) + PID_FIELD_NUMBER;
+        hash = (53 * hash) + getPid().hashCode();
+      }
+      if (hasExecutionId()) {
+        hash = (37 * hash) + EXECUTIONID_FIELD_NUMBER;
+        hash = (53 * hash) + getExecutionId().hashCode();
+      }
+      if (hasStartMillis()) {
+        hash = (37 * hash) + STARTMILLIS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartMillis());
+      }
+      if (hasEndMillis()) {
+        hash = (37 * hash) + ENDMILLIS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getEndMillis());
+      }
+      if (hasCostNano()) {
+        hash = (37 * hash) + COSTNANO_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCostNano());
+      }
+      if (hasClassName()) {
+        hash = (37 * hash) + CLASSNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getClassName().hashCode();
+      }
+      if (hasMethodName()) {
+        hash = (37 * hash) + METHODNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getMethodName().hashCode();
+      }
+      if (hasMethodDesc()) {
+        hash = (37 * hash) + METHODDESC_FIELD_NUMBER;
+        hash = (53 * hash) + getMethodDesc().hashCode();
+      }
+      if (hasArgs()) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgs().hashCode();
+      }
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      if (hasThrowableCaught()) {
+        hash = (37 * hash) + THROWABLECAUGHT_FIELD_NUMBER;
+        hash = (53 * hash) + getThrowableCaught().hashCode();
+      }
+      if (hasThrowableUncaught()) {
+        hash = (37 * hash) + THROWABLEUNCAUGHT_FIELD_NUMBER;
+        hash = (53 * hash) + getThrowableUncaught().hashCode();
+      }
+      if (hasSameThrowable()) {
+        hash = (37 * hash) + SAMETHROWABLE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getSameThrowable());
+      }
+      if (hasInvokeId()) {
+        hash = (37 * hash) + INVOKEID_FIELD_NUMBER;
+        hash = (53 * hash) + getInvokeId().hashCode();
+      }
+      if (hasTraceId()) {
+        hash = (37 * hash) + TRACEID_FIELD_NUMBER;
+        hash = (53 * hash) + getTraceId().hashCode();
+      }
+      if (hasLinkId()) {
+        hash = (37 * hash) + LINKID_FIELD_NUMBER;
+        hash = (53 * hash) + getLinkId().hashCode();
+      }
+      if (hasThrowableMessage()) {
+        hash = (37 * hash) + THROWABLEMESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getThrowableMessage().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11809,46 +14273,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11856,7 +14331,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -11864,7 +14339,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -11877,18 +14352,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         pid_ = "";
@@ -11926,10 +14398,6 @@ public final class BlackcatMsg {
         throwableMessage_ = "";
         bitField0_ = (bitField0_ & ~0x00010000);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -12026,6 +14494,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime)other);
@@ -12114,65 +14608,52 @@ public final class BlackcatMsg {
           throwableMessage_ = other.throwableMessage_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasPid()) {
-          
           return false;
         }
         if (!hasExecutionId()) {
-          
           return false;
         }
         if (!hasStartMillis()) {
-          
           return false;
         }
         if (!hasEndMillis()) {
-          
           return false;
         }
         if (!hasCostNano()) {
-          
           return false;
         }
         if (!hasClassName()) {
-          
           return false;
         }
         if (!hasMethodName()) {
-          
           return false;
         }
         if (!hasMethodDesc()) {
-          
           return false;
         }
         if (!hasArgs()) {
-          
           return false;
         }
         if (!hasResult()) {
-          
           return false;
         }
         if (!hasSameThrowable()) {
-          
           return false;
         }
         if (!hasInvokeId()) {
-          
           return false;
         }
         if (!hasTraceId()) {
-          
           return false;
         }
         if (!hasLinkId()) {
-          
           return false;
         }
         return true;
@@ -12187,7 +14668,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -13312,16 +15793,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatMethodRuntime(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMethodRuntime)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatMethodRuntime>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatMethodRuntime>() {
+      public BlackcatMethodRuntime parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatMethodRuntime(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatMethodRuntime> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatMethodRuntime> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMethodRuntime getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatFileSystemUsageOrBuilder extends
@@ -13355,37 +15873,29 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage}
    */
-  public static final class BlackcatFileSystemUsage extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatFileSystemUsage extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage)
       BlackcatFileSystemUsageOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatFileSystemUsage.newBuilder() to construct.
-    private BlackcatFileSystemUsage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatFileSystemUsage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatFileSystemUsage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatFileSystemUsage defaultInstance;
-    public static BlackcatFileSystemUsage getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatFileSystemUsage() {
+      usage_ = java.util.Collections.emptyList();
     }
 
-    public BlackcatFileSystemUsage getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatFileSystemUsage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -13398,8 +15908,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -13409,7 +15919,8 @@ public final class BlackcatMsg {
                 usage_ = new java.util.ArrayList<com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              usage_.add(input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.PARSER, extensionRegistry));
+              usage_.add(
+                  input.readMessage(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.PARSER, extensionRegistry));
               break;
             }
           }
@@ -13418,7 +15929,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           usage_ = java.util.Collections.unmodifiableList(usage_);
@@ -13432,26 +15943,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatFileSystemUsage> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatFileSystemUsage>() {
-      public BlackcatFileSystemUsage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatFileSystemUsage(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatFileSystemUsage> getParserForType() {
-      return PARSER;
     }
 
     public interface UsageOrBuilder extends
@@ -13606,37 +16102,43 @@ public final class BlackcatMsg {
     /**
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage}
      */
-    public static final class Usage extends
-        com.google.protobuf.GeneratedMessage implements
+    public  static final class Usage extends
+        com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage)
         UsageOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use Usage.newBuilder() to construct.
-      private Usage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private Usage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private Usage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Usage defaultInstance;
-      public static Usage getDefaultInstance() {
-        return defaultInstance;
+      private Usage() {
+        devName_ = "";
+        dirName_ = "";
+        diskReads_ = 0L;
+        diskWrites_ = 0L;
+        diskReadBytes_ = 0L;
+        diskWriteBytes_ = 0L;
+        diskQueue_ = 0D;
+        diskServiceTime_ = 0D;
+        avail_ = 0L;
+        used_ = 0L;
+        total_ = 0L;
+        usePercent_ = 0D;
+        free_ = 0L;
+        freeFiles_ = 0L;
+        files_ = 0L;
       }
 
-      public Usage getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private Usage(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -13649,8 +16151,8 @@ public final class BlackcatMsg {
                 done = true;
                 break;
               default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
@@ -13738,7 +16240,7 @@ public final class BlackcatMsg {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -13749,31 +16251,16 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<Usage> PARSER =
-          new com.google.protobuf.AbstractParser<Usage>() {
-        public Usage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Usage(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Usage> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
       public static final int DEVNAME_FIELD_NUMBER = 1;
-      private java.lang.Object devName_;
+      private volatile java.lang.Object devName_;
       /**
        * <code>required string devName = 1;</code>
        */
@@ -13815,7 +16302,7 @@ public final class BlackcatMsg {
       }
 
       public static final int DIRNAME_FIELD_NUMBER = 2;
-      private java.lang.Object dirName_;
+      private volatile java.lang.Object dirName_;
       /**
        * <code>required string dirName = 2;</code>
        */
@@ -14051,23 +16538,6 @@ public final class BlackcatMsg {
         return files_;
       }
 
-      private void initFields() {
-        devName_ = "";
-        dirName_ = "";
-        diskReads_ = 0L;
-        diskWrites_ = 0L;
-        diskReadBytes_ = 0L;
-        diskWriteBytes_ = 0L;
-        diskQueue_ = 0D;
-        diskServiceTime_ = 0D;
-        avail_ = 0L;
-        used_ = 0L;
-        total_ = 0L;
-        usePercent_ = 0D;
-        free_ = 0L;
-        freeFiles_ = 0L;
-        files_ = 0L;
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -14140,12 +16610,11 @@ public final class BlackcatMsg {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getDevNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, devName_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getDirNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dirName_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           output.writeUInt64(3, diskReads_);
@@ -14186,22 +16655,19 @@ public final class BlackcatMsg {
         if (((bitField0_ & 0x00004000) == 0x00004000)) {
           output.writeUInt64(15, files_);
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getDevNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, devName_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getDirNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, dirName_);
         }
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           size += com.google.protobuf.CodedOutputStream
@@ -14255,18 +16721,203 @@ public final class BlackcatMsg {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt64Size(15, files_);
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
-      private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage)) {
+          return super.equals(obj);
+        }
+        com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage) obj;
+
+        boolean result = true;
+        result = result && (hasDevName() == other.hasDevName());
+        if (hasDevName()) {
+          result = result && getDevName()
+              .equals(other.getDevName());
+        }
+        result = result && (hasDirName() == other.hasDirName());
+        if (hasDirName()) {
+          result = result && getDirName()
+              .equals(other.getDirName());
+        }
+        result = result && (hasDiskReads() == other.hasDiskReads());
+        if (hasDiskReads()) {
+          result = result && (getDiskReads()
+              == other.getDiskReads());
+        }
+        result = result && (hasDiskWrites() == other.hasDiskWrites());
+        if (hasDiskWrites()) {
+          result = result && (getDiskWrites()
+              == other.getDiskWrites());
+        }
+        result = result && (hasDiskReadBytes() == other.hasDiskReadBytes());
+        if (hasDiskReadBytes()) {
+          result = result && (getDiskReadBytes()
+              == other.getDiskReadBytes());
+        }
+        result = result && (hasDiskWriteBytes() == other.hasDiskWriteBytes());
+        if (hasDiskWriteBytes()) {
+          result = result && (getDiskWriteBytes()
+              == other.getDiskWriteBytes());
+        }
+        result = result && (hasDiskQueue() == other.hasDiskQueue());
+        if (hasDiskQueue()) {
+          result = result && (
+              java.lang.Double.doubleToLongBits(getDiskQueue())
+              == java.lang.Double.doubleToLongBits(
+                  other.getDiskQueue()));
+        }
+        result = result && (hasDiskServiceTime() == other.hasDiskServiceTime());
+        if (hasDiskServiceTime()) {
+          result = result && (
+              java.lang.Double.doubleToLongBits(getDiskServiceTime())
+              == java.lang.Double.doubleToLongBits(
+                  other.getDiskServiceTime()));
+        }
+        result = result && (hasAvail() == other.hasAvail());
+        if (hasAvail()) {
+          result = result && (getAvail()
+              == other.getAvail());
+        }
+        result = result && (hasUsed() == other.hasUsed());
+        if (hasUsed()) {
+          result = result && (getUsed()
+              == other.getUsed());
+        }
+        result = result && (hasTotal() == other.hasTotal());
+        if (hasTotal()) {
+          result = result && (getTotal()
+              == other.getTotal());
+        }
+        result = result && (hasUsePercent() == other.hasUsePercent());
+        if (hasUsePercent()) {
+          result = result && (
+              java.lang.Double.doubleToLongBits(getUsePercent())
+              == java.lang.Double.doubleToLongBits(
+                  other.getUsePercent()));
+        }
+        result = result && (hasFree() == other.hasFree());
+        if (hasFree()) {
+          result = result && (getFree()
+              == other.getFree());
+        }
+        result = result && (hasFreeFiles() == other.hasFreeFiles());
+        if (hasFreeFiles()) {
+          result = result && (getFreeFiles()
+              == other.getFreeFiles());
+        }
+        result = result && (hasFiles() == other.hasFiles());
+        if (hasFiles()) {
+          result = result && (getFiles()
+              == other.getFiles());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
       }
 
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasDevName()) {
+          hash = (37 * hash) + DEVNAME_FIELD_NUMBER;
+          hash = (53 * hash) + getDevName().hashCode();
+        }
+        if (hasDirName()) {
+          hash = (37 * hash) + DIRNAME_FIELD_NUMBER;
+          hash = (53 * hash) + getDirName().hashCode();
+        }
+        if (hasDiskReads()) {
+          hash = (37 * hash) + DISKREADS_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getDiskReads());
+        }
+        if (hasDiskWrites()) {
+          hash = (37 * hash) + DISKWRITES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getDiskWrites());
+        }
+        if (hasDiskReadBytes()) {
+          hash = (37 * hash) + DISKREADBYTES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getDiskReadBytes());
+        }
+        if (hasDiskWriteBytes()) {
+          hash = (37 * hash) + DISKWRITEBYTES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getDiskWriteBytes());
+        }
+        if (hasDiskQueue()) {
+          hash = (37 * hash) + DISKQUEUE_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getDiskQueue()));
+        }
+        if (hasDiskServiceTime()) {
+          hash = (37 * hash) + DISKSERVICETIME_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getDiskServiceTime()));
+        }
+        if (hasAvail()) {
+          hash = (37 * hash) + AVAIL_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getAvail());
+        }
+        if (hasUsed()) {
+          hash = (37 * hash) + USED_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getUsed());
+        }
+        if (hasTotal()) {
+          hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getTotal());
+        }
+        if (hasUsePercent()) {
+          hash = (37 * hash) + USEPERCENT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getUsePercent()));
+        }
+        if (hasFree()) {
+          hash = (37 * hash) + FREE_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getFree());
+        }
+        if (hasFreeFiles()) {
+          hash = (37 * hash) + FREEFILES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getFreeFiles());
+        }
+        if (hasFiles()) {
+          hash = (37 * hash) + FILES_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getFiles());
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -14290,46 +16941,57 @@ public final class BlackcatMsg {
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -14337,7 +16999,7 @@ public final class BlackcatMsg {
        * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage)
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.UsageOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
@@ -14345,7 +17007,7 @@ public final class BlackcatMsg {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -14358,18 +17020,15 @@ public final class BlackcatMsg {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           devName_ = "";
@@ -14403,10 +17062,6 @@ public final class BlackcatMsg {
           files_ = 0L;
           bitField0_ = (bitField0_ & ~0x00004000);
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -14495,6 +17150,32 @@ public final class BlackcatMsg {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage) {
             return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage)other);
@@ -14555,69 +17236,55 @@ public final class BlackcatMsg {
           if (other.hasFiles()) {
             setFiles(other.getFiles());
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasDevName()) {
-            
             return false;
           }
           if (!hasDirName()) {
-            
             return false;
           }
           if (!hasDiskReads()) {
-            
             return false;
           }
           if (!hasDiskWrites()) {
-            
             return false;
           }
           if (!hasDiskReadBytes()) {
-            
             return false;
           }
           if (!hasDiskWriteBytes()) {
-            
             return false;
           }
           if (!hasDiskQueue()) {
-            
             return false;
           }
           if (!hasDiskServiceTime()) {
-            
             return false;
           }
           if (!hasAvail()) {
-            
             return false;
           }
           if (!hasUsed()) {
-            
             return false;
           }
           if (!hasTotal()) {
-            
             return false;
           }
           if (!hasUsePercent()) {
-            
             return false;
           }
           if (!hasFree()) {
-            
             return false;
           }
           if (!hasFreeFiles()) {
-            
             return false;
           }
           if (!hasFiles()) {
-            
             return false;
           }
           return true;
@@ -14632,7 +17299,7 @@ public final class BlackcatMsg {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -15209,16 +17876,53 @@ public final class BlackcatMsg {
           onChanged();
           return this;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage)
       }
 
+      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage)
+      private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage DEFAULT_INSTANCE;
       static {
-        defaultInstance = new Usage(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage();
       }
 
-      // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage.Usage)
+      public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Usage>
+          PARSER = new com.google.protobuf.AbstractParser<Usage>() {
+        public Usage parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Usage(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Usage> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Usage> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int USAGE_FIELD_NUMBER = 1;
@@ -15256,9 +17960,6 @@ public final class BlackcatMsg {
       return usage_.get(index);
     }
 
-    private void initFields() {
-      usage_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -15277,16 +17978,14 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < usage_.size(); i++) {
         output.writeMessage(1, usage_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -15294,18 +17993,55 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, usage_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage) obj;
+
+      boolean result = true;
+      result = result && getUsageList()
+          .equals(other.getUsageList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getUsageCount() > 0) {
+        hash = (37 * hash) + USAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getUsageList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15329,46 +18065,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -15376,7 +18123,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -15384,7 +18131,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -15397,19 +18144,16 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getUsageFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (usageBuilder_ == null) {
@@ -15419,10 +18163,6 @@ public final class BlackcatMsg {
           usageBuilder_.clear();
         }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -15458,6 +18198,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage)other);
@@ -15488,21 +18254,21 @@ public final class BlackcatMsg {
               usage_ = other.usage_;
               bitField0_ = (bitField0_ & ~0x00000001);
               usageBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUsageFieldBuilder() : null;
             } else {
               usageBuilder_.addAllMessages(other.usage_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         for (int i = 0; i < getUsageCount(); i++) {
           if (!getUsage(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -15518,7 +18284,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -15537,7 +18303,7 @@ public final class BlackcatMsg {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.UsageOrBuilder> usageBuilder_;
 
       /**
@@ -15753,11 +18519,11 @@ public final class BlackcatMsg {
            getUsageBuilderList() {
         return getUsageFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.UsageOrBuilder> 
           getUsageFieldBuilder() {
         if (usageBuilder_ == null) {
-          usageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          usageBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.Usage.Builder, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage.UsageOrBuilder>(
                   usage_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -15767,16 +18533,53 @@ public final class BlackcatMsg {
         }
         return usageBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatFileSystemUsage(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatFileSystemUsage)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatFileSystemUsage>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatFileSystemUsage>() {
+      public BlackcatFileSystemUsage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatFileSystemUsage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatFileSystemUsage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatFileSystemUsage> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatFileSystemUsage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatNetStatOrBuilder extends
@@ -15939,37 +18742,45 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat}
    */
-  public static final class BlackcatNetStat extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatNetStat extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat)
       BlackcatNetStatOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatNetStat.newBuilder() to construct.
-    private BlackcatNetStat(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatNetStat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatNetStat(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatNetStat defaultInstance;
-    public static BlackcatNetStat getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatNetStat() {
+      tcpInboundTotal_ = 0;
+      tcpOutboundTotal_ = 0;
+      allInboundTotal_ = 0;
+      allOutboundTotal_ = 0;
+      tcpEstablished_ = 0;
+      tcpSynSent_ = 0;
+      tcpSynRecv_ = 0;
+      tcpFinWait1_ = 0;
+      tcpFinWait2_ = 0;
+      tcpTimeWait_ = 0;
+      tcpClose_ = 0;
+      tcpCloseWait_ = 0;
+      tcpLastAck_ = 0;
+      tcpListen_ = 0;
+      tcpClosing_ = 0;
+      tcpIdle_ = 0;
+      tcpBound_ = 0;
     }
 
-    public BlackcatNetStat getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatNetStat(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -15982,8 +18793,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -16079,7 +18890,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -16090,26 +18901,11 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<BlackcatNetStat> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatNetStat>() {
-      public BlackcatNetStat parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatNetStat(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatNetStat> getParserForType() {
-      return PARSER;
     }
 
     private int bitField0_;
@@ -16368,25 +19164,6 @@ public final class BlackcatMsg {
       return tcpBound_;
     }
 
-    private void initFields() {
-      tcpInboundTotal_ = 0;
-      tcpOutboundTotal_ = 0;
-      allInboundTotal_ = 0;
-      allOutboundTotal_ = 0;
-      tcpEstablished_ = 0;
-      tcpSynSent_ = 0;
-      tcpSynRecv_ = 0;
-      tcpFinWait1_ = 0;
-      tcpFinWait2_ = 0;
-      tcpTimeWait_ = 0;
-      tcpClose_ = 0;
-      tcpCloseWait_ = 0;
-      tcpLastAck_ = 0;
-      tcpListen_ = 0;
-      tcpClosing_ = 0;
-      tcpIdle_ = 0;
-      tcpBound_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -16467,7 +19244,6 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt32(1, tcpInboundTotal_);
       }
@@ -16519,12 +19295,11 @@ public final class BlackcatMsg {
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         output.writeUInt32(17, tcpBound_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -16596,18 +19371,202 @@ public final class BlackcatMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(17, tcpBound_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat) obj;
+
+      boolean result = true;
+      result = result && (hasTcpInboundTotal() == other.hasTcpInboundTotal());
+      if (hasTcpInboundTotal()) {
+        result = result && (getTcpInboundTotal()
+            == other.getTcpInboundTotal());
+      }
+      result = result && (hasTcpOutboundTotal() == other.hasTcpOutboundTotal());
+      if (hasTcpOutboundTotal()) {
+        result = result && (getTcpOutboundTotal()
+            == other.getTcpOutboundTotal());
+      }
+      result = result && (hasAllInboundTotal() == other.hasAllInboundTotal());
+      if (hasAllInboundTotal()) {
+        result = result && (getAllInboundTotal()
+            == other.getAllInboundTotal());
+      }
+      result = result && (hasAllOutboundTotal() == other.hasAllOutboundTotal());
+      if (hasAllOutboundTotal()) {
+        result = result && (getAllOutboundTotal()
+            == other.getAllOutboundTotal());
+      }
+      result = result && (hasTcpEstablished() == other.hasTcpEstablished());
+      if (hasTcpEstablished()) {
+        result = result && (getTcpEstablished()
+            == other.getTcpEstablished());
+      }
+      result = result && (hasTcpSynSent() == other.hasTcpSynSent());
+      if (hasTcpSynSent()) {
+        result = result && (getTcpSynSent()
+            == other.getTcpSynSent());
+      }
+      result = result && (hasTcpSynRecv() == other.hasTcpSynRecv());
+      if (hasTcpSynRecv()) {
+        result = result && (getTcpSynRecv()
+            == other.getTcpSynRecv());
+      }
+      result = result && (hasTcpFinWait1() == other.hasTcpFinWait1());
+      if (hasTcpFinWait1()) {
+        result = result && (getTcpFinWait1()
+            == other.getTcpFinWait1());
+      }
+      result = result && (hasTcpFinWait2() == other.hasTcpFinWait2());
+      if (hasTcpFinWait2()) {
+        result = result && (getTcpFinWait2()
+            == other.getTcpFinWait2());
+      }
+      result = result && (hasTcpTimeWait() == other.hasTcpTimeWait());
+      if (hasTcpTimeWait()) {
+        result = result && (getTcpTimeWait()
+            == other.getTcpTimeWait());
+      }
+      result = result && (hasTcpClose() == other.hasTcpClose());
+      if (hasTcpClose()) {
+        result = result && (getTcpClose()
+            == other.getTcpClose());
+      }
+      result = result && (hasTcpCloseWait() == other.hasTcpCloseWait());
+      if (hasTcpCloseWait()) {
+        result = result && (getTcpCloseWait()
+            == other.getTcpCloseWait());
+      }
+      result = result && (hasTcpLastAck() == other.hasTcpLastAck());
+      if (hasTcpLastAck()) {
+        result = result && (getTcpLastAck()
+            == other.getTcpLastAck());
+      }
+      result = result && (hasTcpListen() == other.hasTcpListen());
+      if (hasTcpListen()) {
+        result = result && (getTcpListen()
+            == other.getTcpListen());
+      }
+      result = result && (hasTcpClosing() == other.hasTcpClosing());
+      if (hasTcpClosing()) {
+        result = result && (getTcpClosing()
+            == other.getTcpClosing());
+      }
+      result = result && (hasTcpIdle() == other.hasTcpIdle());
+      if (hasTcpIdle()) {
+        result = result && (getTcpIdle()
+            == other.getTcpIdle());
+      }
+      result = result && (hasTcpBound() == other.hasTcpBound());
+      if (hasTcpBound()) {
+        result = result && (getTcpBound()
+            == other.getTcpBound());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTcpInboundTotal()) {
+        hash = (37 * hash) + TCPINBOUNDTOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpInboundTotal();
+      }
+      if (hasTcpOutboundTotal()) {
+        hash = (37 * hash) + TCPOUTBOUNDTOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpOutboundTotal();
+      }
+      if (hasAllInboundTotal()) {
+        hash = (37 * hash) + ALLINBOUNDTOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + getAllInboundTotal();
+      }
+      if (hasAllOutboundTotal()) {
+        hash = (37 * hash) + ALLOUTBOUNDTOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + getAllOutboundTotal();
+      }
+      if (hasTcpEstablished()) {
+        hash = (37 * hash) + TCPESTABLISHED_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpEstablished();
+      }
+      if (hasTcpSynSent()) {
+        hash = (37 * hash) + TCPSYNSENT_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpSynSent();
+      }
+      if (hasTcpSynRecv()) {
+        hash = (37 * hash) + TCPSYNRECV_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpSynRecv();
+      }
+      if (hasTcpFinWait1()) {
+        hash = (37 * hash) + TCPFINWAIT1_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpFinWait1();
+      }
+      if (hasTcpFinWait2()) {
+        hash = (37 * hash) + TCPFINWAIT2_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpFinWait2();
+      }
+      if (hasTcpTimeWait()) {
+        hash = (37 * hash) + TCPTIMEWAIT_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpTimeWait();
+      }
+      if (hasTcpClose()) {
+        hash = (37 * hash) + TCPCLOSE_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpClose();
+      }
+      if (hasTcpCloseWait()) {
+        hash = (37 * hash) + TCPCLOSEWAIT_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpCloseWait();
+      }
+      if (hasTcpLastAck()) {
+        hash = (37 * hash) + TCPLASTACK_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpLastAck();
+      }
+      if (hasTcpListen()) {
+        hash = (37 * hash) + TCPLISTEN_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpListen();
+      }
+      if (hasTcpClosing()) {
+        hash = (37 * hash) + TCPCLOSING_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpClosing();
+      }
+      if (hasTcpIdle()) {
+        hash = (37 * hash) + TCPIDLE_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpIdle();
+      }
+      if (hasTcpBound()) {
+        hash = (37 * hash) + TCPBOUND_FIELD_NUMBER;
+        hash = (53 * hash) + getTcpBound();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -16631,46 +19590,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -16678,7 +19648,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStatOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -16686,7 +19656,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -16699,18 +19669,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         tcpInboundTotal_ = 0;
@@ -16748,10 +19715,6 @@ public final class BlackcatMsg {
         tcpBound_ = 0;
         bitField0_ = (bitField0_ & ~0x00010000);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -16848,6 +19811,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat)other);
@@ -16910,77 +19899,61 @@ public final class BlackcatMsg {
         if (other.hasTcpBound()) {
           setTcpBound(other.getTcpBound());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasTcpInboundTotal()) {
-          
           return false;
         }
         if (!hasTcpOutboundTotal()) {
-          
           return false;
         }
         if (!hasAllInboundTotal()) {
-          
           return false;
         }
         if (!hasAllOutboundTotal()) {
-          
           return false;
         }
         if (!hasTcpEstablished()) {
-          
           return false;
         }
         if (!hasTcpSynSent()) {
-          
           return false;
         }
         if (!hasTcpSynRecv()) {
-          
           return false;
         }
         if (!hasTcpFinWait1()) {
-          
           return false;
         }
         if (!hasTcpFinWait2()) {
-          
           return false;
         }
         if (!hasTcpTimeWait()) {
-          
           return false;
         }
         if (!hasTcpClose()) {
-          
           return false;
         }
         if (!hasTcpCloseWait()) {
-          
           return false;
         }
         if (!hasTcpLastAck()) {
-          
           return false;
         }
         if (!hasTcpListen()) {
-          
           return false;
         }
         if (!hasTcpClosing()) {
-          
           return false;
         }
         if (!hasTcpIdle()) {
-          
           return false;
         }
         if (!hasTcpBound()) {
-          
           return false;
         }
         return true;
@@ -16995,7 +19968,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -17548,16 +20521,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatNetStat(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatNetStat)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatNetStat>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatNetStat>() {
+      public BlackcatNetStat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatNetStat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatNetStat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatNetStat> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatNetStat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatJSONOrBuilder extends
@@ -17595,37 +20605,30 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON}
    */
-  public static final class BlackcatJSON extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatJSON extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON)
       BlackcatJSONOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatJSON.newBuilder() to construct.
-    private BlackcatJSON(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatJSON(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatJSON(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatJSON defaultInstance;
-    public static BlackcatJSON getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatJSON() {
+      schema_ = "";
+      json_ = "";
     }
 
-    public BlackcatJSON getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatJSON(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -17638,8 +20641,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -17662,7 +20665,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -17673,31 +20676,16 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BlackcatJSON> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatJSON>() {
-      public BlackcatJSON parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatJSON(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatJSON> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int SCHEMA_FIELD_NUMBER = 1;
-    private java.lang.Object schema_;
+    private volatile java.lang.Object schema_;
     /**
      * <code>required string schema = 1;</code>
      */
@@ -17739,7 +20727,7 @@ public final class BlackcatMsg {
     }
 
     public static final int JSON_FIELD_NUMBER = 2;
-    private java.lang.Object json_;
+    private volatile java.lang.Object json_;
     /**
      * <code>required string json = 2;</code>
      */
@@ -17780,10 +20768,6 @@ public final class BlackcatMsg {
       }
     }
 
-    private void initFields() {
-      schema_ = "";
-      json_ = "";
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -17804,42 +20788,87 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getSchemaBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, schema_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getJsonBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, json_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getSchemaBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, schema_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getJsonBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, json_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON) obj;
+
+      boolean result = true;
+      result = result && (hasSchema() == other.hasSchema());
+      if (hasSchema()) {
+        result = result && getSchema()
+            .equals(other.getSchema());
+      }
+      result = result && (hasJson() == other.hasJson());
+      if (hasJson()) {
+        result = result && getJson()
+            .equals(other.getJson());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSchema()) {
+        hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
+        hash = (53 * hash) + getSchema().hashCode();
+      }
+      if (hasJson()) {
+        hash = (37 * hash) + JSON_FIELD_NUMBER;
+        hash = (53 * hash) + getJson().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17863,46 +20892,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -17910,7 +20950,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSONOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -17918,7 +20958,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -17931,18 +20971,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         schema_ = "";
@@ -17950,10 +20987,6 @@ public final class BlackcatMsg {
         json_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -17990,6 +21023,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON)other);
@@ -18011,17 +21070,16 @@ public final class BlackcatMsg {
           json_ = other.json_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasSchema()) {
-          
           return false;
         }
         if (!hasJson()) {
-          
           return false;
         }
         return true;
@@ -18036,7 +21094,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -18197,16 +21255,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatJSON(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatJSON)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatJSON>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatJSON>() {
+      public BlackcatJSON parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatJSON(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatJSON> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatJSON> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatJSON getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatTraceOrBuilder extends
@@ -18272,37 +21367,32 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace}
    */
-  public static final class BlackcatTrace extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatTrace extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace)
       BlackcatTraceOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatTrace.newBuilder() to construct.
-    private BlackcatTrace(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatTrace(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatTrace(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatTrace defaultInstance;
-    public static BlackcatTrace getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public BlackcatTrace getDefaultInstanceForType() {
-      return defaultInstance;
+    private BlackcatTrace() {
+      traceId_ = "";
+      linkId_ = "";
+      msgType_ = "";
+      msg_ = "";
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatTrace(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -18315,8 +21405,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -18351,7 +21441,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -18362,31 +21452,16 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BlackcatTrace> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatTrace>() {
-      public BlackcatTrace parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatTrace(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatTrace> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int TRACEID_FIELD_NUMBER = 1;
-    private java.lang.Object traceId_;
+    private volatile java.lang.Object traceId_;
     /**
      * <code>required string traceId = 1;</code>
      */
@@ -18428,7 +21503,7 @@ public final class BlackcatMsg {
     }
 
     public static final int LINKID_FIELD_NUMBER = 2;
-    private java.lang.Object linkId_;
+    private volatile java.lang.Object linkId_;
     /**
      * <code>required string linkId = 2;</code>
      */
@@ -18470,7 +21545,7 @@ public final class BlackcatMsg {
     }
 
     public static final int MSGTYPE_FIELD_NUMBER = 3;
-    private java.lang.Object msgType_;
+    private volatile java.lang.Object msgType_;
     /**
      * <code>required string msgType = 3;</code>
      */
@@ -18512,7 +21587,7 @@ public final class BlackcatMsg {
     }
 
     public static final int MSG_FIELD_NUMBER = 4;
-    private java.lang.Object msg_;
+    private volatile java.lang.Object msg_;
     /**
      * <code>required string msg = 4;</code>
      */
@@ -18553,12 +21628,6 @@ public final class BlackcatMsg {
       }
     }
 
-    private void initFields() {
-      traceId_ = "";
-      linkId_ = "";
-      msgType_ = "";
-      msg_ = "";
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -18587,56 +21656,117 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getTraceIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, traceId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getLinkIdBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, linkId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getMsgTypeBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, msgType_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getMsgBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, msg_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getTraceIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, traceId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getLinkIdBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, linkId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getMsgTypeBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgType_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getMsgBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msg_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace) obj;
+
+      boolean result = true;
+      result = result && (hasTraceId() == other.hasTraceId());
+      if (hasTraceId()) {
+        result = result && getTraceId()
+            .equals(other.getTraceId());
+      }
+      result = result && (hasLinkId() == other.hasLinkId());
+      if (hasLinkId()) {
+        result = result && getLinkId()
+            .equals(other.getLinkId());
+      }
+      result = result && (hasMsgType() == other.hasMsgType());
+      if (hasMsgType()) {
+        result = result && getMsgType()
+            .equals(other.getMsgType());
+      }
+      result = result && (hasMsg() == other.hasMsg());
+      if (hasMsg()) {
+        result = result && getMsg()
+            .equals(other.getMsg());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTraceId()) {
+        hash = (37 * hash) + TRACEID_FIELD_NUMBER;
+        hash = (53 * hash) + getTraceId().hashCode();
+      }
+      if (hasLinkId()) {
+        hash = (37 * hash) + LINKID_FIELD_NUMBER;
+        hash = (53 * hash) + getLinkId().hashCode();
+      }
+      if (hasMsgType()) {
+        hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgType().hashCode();
+      }
+      if (hasMsg()) {
+        hash = (37 * hash) + MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getMsg().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18660,46 +21790,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -18707,7 +21848,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTraceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -18715,7 +21856,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -18728,18 +21869,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         traceId_ = "";
@@ -18751,10 +21889,6 @@ public final class BlackcatMsg {
         msg_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -18799,6 +21933,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace)other);
@@ -18830,25 +21990,22 @@ public final class BlackcatMsg {
           msg_ = other.msg_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasTraceId()) {
-          
           return false;
         }
         if (!hasLinkId()) {
-          
           return false;
         }
         if (!hasMsgType()) {
-          
           return false;
         }
         if (!hasMsg()) {
-          
           return false;
         }
         return true;
@@ -18863,7 +22020,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -19176,16 +22333,53 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatTrace(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatTrace)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatTrace>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatTrace>() {
+      public BlackcatTrace parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatTrace(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatTrace> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatTrace> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatTrace getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface BlackcatMetricOrBuilder extends
@@ -19218,37 +22412,30 @@ public final class BlackcatMsg {
   /**
    * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric}
    */
-  public static final class BlackcatMetric extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class BlackcatMetric extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric)
       BlackcatMetricOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlackcatMetric.newBuilder() to construct.
-    private BlackcatMetric(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BlackcatMetric(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private BlackcatMetric(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final BlackcatMetric defaultInstance;
-    public static BlackcatMetric getDefaultInstance() {
-      return defaultInstance;
+    private BlackcatMetric() {
+      name_ = "";
+      value_ = 0L;
     }
 
-    public BlackcatMetric getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private BlackcatMetric(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -19261,8 +22448,8 @@ public final class BlackcatMsg {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -19284,7 +22471,7 @@ public final class BlackcatMsg {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -19295,31 +22482,16 @@ public final class BlackcatMsg {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.class, com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BlackcatMetric> PARSER =
-        new com.google.protobuf.AbstractParser<BlackcatMetric>() {
-      public BlackcatMetric parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlackcatMetric(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BlackcatMetric> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
-    private java.lang.Object name_;
+    private volatile java.lang.Object name_;
     /**
      * <code>required string name = 1;</code>
      */
@@ -19375,10 +22547,6 @@ public final class BlackcatMsg {
       return value_;
     }
 
-    private void initFields() {
-      name_ = "";
-      value_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -19399,42 +22567,89 @@ public final class BlackcatMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNameBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNameBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, value_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric)) {
+        return super.equals(obj);
+      }
+      com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric other = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && (getValue()
+            == other.getValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getValue());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -19458,46 +22673,57 @@ public final class BlackcatMsg {
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -19505,7 +22731,7 @@ public final class BlackcatMsg {
      * Protobuf type {@code com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric)
         com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetricOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -19513,7 +22739,7 @@ public final class BlackcatMsg {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -19526,18 +22752,15 @@ public final class BlackcatMsg {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -19545,10 +22768,6 @@ public final class BlackcatMsg {
         value_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -19585,6 +22804,32 @@ public final class BlackcatMsg {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric) {
           return mergeFrom((com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric)other);
@@ -19604,17 +22849,16 @@ public final class BlackcatMsg {
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasName()) {
-          
           return false;
         }
         if (!hasValue()) {
-          
           return false;
         }
         return true;
@@ -19629,7 +22873,7 @@ public final class BlackcatMsg {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -19746,119 +22990,161 @@ public final class BlackcatMsg {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric)
     }
 
+    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric)
+    private static final com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric DEFAULT_INSTANCE;
     static {
-      defaultInstance = new BlackcatMetric(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric();
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMetric)
+    public static com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BlackcatMetric>
+        PARSER = new com.google.protobuf.AbstractParser<BlackcatMetric>() {
+      public BlackcatMetric parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackcatMetric(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackcatMetric> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlackcatMetric> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.bingoohuang.blackcat.sdk.protobuf.BlackcatMsg.BlackcatMetric getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -19920,48 +23206,52 @@ public final class BlackcatMsg {
       "ang.blackcat.sdk.protobuf.BlackcatFileSt" +
       "ores.FileStore\032M\n\tFileStore\022\014\n\004name\030\001 \002(" +
       "\t\022\023\n\013description\030\002 \002(\t\022\r\n\005total\030\003 \002(\004\022\016\n" +
-      "\006usable\030\004 \002(\004\"^\n\014BlackcatLoad\022\016\n\006cpuNum\030" +
-      "\001 \002(\r\022\021\n\toneMinAvg\030\002 \002(\002\022\023\n\013fiveMinsAvg\030",
-      "\003 \002(\002\022\026\n\016fifteenMinsAvg\030\004 \002(\002\"\264\001\n\017Blackc" +
-      "atProcess\022P\n\004proc\030\001 \003(\0132B.com.github.bin" +
-      "goohuang.blackcat.sdk.protobuf.BlackcatP" +
-      "rocess.Proc\032O\n\004Proc\022\013\n\003pid\030\001 \002(\004\022\014\n\004args" +
-      "\030\002 \002(\t\022\013\n\003res\030\003 \002(\004\022\021\n\tstartTime\030\004 \002(\004\022\014" +
-      "\n\004name\030\005 \002(\t\"\344\002\n\025BlackcatMethodRuntime\022\013" +
-      "\n\003pid\030\001 \002(\t\022\023\n\013executionId\030\002 \002(\t\022\023\n\013star" +
-      "tMillis\030\003 \002(\004\022\021\n\tendMillis\030\004 \002(\004\022\020\n\010cost" +
-      "Nano\030\005 \002(\004\022\021\n\tclassName\030\006 \002(\t\022\022\n\nmethodN" +
-      "ame\030\007 \002(\t\022\022\n\nmethodDesc\030\010 \002(\t\022\014\n\004args\030\t ",
-      "\002(\t\022\016\n\006result\030\n \002(\t\022\027\n\017throwableCaught\030\013" +
-      " \001(\t\022\031\n\021throwableUncaught\030\014 \001(\t\022\025\n\rsameT" +
-      "hrowable\030\r \002(\010\022\020\n\010invokeId\030\016 \002(\t\022\017\n\007trac" +
-      "eId\030\017 \002(\t\022\016\n\006linkId\030\020 \002(\t\022\030\n\020throwableMe" +
-      "ssage\030\021 \001(\t\"\223\003\n\027BlackcatFileSystemUsage\022" +
-      "Z\n\005usage\030\001 \003(\0132K.com.github.bingoohuang." +
-      "blackcat.sdk.protobuf.BlackcatFileSystem" +
-      "Usage.Usage\032\233\002\n\005Usage\022\017\n\007devName\030\001 \002(\t\022\017" +
-      "\n\007dirName\030\002 \002(\t\022\021\n\tdiskReads\030\003 \002(\004\022\022\n\ndi" +
-      "skWrites\030\004 \002(\004\022\025\n\rdiskReadBytes\030\005 \002(\004\022\026\n",
-      "\016diskWriteBytes\030\006 \002(\004\022\021\n\tdiskQueue\030\007 \002(\001" +
-      "\022\027\n\017diskServiceTime\030\010 \002(\001\022\r\n\005avail\030\t \002(\004" +
-      "\022\014\n\004used\030\n \002(\004\022\r\n\005total\030\013 \002(\004\022\022\n\nusePerc" +
-      "ent\030\014 \002(\001\022\014\n\004free\030\r \002(\004\022\021\n\tfreeFiles\030\016 \002" +
-      "(\004\022\r\n\005files\030\017 \002(\004\"\374\002\n\017BlackcatNetStat\022\027\n" +
-      "\017tcpInboundTotal\030\001 \002(\r\022\030\n\020tcpOutboundTot" +
-      "al\030\002 \002(\r\022\027\n\017allInboundTotal\030\003 \002(\r\022\030\n\020all" +
-      "OutboundTotal\030\004 \002(\r\022\026\n\016tcpEstablished\030\005 " +
-      "\002(\r\022\022\n\ntcpSynSent\030\006 \002(\r\022\022\n\ntcpSynRecv\030\007 " +
-      "\002(\r\022\023\n\013tcpFinWait1\030\010 \002(\r\022\023\n\013tcpFinWait2\030",
-      "\t \002(\r\022\023\n\013tcpTimeWait\030\n \002(\r\022\020\n\010tcpClose\030\013" +
-      " \002(\r\022\024\n\014tcpCloseWait\030\014 \002(\r\022\022\n\ntcpLastAck" +
-      "\030\r \002(\r\022\021\n\ttcpListen\030\016 \002(\r\022\022\n\ntcpClosing\030" +
-      "\017 \002(\r\022\017\n\007tcpIdle\030\020 \002(\r\022\020\n\010tcpBound\030\021 \002(\r" +
-      "\",\n\014BlackcatJSON\022\016\n\006schema\030\001 \002(\t\022\014\n\004json" +
-      "\030\002 \002(\t\"N\n\rBlackcatTrace\022\017\n\007traceId\030\001 \002(\t" +
-      "\022\016\n\006linkId\030\002 \002(\t\022\017\n\007msgType\030\003 \002(\t\022\013\n\003msg" +
-      "\030\004 \002(\t\"-\n\016BlackcatMetric\022\014\n\004name\030\001 \002(\t\022\r" +
-      "\n\005value\030\002 \002(\004B;\n,com.github.bingoohuang." +
-      "blackcat.sdk.protobufB\013BlackcatMsg"
+      "\006usable\030\004 \002(\004\"\366\001\n\014BlackcatLoad\022\016\n\006cpuNum" +
+      "\030\001 \002(\r\022\021\n\toneMinAvg\030\002 \002(\002\022\023\n\013fiveMinsAvg",
+      "\030\003 \002(\002\022\026\n\016fifteenMinsAvg\030\004 \002(\002\022Y\n\ntopPro" +
+      "cess\030\005 \003(\0132E.com.github.bingoohuang.blac" +
+      "kcat.sdk.protobuf.BlackcatLoad.TopProces" +
+      "s\032;\n\nTopProcess\022\013\n\003pid\030\001 \002(\004\022\014\n\004name\030\002 \002" +
+      "(\t\022\022\n\ncpuPercent\030\003 \002(\001\"\264\001\n\017BlackcatProce" +
+      "ss\022P\n\004proc\030\001 \003(\0132B.com.github.bingoohuan" +
+      "g.blackcat.sdk.protobuf.BlackcatProcess." +
+      "Proc\032O\n\004Proc\022\013\n\003pid\030\001 \002(\004\022\014\n\004args\030\002 \002(\t\022" +
+      "\013\n\003res\030\003 \002(\004\022\021\n\tstartTime\030\004 \002(\004\022\014\n\004name\030" +
+      "\005 \002(\t\"\344\002\n\025BlackcatMethodRuntime\022\013\n\003pid\030\001",
+      " \002(\t\022\023\n\013executionId\030\002 \002(\t\022\023\n\013startMillis" +
+      "\030\003 \002(\004\022\021\n\tendMillis\030\004 \002(\004\022\020\n\010costNano\030\005 " +
+      "\002(\004\022\021\n\tclassName\030\006 \002(\t\022\022\n\nmethodName\030\007 \002" +
+      "(\t\022\022\n\nmethodDesc\030\010 \002(\t\022\014\n\004args\030\t \002(\t\022\016\n\006" +
+      "result\030\n \002(\t\022\027\n\017throwableCaught\030\013 \001(\t\022\031\n" +
+      "\021throwableUncaught\030\014 \001(\t\022\025\n\rsameThrowabl" +
+      "e\030\r \002(\010\022\020\n\010invokeId\030\016 \002(\t\022\017\n\007traceId\030\017 \002" +
+      "(\t\022\016\n\006linkId\030\020 \002(\t\022\030\n\020throwableMessage\030\021" +
+      " \001(\t\"\223\003\n\027BlackcatFileSystemUsage\022Z\n\005usag" +
+      "e\030\001 \003(\0132K.com.github.bingoohuang.blackca",
+      "t.sdk.protobuf.BlackcatFileSystemUsage.U" +
+      "sage\032\233\002\n\005Usage\022\017\n\007devName\030\001 \002(\t\022\017\n\007dirNa" +
+      "me\030\002 \002(\t\022\021\n\tdiskReads\030\003 \002(\004\022\022\n\ndiskWrite" +
+      "s\030\004 \002(\004\022\025\n\rdiskReadBytes\030\005 \002(\004\022\026\n\016diskWr" +
+      "iteBytes\030\006 \002(\004\022\021\n\tdiskQueue\030\007 \002(\001\022\027\n\017dis" +
+      "kServiceTime\030\010 \002(\001\022\r\n\005avail\030\t \002(\004\022\014\n\004use" +
+      "d\030\n \002(\004\022\r\n\005total\030\013 \002(\004\022\022\n\nusePercent\030\014 \002" +
+      "(\001\022\014\n\004free\030\r \002(\004\022\021\n\tfreeFiles\030\016 \002(\004\022\r\n\005f" +
+      "iles\030\017 \002(\004\"\374\002\n\017BlackcatNetStat\022\027\n\017tcpInb" +
+      "oundTotal\030\001 \002(\r\022\030\n\020tcpOutboundTotal\030\002 \002(",
+      "\r\022\027\n\017allInboundTotal\030\003 \002(\r\022\030\n\020allOutboun" +
+      "dTotal\030\004 \002(\r\022\026\n\016tcpEstablished\030\005 \002(\r\022\022\n\n" +
+      "tcpSynSent\030\006 \002(\r\022\022\n\ntcpSynRecv\030\007 \002(\r\022\023\n\013" +
+      "tcpFinWait1\030\010 \002(\r\022\023\n\013tcpFinWait2\030\t \002(\r\022\023" +
+      "\n\013tcpTimeWait\030\n \002(\r\022\020\n\010tcpClose\030\013 \002(\r\022\024\n" +
+      "\014tcpCloseWait\030\014 \002(\r\022\022\n\ntcpLastAck\030\r \002(\r\022" +
+      "\021\n\ttcpListen\030\016 \002(\r\022\022\n\ntcpClosing\030\017 \002(\r\022\017" +
+      "\n\007tcpIdle\030\020 \002(\r\022\020\n\010tcpBound\030\021 \002(\r\",\n\014Bla" +
+      "ckcatJSON\022\016\n\006schema\030\001 \002(\t\022\014\n\004json\030\002 \002(\t\"" +
+      "N\n\rBlackcatTrace\022\017\n\007traceId\030\001 \002(\t\022\016\n\006lin",
+      "kId\030\002 \002(\t\022\017\n\007msgType\030\003 \002(\t\022\013\n\003msg\030\004 \002(\t\"" +
+      "-\n\016BlackcatMetric\022\014\n\004name\030\001 \002(\t\022\r\n\005value" +
+      "\030\002 \002(\004B;\n,com.github.bingoohuang.blackca" +
+      "t.sdk.protobufB\013BlackcatMsg"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19978,115 +23268,121 @@ public final class BlackcatMsg {
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReqHead_descriptor,
         new java.lang.String[] { "ReqType", "Hostname", "Timestamp", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatReq_descriptor,
         new java.lang.String[] { "BlackcatReqHead", "BlackcatMemory", "BlackcatFileStores", "BlackcatLoad", "BlackcatProcess", "BlackcatMethodRuntime", "BlackcatFileSystemUsage", "BlackcatNetStat", "BlackcatJSON", "BlackcatTrace", "BlackcatMetric", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRspHead_descriptor,
         new java.lang.String[] { "RspType", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor,
         new java.lang.String[] { "BlackcatWarnProcess", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_descriptor =
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_descriptor.getNestedTypes().get(0);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatWarnConfig_BlackcatWarnProcess_descriptor,
         new java.lang.String[] { "ProcessName", "ProcessKeys", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatRsp_descriptor,
         new java.lang.String[] { "BlackcatRspHead", "BlackcatWarnConfig", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMemory_descriptor,
         new java.lang.String[] { "Total", "Available", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor,
         new java.lang.String[] { "FileStore", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_descriptor =
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_descriptor.getNestedTypes().get(0);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileStores_FileStore_descriptor,
         new java.lang.String[] { "Name", "Description", "Total", "Usable", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor,
-        new java.lang.String[] { "CpuNum", "OneMinAvg", "FiveMinsAvg", "FifteenMinsAvg", });
+        new java.lang.String[] { "CpuNum", "OneMinAvg", "FiveMinsAvg", "FifteenMinsAvg", "TopProcess", });
+    internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor =
+      internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_descriptor.getNestedTypes().get(0);
+    internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatLoad_TopProcess_descriptor,
+        new java.lang.String[] { "Pid", "Name", "CpuPercent", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor,
         new java.lang.String[] { "Proc", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_descriptor =
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_descriptor.getNestedTypes().get(0);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatProcess_Proc_descriptor,
         new java.lang.String[] { "Pid", "Args", "Res", "StartTime", "Name", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMethodRuntime_descriptor,
         new java.lang.String[] { "Pid", "ExecutionId", "StartMillis", "EndMillis", "CostNano", "ClassName", "MethodName", "MethodDesc", "Args", "Result", "ThrowableCaught", "ThrowableUncaught", "SameThrowable", "InvokeId", "TraceId", "LinkId", "ThrowableMessage", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor,
         new java.lang.String[] { "Usage", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_descriptor =
       internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_descriptor.getNestedTypes().get(0);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatFileSystemUsage_Usage_descriptor,
         new java.lang.String[] { "DevName", "DirName", "DiskReads", "DiskWrites", "DiskReadBytes", "DiskWriteBytes", "DiskQueue", "DiskServiceTime", "Avail", "Used", "Total", "UsePercent", "Free", "FreeFiles", "Files", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatNetStat_descriptor,
         new java.lang.String[] { "TcpInboundTotal", "TcpOutboundTotal", "AllInboundTotal", "AllOutboundTotal", "TcpEstablished", "TcpSynSent", "TcpSynRecv", "TcpFinWait1", "TcpFinWait2", "TcpTimeWait", "TcpClose", "TcpCloseWait", "TcpLastAck", "TcpListen", "TcpClosing", "TcpIdle", "TcpBound", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatJSON_descriptor,
         new java.lang.String[] { "Schema", "Json", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatTrace_descriptor,
         new java.lang.String[] { "TraceId", "LinkId", "MsgType", "Msg", });
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_bingoohuang_blackcat_sdk_protobuf_BlackcatMetric_descriptor,
         new java.lang.String[] { "Name", "Value", });
   }

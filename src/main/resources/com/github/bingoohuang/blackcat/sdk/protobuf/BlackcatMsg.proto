@@ -1,8 +1,10 @@
+syntax = "proto2";
 package com.github.bingoohuang.blackcat.sdk.protobuf;
 
 // compile with:
 // protoc --java_out=../blackcat-sdk/src/main/java/ BlackcatMsg.proto
 // protoc --java_out=/Users/bingoohuang/github/blackcat-sdk/src/main/java/ src/main/resources/com/github/bingoohuang/blackcat/sdk/protobuf/BlackcatMsg.proto
+// protoc --java_out=src/main/java/ src/main/resources/com/github/bingoohuang/blackcat/sdk/protobuf/BlackcatMsg.proto
 
 option java_package = "com.github.bingoohuang.blackcat.sdk.protobuf";
 
@@ -88,6 +90,14 @@ message BlackcatLoad {
     required float oneMinAvg = 2;
     required float fiveMinsAvg = 3;
     required float fifteenMinsAvg = 4;
+
+    message TopProcess {
+        required uint64 pid = 1;
+        required string name = 2;
+        required double cpuPercent = 3;
+    }
+
+    repeated TopProcess topProcess = 5;
 }
 
 message BlackcatProcess {
