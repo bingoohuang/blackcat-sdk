@@ -27,17 +27,23 @@ import static com.google.common.base.Charsets.UTF_8;
 @Slf4j
 public class Blackcats {
     public static String runShellScript(String shellScript) {
-        return executeCommandLine(new String[]{"/bin/bash", "-c", shellScript});
+        val shellExecutor = new ProcessExecutor(log, new String[]{"/bin/bash", "-c", shellScript, "&"}, 10000L);
+        return shellExecutor.call();
     }
 
     @SneakyThrows
     public static String executeCommandLine(String[] cmd) {
         val p = Runtime.getRuntime().exec(cmd);
-        p.waitFor();
+        if (!ProcessExecutor.waitFor(p, 10, TimeUnit.SECONDS)) {
+            //timeout - kill the process.
+            p.destroy(); // consider using destroyForcibly instead
+            return null;
+        }
 
         @Cleanup val r = new InputStreamReader(p.getInputStream(), UTF_8);
         return CharStreams.toString(r);
     }
+
 
     public static BlackcatReqHead buildHead(BlackcatReqHead.ReqType reqType) {
         return BlackcatReqHead.newBuilder()
