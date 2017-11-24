@@ -19,7 +19,7 @@ import lombok.val;
 
 import static com.github.bingoohuang.blackcat.sdk.netty.BlackcatConfig.getHostAndPort;
 
-public final class BlackcatNettyClient {
+public final class BlackcatNettyClient implements BlackcatReqSender {
     @Setter volatile Channel channel;
     EventBus eventBus = new EventBus();
 
@@ -53,6 +53,7 @@ public final class BlackcatNettyClient {
                 }).connect();
     }
 
+    @Override
     public void send(BlackcatReq req) {
         if (channel == null) return;
 

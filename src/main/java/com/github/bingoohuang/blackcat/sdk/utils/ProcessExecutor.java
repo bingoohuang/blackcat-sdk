@@ -31,13 +31,12 @@ public class ProcessExecutor {
     }
 
     public String call() {
-        val runtime = Runtime.getRuntime();
         Process p = null;
 
         val commandLine = Joiner.on(' ').join(toExecute);
 
         try {
-            p = runtime.exec(toExecute);
+            p = Runtime.getRuntime().exec(toExecute);
 
             val stdoutGobbler = new ProcessStreamGobbler(log, commandLine, p.getInputStream(), TYPE.STDOUT);
             val stderrGobbler = new ProcessStreamGobbler(log, commandLine, p.getErrorStream(), TYPE.STDERR);
