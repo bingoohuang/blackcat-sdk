@@ -23,7 +23,7 @@ message BlackcatReqHead {
         BlackcatJSON = 8;
         BlackcatTrace = 9;
         BlackcatMetric = 10;
-        BlackcatException = 11;
+        BlackcatLogException = 11;
     }
     required ReqType reqType = 1;
     required string hostname = 2;
@@ -43,7 +43,7 @@ message BlackcatReq {
     optional BlackcatJSON blackcatJSON = 9;
     optional BlackcatTrace blackcatTrace = 10;
     optional BlackcatMetric blackcatMetric = 11;
-    optional BlackcatException blackcatException = 12;
+    optional BlackcatLogException blackcatLogException = 12;
 }
 
 message BlackcatRspHead {
@@ -70,7 +70,7 @@ message BlackcatRsp {
     optional BlackcatWarnConfig blackcatWarnConfig = 2; // 响应监控设置参数
 }
 
-message BlackcatException {
+message BlackcatLogException {
     required string logger = 1;
     required string tcode = 2;
     required string tid = 3;
